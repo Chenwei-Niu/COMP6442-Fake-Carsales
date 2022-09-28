@@ -6,7 +6,11 @@
 **Lead/scribe:** XInyu Wu
 
 ## Agreed Procedure
-Stand up Procedure: Automobile trading platform
+Stand up Procedure
+Everyone made clear the requirements for this assignment before the meeting began.
+Brainstorm about what kind of software we want to develop.
+Expectations for the course.
+Time for the next meeting.
 
 ## Agenda Items
 | Number |                                                                             Item |
