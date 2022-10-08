@@ -1,7 +1,7 @@
-# [Rick Astley]
+# Rick Astley
 This following is a very simple team meeting template. You should expand it based on the scope and nature of your discussion.
 
-## Team Meeting [1] - Week [9] - [08/10/2022] (18:00 - 18:50)
+## Team Meeting 1 - Week 9 - 08/10/2022 (18:00 - 18:50)
 **Absent:**
 <br>
 **Lead/scribe:**
