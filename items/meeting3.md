@@ -8,11 +8,15 @@
 ## Agreed Procedure
 Stand up Procedure:
 
-and
-
-and
-
-Agenda
+1. Discuss the requirements of basic functions of app
+2. Analyze how basic functions work
+3. Assign tasks to each team member
+4. Free exchange of 'Additional function'
+    - Discuss what additional functionality needs to be implemented
+    - How to implement it (logical level, simpler and smart way)
+    - Whether it can be realized (reasonable)
+5. Summarize the meeting
+6. Plan the time and content of the next meeting
 
 ## Agenda Items
 | Number | Item |
