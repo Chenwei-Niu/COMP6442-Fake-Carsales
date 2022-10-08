@@ -18,7 +18,7 @@ Stand up Procedure:
     - Discuss what additional functionality needs to be implemented
     - How to implement it (logical level, simpler and smart way)
     - Whether it can be realized (reasonable)
--
+
 5. Summarize the meeting
 
 6. Plan the time and content of the next meeting
