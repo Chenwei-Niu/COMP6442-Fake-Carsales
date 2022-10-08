@@ -45,10 +45,8 @@ Since the project our team is doing is a second-hand car app, we need to input 2
 ## TODO Items
 | Task | Assignee |
 | :--- | ---: |
-| [task] | [assignee] |
-| [task] | [assignee] |
-| [task] | [assignee] |
-| [task] | [assignee] |
+| [Report the check point to tutor] | [Xinyu Wu] |
+| [Implement basic features] | [All team members] |
 
 ## Scribe Rotation
 The following dictates who will be scribe in this and the next meeting.
