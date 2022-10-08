@@ -27,7 +27,7 @@ Stand up Procedure:
 7. Free talk
 
 ## The main issues discussed at the meeting
-Since the project our team is doing is a second-hand car app, we need to input 2,500 pieces of vehicle information to be created by ourselves, and think about how to use "Tokenizer and parser" mentioned in week7 to conduct effective search operations for different variables (combinations) in 2,500 pieces of data, so as to screen out the required results.
+Since the project our team is doing is a second-hand car app, we need to input 2,500 pieces of vehicle information to be created by ourselves, and think about how to use "Tokenizer and parser" ([https://stackoverflow.com/questions/380455/looking-for-a-clear-definition-of-what-a-tokenizer-parser-and-lexers-are](url)) mentioned in week7 to conduct effective search operations for different variables (combinations) in 2,500 pieces of data, so as to screen out the required results.
 
 
 ## Agenda Items
