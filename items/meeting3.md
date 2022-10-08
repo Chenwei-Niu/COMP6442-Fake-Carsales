@@ -45,7 +45,7 @@ Since the project our team is doing is a second-hand car app, we need to input 2
 ## TODO Items
 | Task | Assignee |
 | :--- | ---: |
-| [Report the check point to tutor] | [Xinyu Wu] |
+| [Report the check-point to tutor] | [Xinyu Wu] |
 | [Implement basic features] | [All team members] |
 
 ## Scribe Rotation
