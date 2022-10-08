@@ -6,7 +6,13 @@
 **Lead/scribe:Canxuan Gang**
 
 ## Agreed Procedure
-Stand up Procedure: ...
+Stand up Procedure:
+
+and
+
+and
+
+Agenda
 
 ## Agenda Items
 | Number | Item |
