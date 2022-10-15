@@ -3,10 +3,8 @@ package com.example.buy.parser;
 import com.example.buy.entity.Car;
 import com.example.buy.entity.State;
 
-import java.io.BufferedReader;
-
-public class MyJsonParser {
-    public MyJsonParser() {
+public class MyJsonReader {
+    public MyJsonReader() {
     }
     public Car parseOneLine(String line){
         String[] items = line.split("\": \"|\", \"");

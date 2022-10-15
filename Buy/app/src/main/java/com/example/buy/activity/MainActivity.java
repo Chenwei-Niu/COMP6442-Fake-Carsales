@@ -1,6 +1,7 @@
 package com.example.buy.activity;
 //Author: ZiceYan, Chenwei Niu
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -97,9 +98,9 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
                 break;
             case R.id.search_ll:
                 selectFragment(1);
-//                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-//                intent.putExtra("user",user);
-//                startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
+                intent.putExtra("user",user);
+                startActivity(intent);
                 break;
             case R.id.mine_ll:
                 selectFragment(2);

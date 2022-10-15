@@ -1,24 +1,15 @@
 package com.example.buy.entity;
 
-import android.content.Intent;
-import android.widget.Toast;
-
-import com.example.buy.parser.MyJsonParser;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.example.buy.parser.MyJsonReader;
 import com.google.gson.stream.JsonReader;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Reader;
-import java.lang.reflect.Type;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Market<firstReadVolume> {
-    MyJsonParser myJsonParser = new MyJsonParser();
+    MyJsonReader myJsonReader = new MyJsonReader();
     ArrayList<Car> cars = new ArrayList<>();
     char[] array = new char[90000];
 
@@ -49,7 +40,7 @@ public class Market<firstReadVolume> {
             carBufferedReader.mark(999999);
             while(currentCount<firstReadVolume && (line = carBufferedReader.readLine())!=null){
                 System.out.println(line);
-                Car car = myJsonParser.parseOneLine(line);
+                Car car = myJsonReader.parseOneLine(line);
                 car.setId(currentCount);
                 car.setUser(user);
                 cars.add(car);
