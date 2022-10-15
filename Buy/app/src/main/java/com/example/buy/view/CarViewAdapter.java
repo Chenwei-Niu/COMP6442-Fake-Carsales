@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.buy.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -36,6 +37,7 @@ public class CarViewAdapter extends ArrayAdapter<CarView> {
 
         ImageView carImage = currentItemView.findViewById(R.id.car_image);
         assert currentNumberPosition != null;
+        Picasso.get().load(currentNumberPosition.getCarImage()).into(carImage);
 //        carImage.setImageResource(currentNumberPosition.getCarImage());  // URL要展示需要转换
 
 

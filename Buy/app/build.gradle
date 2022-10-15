@@ -46,6 +46,8 @@ dependencies {
     implementation 'com.github.getActivity:XXPermissions:13.5'
     implementation 'com.github.wildma:PictureSelector:2.1.0'
 
+    implementation 'com.squareup.picasso:picasso:2.8'
+
     // Required -- JUnit 4 framework
     testImplementation "junit:junit:4.13"
 }
