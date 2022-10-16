@@ -1,5 +1,5 @@
 package com.example.buy.entity;
-
+//Author: Chenwei Niu
 import java.io.Serializable;
 import java.util.ArrayList;
 

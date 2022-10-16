@@ -1,9 +1,7 @@
 package com.example.buy.parser;
-
+//Author: Chenwei Niu
 import com.example.buy.entity.Car;
 import com.example.buy.entity.State;
-
-import java.util.Locale;
 
 public class MyJsonReader {
     public MyJsonReader() {

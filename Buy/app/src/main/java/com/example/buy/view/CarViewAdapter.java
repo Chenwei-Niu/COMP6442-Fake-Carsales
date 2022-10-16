@@ -1,5 +1,5 @@
 package com.example.buy.view;
-
+//Author: Chenwei Niu
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

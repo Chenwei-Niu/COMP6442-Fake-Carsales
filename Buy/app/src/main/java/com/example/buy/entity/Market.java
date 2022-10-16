@@ -1,5 +1,5 @@
 package com.example.buy.entity;
-
+//Author: Chenwei Niu
 import com.example.buy.parser.MyJsonReader;
 import com.google.gson.stream.JsonReader;
 

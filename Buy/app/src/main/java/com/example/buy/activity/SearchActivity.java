@@ -1,5 +1,5 @@
 package com.example.buy.activity;
-
+//Author: Chenwei Niu
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;

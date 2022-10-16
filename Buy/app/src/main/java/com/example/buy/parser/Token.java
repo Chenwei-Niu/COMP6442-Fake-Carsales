@@ -1,8 +1,7 @@
 package com.example.buy.parser;
-
+//Author: Chenwei Niu
 import java.util.Objects;
 
-//author: Chenwei Niu u7377070
 public class Token {
     private final String token;
     private final Type type;
