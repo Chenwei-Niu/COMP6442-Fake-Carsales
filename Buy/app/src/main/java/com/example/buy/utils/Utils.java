@@ -67,10 +67,10 @@ public class Utils {
     }
 
     /**
-     * input events to log
+     * Writing events to the phone calendar
      */
     public static void writeToCalendar(Context context, String title, String desc, String date) {
-        //select Id
+        //Get the id of the gmail account to be accessed
         String calId = "";
         Cursor userCursor = context.getContentResolver().query(calanderURL, null,
                 null, null, null);
@@ -105,7 +105,7 @@ public class Utils {
         values.put(CalendarContract.Reminders.MINUTES, 0);
         values.put(CalendarContract.Reminders.METHOD, CalendarContract.Reminders.METHOD_ALERT);
         context.getContentResolver().insert(calanderRemiderURL, values);
-        Log.e("xwf", "writeCalendarEvent Insert event successful!!!");
+        Log.e("xwf", "writeCalendarEvent insert successful!!!");
     }
 
     public static void hideSoftKeyboard(Activity activity) {

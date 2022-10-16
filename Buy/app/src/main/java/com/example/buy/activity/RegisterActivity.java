@@ -1,5 +1,5 @@
 package com.example.buy.activity;
-//Author: Zice Yan
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;

@@ -1,5 +1,5 @@
 package com.example.buy.application;
-// author: Zice Yan
+
 import android.app.Application;
 
 

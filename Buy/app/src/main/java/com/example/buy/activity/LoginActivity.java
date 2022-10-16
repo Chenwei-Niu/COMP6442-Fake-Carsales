@@ -12,7 +12,7 @@ import com.example.buy.utils.ToastUtils;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
-//Author: Zice Yan
+
 
 public class LoginActivity extends MyBaseActivity implements View.OnClickListener {
     private TextInputLayout nameTIL;
@@ -26,7 +26,7 @@ public class LoginActivity extends MyBaseActivity implements View.OnClickListene
         nameTIL = findViewById(R.id.name);
         passTIL = findViewById(R.id.pass);
         findViewById(R.id.login).setOnClickListener(this);
-        findViewById(R.id.register).setOnClickListener(this);
+        findViewById(R.id.zhuce).setOnClickListener(this);
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -49,7 +49,7 @@ public class LoginActivity extends MyBaseActivity implements View.OnClickListene
                 }
 
                 break;
-            case R.id.register:
+            case R.id.zhuce:
                 Intent intent1 = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent1);
                 break;

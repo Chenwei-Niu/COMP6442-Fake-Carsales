@@ -1,7 +1,13 @@
 package com.example.buy.entity;
 
+import android.text.TextUtils;
+
 import org.litepal.annotation.Column;
 import org.litepal.crud.LitePalSupport;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class User extends LitePalSupport {
 
@@ -12,6 +18,49 @@ public class User extends LitePalSupport {
     private String name;
     private String sex;
     private String phone;
+    /**
+     * Relationships with other users, ids of people who are currently friended
+     * Split with '-'
+     */
+    private String friendRelations = "";
+
+    public List<String> getFriUserIdList(){
+        List<String> result = new ArrayList<>();
+        if(TextUtils.isEmpty(friendRelations)) {
+            return result;
+        }
+        String[] userIds = friendRelations.split("-");
+        return Arrays.asList(userIds);
+    }
+
+    public void doAddFri(int id){
+        if(TextUtils.isEmpty(friendRelations)){
+            friendRelations = String.valueOf(id);
+        } else {
+            friendRelations = friendRelations + "-" + id;
+        }
+    }
+
+    public boolean hasThisFriends(int id){
+        if(TextUtils.isEmpty(friendRelations)){
+            return false;
+        } else {
+            for(String str : getFriUserIdList()){
+                if(TextUtils.equals(str,String.valueOf(id))) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public String getFriendRelations() {
+        return friendRelations;
+    }
+
+    public void setFriendRelations(String friendRelations) {
+        this.friendRelations = friendRelations;
+    }
 
     public User() {
     }

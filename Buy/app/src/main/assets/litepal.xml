@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
     <dbname value="User"></dbname>
-    <version value="33"></version>
+    <version value="55"></version>
     <list>
         <mapping class="com.example.buy.entity.User"></mapping>
+        <mapping class="com.example.buy.entity.Message"></mapping>
     </list>
 </litepal>

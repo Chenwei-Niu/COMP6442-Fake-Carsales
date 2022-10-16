@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/et"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:paddingHorizontal="20dp"
+        android:maxLines="1"
+        android:inputType="text"
+        android:drawableRight="@mipmap/ic_search"
+        android:imeOptions="actionSearch"
+        android:background="@drawable/shape"
+        android:gravity="left|center"
+        android:hint="input goods name to search"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginHorizontal="12dp"
+        android:id="@+id/recycle_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>
