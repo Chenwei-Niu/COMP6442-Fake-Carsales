@@ -5,19 +5,19 @@ import org.apache.commons.jexl3.JexlEngine;
 import org.apache.commons.jexl3.JexlScript;
 import org.apache.commons.jexl3.internal.Engine;
 
-public class YearExp extends Exp{
+public class OdometerExp extends Exp{
     private String comparator = "";
-    private String year;
+    private String odometer;
 
-    public YearExp(String year) {
-        this.year = year;
+    public OdometerExp(String odometer) {
+        this.odometer = odometer;
         setComparator();
     }
 
     @Override
     public boolean evaluate(JexlContext context) {
         JexlEngine engine = new Engine();
-        JexlScript script = engine.createScript("if(car.year"+comparator+year+"){return true;}else{return false;}");
+        JexlScript script = engine.createScript("if(car.odometer"+comparator+odometer+"){return true;}else{return false;}");
         if (script.execute(context).toString().equals("false")){
             return false;
         } else {
@@ -28,7 +28,7 @@ public class YearExp extends Exp{
     private void setComparator(){
         // if typed in "=", change it to "=="
         // if ">" "<" ">=" "<=" then comparator = "";
-        if (year.charAt(0) == '='){
+        if (odometer.charAt(0) == '='){
             comparator="=";
         }
 

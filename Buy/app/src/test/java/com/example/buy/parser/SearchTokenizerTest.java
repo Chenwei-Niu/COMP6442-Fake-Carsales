@@ -16,7 +16,7 @@ public class SearchTokenizerTest {
 
     @Test
     public void testSearchTokenizer() {
-        String testString = "  brand =   bmw\t\n; ye";
+        String testString = "  year>a";
         SearchTokenizer searchTokenizer = new SearchTokenizer(testString);
         System.out.println(searchTokenizer.current());
         searchTokenizer.next();

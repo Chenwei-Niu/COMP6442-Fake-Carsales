@@ -11,7 +11,6 @@ import com.example.buy.entity.User;
 import com.example.buy.sqlite.DAOService;
 import com.example.buy.utils.ToastUtils;
 import com.google.android.material.textfield.TextInputLayout;
-import com.youth.banner.transformer.ScaleInOutTransformer;
 
 import java.util.Objects;
 //Author: Zice Yan
@@ -50,7 +49,7 @@ public class LoginActivity extends MyBaseActivity implements View.OnClickListene
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     User user = new User(usernameStr,passwordStr);
                     System.out.println(user);
-                    intent.putExtra("USER",user);
+                    intent.putExtra("user",user);
                     startActivity(intent);
                 }
 

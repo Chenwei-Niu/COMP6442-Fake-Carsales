@@ -49,6 +49,19 @@ public class Car implements Serializable {
         this.user = user;
     }
 
+    public Car(String information, int year, int price, String image, int odometer, String location, String bodyStyle, String transmission, String engine, State onsale, String brand) {
+        this.information = information;
+        this.year = year;
+        this.price = price;
+        this.engine = engine;
+        this.odometer = odometer;
+        this.image = image;
+        this.location = location;
+        this.bodyStyle = bodyStyle;
+        this.transmission = transmission;
+        this.brand = brand;
+    }
+
     public ArrayList<User> getFavoriteUsers() {
         return favoriteUsers;
     }

@@ -52,7 +52,7 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
         defaultClick();//Set default
 
 //        First time retrieve the car data from the json
-        user = (User) getIntent().getExtras().getSerializable("USER");
+        user = (User) getIntent().getExtras().getSerializable("user");
 
 
 //        writeNewCar(0,"AMG GT",2019,30000,"V8",1000,"VIC","sedan"
@@ -76,7 +76,7 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
         if (Market.getMarket().getCarArray() != null){
             System.out.println(Market.getMarket().getCarArray());
             for (int i=0;i<Market.getMarket().getCarArray().size();i++){
-                System.out.println(Market.getMarket().getCarArray().get(i));
+
                 CarView carView = new CarView((Car) Market.getMarket().getCarArray().get(i));
                 carViewArrayList.add(carView);
             }
