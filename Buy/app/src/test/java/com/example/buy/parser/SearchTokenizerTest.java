@@ -1,7 +1,5 @@
 package com.example.buy.parser;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class SearchTokenizerTest {
@@ -14,6 +12,14 @@ public class SearchTokenizerTest {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("year=6");
         System.out.println(stringBuilder.substring(7));
+    }
+
+    @Test
+    public void testSearchTokenizer() {
+        String testString = "  brand =   bmw\t\n; ye";
+        SearchTokenizer searchTokenizer = new SearchTokenizer(testString);
+        System.out.println(searchTokenizer.current());
+        searchTokenizer.next();
     }
 
 }

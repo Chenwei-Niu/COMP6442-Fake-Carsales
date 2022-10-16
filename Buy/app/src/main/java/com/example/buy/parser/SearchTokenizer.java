@@ -1,5 +1,9 @@
 package com.example.buy.parser;
 
+import com.example.buy.utils.Utils;
+
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 
 public class SearchTokenizer implements Tokenizer{
@@ -15,6 +19,7 @@ public class SearchTokenizer implements Tokenizer{
     String[] validTokens = {"bmw","kia","mercedes-benz","ford","honda","kia","mazda","subaru",
     "vic","act","nsw","qld","nt","sa","wa","tas","sedan","coupe","suv","ute","convertible"
             ,"hatch","automatic","manual"};
+    List<String> validTokensList = Arrays.asList(validTokens);
 
     String [] validComparator = {"<",">","=","<=",">="};
 
@@ -44,16 +49,18 @@ public class SearchTokenizer implements Tokenizer{
     public void next() {
         consumeWhite();     // remove whitespace
         buffer = buffer.toLowerCase(Locale.ROOT);    // make all alphabet lower case
-        if (buffer.isEmpty() && index >= buffer.length()) {
+        System.out.println(buffer);
+        if (buffer.isEmpty() || index >= buffer.length()) {
             currentToken = null;    // if there's no string left, set currentToken null and return
             return;
         }
 
         StringBuilder stringBuilder = new StringBuilder();
         int length;
-        while (index<buffer.length() && buffer.indexOf(index)!=';'){
-            stringBuilder.append(buffer.indexOf(index++));
+        while (index<buffer.length() && buffer.charAt(index)!=';'){
+            stringBuilder.append(buffer.charAt(index++));
         }
+        System.out.println(stringBuilder.toString());
         length = stringBuilder.length();
         if (length < 6){
             // the tokens have minimum startup length of 6, which is
@@ -99,6 +106,8 @@ public class SearchTokenizer implements Tokenizer{
                 }
             }
         }
+        System.out.println(currentToken);
+        System.out.println(currentToken.getToken());
         // judge whether the currentToken is valid
         if (currentToken.getToken().length() <= 1){ //only one character, must be an invalid token
             throw new IllegalTokenException(stringBuilder.toString());
@@ -106,12 +115,26 @@ public class SearchTokenizer implements Tokenizer{
             if (currentToken.getToken().equals(validComparator[3]) || currentToken.getToken().equals(validComparator[4])){
                 // the current token is "<=" or ">=", but without number
                 throw new IllegalTokenException(stringBuilder.toString());
+            } else if (currentToken.getToken().substring(0,1).equals(validComparator[0])
+                            || currentToken.getToken().substring(0,1).equals(validComparator[1])
+                            || currentToken.getToken().substring(0,1).equals(validComparator[2])){
+                if(!Utils.isANumber(currentToken.getToken().substring(1))){
+                    // the current token starts at "<" or ">" or "=",
+                    // but the following content is not number
+                    throw new IllegalTokenException(stringBuilder.toString());
+                }
+            }else if (currentToken.getToken().length() >= 3 &&
+                    (currentToken.getToken().substring(0,2).equals(validComparator[3])
+                            || currentToken.getToken().substring(0,2).equals(validComparator[4]))){
+                if(!Utils.isANumber(currentToken.getToken().substring(2))){
+                    // the current token starts at "<=" or ">=",
+                    // but the following content is not number
+                    throw new IllegalTokenException(stringBuilder.toString());
+                }
+            } else if (!validTokensList.contains(currentToken.getToken())){
+                // the current token is a String, but not included in the validToken list
+                throw new IllegalTokenException(stringBuilder.toString());
             }
-//            if (currentToken.getToken().length() >= 3 &&
-//                    (currentToken.getToken().substring(0,2).equals(validComparator[3])
-//                            || currentToken.getToken().substring(0,2).equals(validComparator[4]))){
-//
-//            }
         }
 
         if(index<buffer.length()){
@@ -119,46 +142,6 @@ public class SearchTokenizer implements Tokenizer{
         }
 
 
-
-
-
-
-//        char firstChar = buffer.charAt(0);
-//        if (firstChar == '+')
-//            currentToken = new Token("+", Token.Type.ADD);
-//        if (firstChar == '-')
-//            currentToken = new Token("-", Token.Type.SUB);
-//
-//        String validTokens = "1234567890+-*/!()";
-//        if (firstChar == '*')
-//            currentToken = new Token("*", Token.Type.MUL);
-//        if (firstChar == '/')
-//            currentToken = new Token("/", Token.Type.DIV);
-//        if (firstChar == '(')
-//            currentToken = new Token("(", Token.Type.LBRA);
-//        if (firstChar == ')')
-//            currentToken = new Token(")", Token.Type.RBRA);
-//        if (firstChar == '!')
-//            currentToken = new Token("!", Token.Type.FAC);
-//        if (Character.isDigit(firstChar)){
-//            StringBuilder stringBuilder = new StringBuilder();
-//            stringBuilder.append(firstChar);
-//            int length = buffer.length();
-//            int i=1;
-//            while (i<length && Character.isDigit(buffer.charAt(i))){
-//                stringBuilder.append(buffer.charAt(i++));
-//            }
-//            currentToken = new Token(stringBuilder.toString(), Token.Type.INT);
-//        }
-//        if (!validTokens.contains(String.valueOf(firstChar))){
-//            throw new Token.IllegalTokenException(String.valueOf(firstChar));
-//        }
-//
-//
-//        // ########## YOUR CODE ENDS HERE ##########
-//        // Remove the extracted token from buffer
-//        int tokenLen = currentToken.getToken().length();
-//        buffer = buffer.substring(tokenLen);
     }
 
     private void consumeWhite(){
