@@ -13,6 +13,9 @@ import android.view.inputmethod.InputMethodManager;
 
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -126,5 +129,29 @@ public class Utils {
             }
         }
         return true;
+    }
+
+    // Author: Canxuan Gang
+    public static String getJsonFromAssets(Context context, String fileName) {
+        String jsonString = "";
+        try {
+            InputStream is = context.getAssets().open(fileName);
+
+            int size = 1000000;
+            int length;
+            byte[] buffer = new byte[size];
+
+            while((length = is.read(buffer)) != -1){
+                jsonString += new String (buffer,0 , length, StandardCharsets.UTF_8);
+            }
+
+            is.close();
+
+//            jsonString = new String(buffer, "UTF-8");
+        }  catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return jsonString;
     }
 }

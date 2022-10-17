@@ -1,5 +1,6 @@
 package com.example.buy.parser;
 //Author: Chenwei Niu
+
 import com.example.buy.entity.Car;
 import com.example.buy.entity.Market;
 import com.example.buy.parser.expression.BodyStyleExp;
@@ -32,6 +33,7 @@ public class Parser {
     }
 
     public void parseExp(){
+
         if (!searchTokenizer.hasNext()) {
             return;
         } else if (searchTokenizer.hasNext() && searchTokenizer.current().getType()== Token.Type.YEAR){
@@ -87,4 +89,5 @@ public class Parser {
         System.out.println(searchResultList);
         return searchResultList;
     }
+
 }

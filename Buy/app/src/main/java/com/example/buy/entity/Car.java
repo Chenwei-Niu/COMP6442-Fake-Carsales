@@ -1,5 +1,7 @@
 package com.example.buy.entity;
 //Author: Chenwei Niu
+import com.example.buy.utils.Utils;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -19,9 +21,9 @@ public class Car implements Serializable {
     public User user;
     public ArrayList<User> favoriteUsers;  // could be deleted if not implement this function
 
-
-    public Car(String information, int price, String image, int odometer, String location, String bodyStyle, String transmission, String engine, State state, String brand) {
+    public Car(String information, int year, int price, String image, int odometer, String location, String bodyStyle, String transmission, String engine, State state, String brand) {
         this.information = information;
+        this.year=year;
         this.price = price;
         this.engine = engine;
         this.odometer = odometer;
@@ -31,6 +33,34 @@ public class Car implements Serializable {
         this.state = state;
         this.transmission = transmission;
         this.brand = brand;
+    }
+
+    public Car(String information, String year, String price, String image, String odometer, String location, String bodyStyle, String transmission, String engine, State state, String brand) {
+        this.information = information;
+        this.engine = engine;
+        this.image = image;
+        this.location = location;
+        this.bodyStyle = bodyStyle;
+        this.state = state;
+        this.transmission = transmission;
+        this.brand = brand;
+        if (Utils.isANumber(year)){
+            this.year=Integer.parseInt(year);
+        } else {
+            this.year = -1; // -1 means this attribute is unavailable
+        }
+
+        if (Utils.isANumber(price)){
+            this.price=Integer.parseInt(price);
+        } else {
+            this.price = -1;
+        }
+
+        if (Utils.isANumber(odometer)){
+            this.odometer=Integer.parseInt(odometer);
+        } else {
+            this.odometer = -1;
+        }
     }
 
     public Car(int id, String information,int year, int price, String image, int odometer, String location, String bodyStyle, String transmission, String engine, State state, String brand, User user) {
@@ -49,18 +79,7 @@ public class Car implements Serializable {
         this.user = user;
     }
 
-    public Car(String information, int year, int price, String image, int odometer, String location, String bodyStyle, String transmission, String engine, State onsale, String brand) {
-        this.information = information;
-        this.year = year;
-        this.price = price;
-        this.engine = engine;
-        this.odometer = odometer;
-        this.image = image;
-        this.location = location;
-        this.bodyStyle = bodyStyle;
-        this.transmission = transmission;
-        this.brand = brand;
-    }
+
 
     public ArrayList<User> getFavoriteUsers() {
         return favoriteUsers;

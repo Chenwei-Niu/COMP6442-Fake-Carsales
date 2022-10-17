@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -18,6 +19,9 @@ import com.example.buy.entity.State;
 import com.example.buy.entity.User;
 import com.example.buy.view.CarView;
 import com.example.buy.view.CarViewAdapter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -51,8 +55,14 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
         findViewById(R.id.mine_ll).setOnClickListener(this);
         defaultClick();//Set default
 
-//        First time retrieve the car data from the json
         user = (User) getIntent().getExtras().getSerializable("user");
+        myRef.child("cars").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                System.out.println(String.valueOf(task.getResult().getValue()));
+            }
+        });
+
 
 
 //        writeNewCar(0,"AMG GT",2019,30000,"V8",1000,"VIC","sedan"

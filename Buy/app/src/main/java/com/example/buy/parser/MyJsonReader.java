@@ -13,10 +13,10 @@ public class MyJsonReader {
         }
         items[items.length-1] = items[items.length-1].replace("}","");
         String information = items[1];
-        int year = Integer.parseInt(items[3]);
-        int price = Integer.parseInt(items[5]);
+        String year = items[3];
+        String price = items[5];
         String image = items[7];
-        int odometer = Integer.parseInt(items[9]);
+        String odometer = items[9];
         String location = items[11];
         String bodyStyle = items[13];
         String transmission = items[15];
@@ -25,6 +25,8 @@ public class MyJsonReader {
         String brand = items[21];
         Car car = new Car(information,year,price,image,odometer,location,bodyStyle,transmission,engine, State.ONSALE,brand);
         System.out.println(car);
+        System.out.println(123);
+        System.out.println("来自parser的car");
         return car;
     }
 }
