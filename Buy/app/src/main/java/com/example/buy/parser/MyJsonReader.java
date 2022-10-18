@@ -12,9 +12,6 @@ public class MyJsonReader {
             items[i] = items[i].replace("\"","");
         }
         items[items.length-1] = items[items.length-1].replaceAll("\\}\\,\\s|\\}\\]","");
-        for(int i =0;i< items.length;i++){
-            System.out.println(items[i]);
-        }
 
 
         String information = items[1];

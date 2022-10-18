@@ -75,6 +75,7 @@ public class Parser {
 
         for (int i = 0; i< Market.getMarket().getCarArray().size(); i++){
             int flag = 1; // means satisfy all requirements
+            context.set("car",Market.getMarket().getCarArray().get(i));
             for (Exp query : queryAttributes){
                 System.out.println(query.evaluate(context));
                 if (!query.evaluate(context)){
