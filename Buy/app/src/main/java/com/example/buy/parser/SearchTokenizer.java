@@ -49,8 +49,6 @@ public class SearchTokenizer implements Tokenizer{
     public void next() {
         consumeWhite();     // remove whitespace
         buffer = buffer.toLowerCase(Locale.ROOT);    // make all alphabet lower case
-        System.out.println(buffer);
-        System.out.println(index);
         if (buffer.isEmpty() || index >= buffer.length()) {
             currentToken = null;    // if there's no string left, set currentToken null and return
             return;

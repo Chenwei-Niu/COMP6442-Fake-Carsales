@@ -5,7 +5,7 @@ import com.example.buy.utils.Utils;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Car implements Serializable {
+public class Car implements Serializable, Comparable<Car>{
     public int id;
     public String information;
     public int year;
@@ -20,6 +20,9 @@ public class Car implements Serializable {
     public String brand;
     public User user;
     public ArrayList<User> favoriteUsers;  // could be deleted if not implement this function
+
+    public Car() {
+    }
 
     public Car(String information, int year, int price, String image, int odometer, String location, String bodyStyle, String transmission, String engine, State state, String brand) {
         this.information = information;
@@ -93,6 +96,10 @@ public class Car implements Serializable {
         this.user = user;
     }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
@@ -111,5 +118,16 @@ public class Car implements Serializable {
                 ", user=" + user +
                 ", favoriteUsers=" + favoriteUsers +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Car car) {
+        if (this.price>car.price){
+            return 1;
+        } else if (this.price < car.price){
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }

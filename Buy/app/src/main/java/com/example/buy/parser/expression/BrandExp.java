@@ -26,4 +26,7 @@ public class BrandExp extends Exp{
             return true;
         }
     }
+    public String getBrand() {
+        return brand;
+    }
 }

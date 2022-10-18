@@ -3,6 +3,7 @@ package com.example.buy.entity;
 
 import android.content.Context;
 
+import com.example.buy.avltree.AvlTree;
 import com.example.buy.parser.MyJsonReader;
 import com.example.buy.utils.Utils;
 
@@ -13,7 +14,10 @@ public class Market<firstReadVolume> {
     MyJsonReader myJsonReader = new MyJsonReader();
     ArrayList<Car> cars = new ArrayList<>();
     private Context context;
-    HashMap<String,Integer> map = new HashMap<>();
+
+
+
+    HashMap<String, AvlTree<Car>> map = new HashMap<String, AvlTree<Car>>();
 
 
 
@@ -33,16 +37,29 @@ public class Market<firstReadVolume> {
 
     public void firstRetrieveCarData(){
         User user = new User("test@gmail.com","123456");
+
+        map.put("audi",new AvlTree<Car>());
+        map.put("benz",new AvlTree<Car>());
+        map.put("bmw",new AvlTree<Car>());
+        map.put("kia",new AvlTree<Car>());
+        map.put("mazda",new AvlTree<Car>());
+        map.put("subaru",new AvlTree<Car>());
+        map.put("toyota",new AvlTree<Car>());
+
         String jsonFileString = Utils.getJsonFromAssets(context,"kia.json");
         String[] lines= jsonFileString.split("\\n");
 
 
         for (int i =0;i<lines.length;i++){
-
             Car car = myJsonReader.parseOneLine(lines[i]);
             car.setId(i);
             car.setUser(user);
             cars.add(car);
+
+            // insert to corresponding avlTree
+            if(map.get(car.brand)!=null){
+                map.get(car.brand).insert(car);
+            }
         }
 
         /*
@@ -64,6 +81,9 @@ public class Market<firstReadVolume> {
 
     public void setContext(Context context) {
         this.context = context;
+    }
+    public HashMap<String, AvlTree<Car>> getMap() {
+        return map;
     }
 
 }

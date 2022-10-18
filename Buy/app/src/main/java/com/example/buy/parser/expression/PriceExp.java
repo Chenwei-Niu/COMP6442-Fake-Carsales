@@ -29,8 +29,26 @@ public class PriceExp extends Exp{
         // if typed in "=", change it to "=="
         // if ">" "<" ">=" "<=" then comparator = "";
         if (price.charAt(0) == '='){
-            comparator="=";
+            comparator="==";
+            price = price.substring(1);
+        } else if (price.charAt(0) == '>' && price.charAt(1) == '='){
+            comparator=">=";
+            price = price.substring(2);
+        }else if (price.charAt(0) == '<' && price.charAt(1) == '='){
+            comparator="<=";
+            price = price.substring(2);
+        } else {
+            comparator = price.substring(0,1);
+            price = price.substring(1);
         }
 
+    }
+
+    public String getComparator() {
+        return comparator;
+    }
+
+    public String getPrice() {
+        return price;
     }
 }
