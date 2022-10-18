@@ -51,7 +51,6 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
         listView = view.findViewById(R.id.search_listView);
         searchBar = view.findViewById(R.id.search_bar);
         user = DAOService.getInstance().getUser();
@@ -62,16 +61,27 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
 
         // get the instance of the listView in this activity, and set the Adapter for listview
         listView.setAdapter(carViewAdapter);
+        for (CarView carView: carViewArrayList){
+            if(carView.getCar().favoriteUsers.contains(user) && user.getFavoriteCars().contains(carView.getCar())){
+                carView.setLikeImage(R.drawable.red_heart);
+            } else {
+                carView.setLikeImage(R.drawable.black_hollow_heart);
+            }
+        }
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Car car = carViewAdapter.getItem(position).getCar();
-                if(!car.favoriteUsers.contains(user)){
+                if(!car.favoriteUsers.contains(user) && !user.getFavoriteCars().contains(car)){
                     car.favoriteUsers.add(user);
                     carViewArrayList.get(position).setLikeImage(R.drawable.red_heart);
+                    user.getFavoriteCars().add(car);
                 } else {
                     car.favoriteUsers.remove(user);
                     carViewArrayList.get(position).setLikeImage(R.drawable.black_hollow_heart);
+                    user.getFavoriteCars().remove(car);
                 }
 
 
@@ -115,12 +125,14 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
                             @Override
                             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                                 Car car = carViewAdapter.getItem(position).getCar();
-                                if(!car.favoriteUsers.contains(user)){
+                                if(!car.favoriteUsers.contains(user) && !user.getFavoriteCars().contains(car)){
                                     car.favoriteUsers.add(user);
                                     carViewArrayList.get(position).setLikeImage(R.drawable.red_heart);
+                                    user.getFavoriteCars().add(car);
                                 } else {
                                     car.favoriteUsers.remove(user);
                                     carViewArrayList.get(position).setLikeImage(R.drawable.black_hollow_heart);
+                                    user.getFavoriteCars().remove(car);
                                 }
 
 

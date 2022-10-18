@@ -27,6 +27,7 @@ public class MyApplication extends Application {
 
         Market.getMarket().setContext(getApplicationContext());
         Market.getMarket().firstRetrieveCarData();
+        Market.getMarket().start();
         System.out.println(Market.getMarket().getCarArray().toString());
 
     }
