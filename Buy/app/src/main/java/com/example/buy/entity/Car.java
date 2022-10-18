@@ -1,5 +1,5 @@
 package com.example.buy.entity;
-//Author: Chenwei Niu
+//Author: Chenwei Niu Canxuan Gang
 import com.example.buy.utils.Utils;
 
 import java.io.Serializable;
@@ -87,6 +87,13 @@ public class Car implements Serializable, Comparable<Car>{
 
     public ArrayList<User> getFavoriteUsers() {
         return favoriteUsers;
+    }
+    public void notifyUsers()
+    {
+        for(User user: favoriteUsers) {
+            this.user.update(this);
+            favoriteUsers.remove(user);
+        }
     }
 
     public void setId(int id) {

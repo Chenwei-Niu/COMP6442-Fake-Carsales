@@ -112,6 +112,18 @@
 
         </LinearLayout>
 
+        <Button
+            android:id="@+id/button_follow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Follow" />
+
+        <Button
+            android:id="@+id/button_remove"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Remove" />
+
     </LinearLayout>
 
 </LinearLayout>

@@ -1,5 +1,5 @@
 package com.example.buy.activity;
-//Author: ZiceYan, Chenwei Niu
+//Author: ZiceYan, Chenwei Niu Canxuan Gang
 
 import android.content.Intent;
 
@@ -18,6 +18,7 @@ import com.example.buy.entity.Car;
 import com.example.buy.fragment.BuyFragment;
 import com.example.buy.entity.Market;
 import com.example.buy.entity.State;
+import com.example.buy.fragment.FollowFragment;
 import com.example.buy.fragment.FriendFragment;
 import com.example.buy.fragment.MineFragment;
 import com.example.buy.entity.User;
@@ -44,11 +45,12 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
     private SearchFragment searchFragment;
     private FriendFragment friendFragment;
     private MineFragment mineFragment;
-
+    private FollowFragment followFragment;
     private ImageView groupIv;
     private ImageView searchIv;
     private ImageView friendIv;
     private ImageView mineIv;
+    private ImageView followIv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +63,12 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
         searchIv = findViewById(R.id.search_tab_iv);
         friendIv = findViewById(R.id.friend_tab_iv);
         mineIv = findViewById(R.id.mine_tab_iv);
-
+        followIv=findViewById(R.id.mine_follow_iv);
         findViewById(R.id.ll1).setOnClickListener(this);
         findViewById(R.id.ll2).setOnClickListener(this);
         findViewById(R.id.ll3).setOnClickListener(this);
         findViewById(R.id.ll4).setOnClickListener(this);
+        findViewById(R.id.ll5).setOnClickListener(this);
         defaultClick();//set default
 
         user = DAOService.getInstance().getUser();
@@ -113,6 +116,9 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
             case R.id.ll4:
                 selectFragment(3);
                 break;
+            case R.id.ll5:
+                selectFragment(4);
+                break;
             default:
                 break;
         }
@@ -124,6 +130,7 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
         searchIv.setSelected(false);
         groupIv.setSelected(false);
         mineIv.setSelected(false);
+        followIv.setSelected(false);
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         switch (index) {
             case 0:
@@ -158,7 +165,14 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
                 mineIv.setSelected(true);
 
                 break;
+            case 4:
+                if (followFragment == null) {
+                    followFragment = new FollowFragment();
+                }
+                fragmentTransaction.replace(R.id.fl, followFragment);
+                followIv.setSelected(true);
 
+                break;
             default:
                 break;
         }

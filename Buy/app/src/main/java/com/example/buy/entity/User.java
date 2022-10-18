@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+//Author Canxuan Gang
 
 public class User extends LitePalSupport implements Serializable {
 
@@ -20,6 +20,7 @@ public class User extends LitePalSupport implements Serializable {
     private String name;
     private String sex;
     private String phone;
+    public ArrayList<Car> favoriteCars = new ArrayList<>();
     /**
      * Relationships with other users, ids of people who are currently friended
      * Split with '-'
@@ -42,6 +43,15 @@ public class User extends LitePalSupport implements Serializable {
             friendRelations = friendRelations + "-" + id;
         }
     }
+    public void follow(Car car)
+    {
+        favoriteCars.add(car);
+        car.favoriteUsers.add(this);
+    }
+public void update(Car car)
+{
+    car.favoriteUsers.remove(this);
+}
 
     public boolean hasThisFriends(int id){
         if(TextUtils.isEmpty(friendRelations)){
