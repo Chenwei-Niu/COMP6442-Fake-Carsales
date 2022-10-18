@@ -12,7 +12,7 @@ public class avltreeTest {
         testTree.insert(3);
         testTree.insert(5);
         testTree.insert(7);
-        testTree.
+        testTree.remove(5);
         testTree.printTree();
     }
 
