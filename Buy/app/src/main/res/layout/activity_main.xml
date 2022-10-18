@@ -7,8 +7,14 @@
     android:orientation="vertical"
     tools:context="com.example.buy.activity.MainActivity">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/fl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#DCDCDC" />
+    <LinearLayout
+        android:id="@+id/fl1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -31,6 +37,7 @@
 
 
         </LinearLayout>
+
         <ListView
             android:id="@+id/main_listView"
             android:layout_width="match_parent"
@@ -43,6 +50,7 @@
 
 
     </LinearLayout>
+
 
 
 

@@ -70,12 +70,12 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
         defaultClick();//set default
 
         user = (User) getIntent().getExtras().getSerializable("user");
-        myRef.child("cars").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DataSnapshot> task) {
-                System.out.println(String.valueOf(task.getResult().getValue()));
-            }
-        });
+//        myRef.child("cars").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                System.out.println(String.valueOf(task.getResult().getValue()));
+//            }
+//        });
 
 
 
