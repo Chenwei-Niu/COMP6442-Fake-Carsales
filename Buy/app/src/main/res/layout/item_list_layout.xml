@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UselessParent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/car_image"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_marginLeft="50dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/car_information"
+                android:text="2016 BMW 2 Series 220i Luxury Line F45 Auto"
+                android:layout_width="300dp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="19dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+                <TextView
+                    android:id="@+id/car_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="$11530"
+                    android:textSize="19dp"
+                    android:layout_marginLeft="50dp"
+                    android:textStyle="bold"
+                    android:textColor="#CD5C5C"/>
+                <TextView
+                    android:id="@+id/car_engine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="4cyl 2.0L Petrol"
+                    android:textSize="15dp"
+                    android:layout_marginLeft="50dp"
+                    android:paddingTop="3dp"
+
+                    android:textColor="#000"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+                <TextView
+                    android:id="@+id/car_odometer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="32000km"
+                    android:textSize="15dp"
+                    android:layout_marginLeft="50dp"
+                    android:paddingTop="3dp"
+
+                    android:textColor="#000"/>
+                <TextView
+                    android:id="@+id/car_body_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Hatch"
+                    android:textSize="15dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingTop="3dp"
+
+                    android:textColor="#000"/>
+                <TextView
+                    android:id="@+id/car_transmission"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Automatic"
+                    android:textSize="15dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingTop="3dp"
+                    android:textColor="#000"/>
+                <TextView
+                    android:id="@+id/car_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="VIC"
+                    android:textSize="15dp"
+                    android:layout_marginLeft="30dp"
+                    android:paddingTop="3dp"
+                    android:textColor="#000"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

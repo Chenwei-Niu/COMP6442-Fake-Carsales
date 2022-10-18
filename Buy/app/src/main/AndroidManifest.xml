@@ -18,13 +18,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.buy.activity.MemberInfoActivity" />
-        <activity android:name="com.example.buy.activity.EditMemberInfoActivity" />
+<!--        <activity android:name="com.example.buy.activity.MemberInfoActivity" />-->
+<!--        <activity android:name="com.example.buy.activity.EditMemberInfoActivity" />-->
         <activity android:name="com.example.buy.activity.MyBaseActivity" />
         <activity android:name="com.example.buy.activity.RegisterActivity" />
-        <activity android:name="com.example.buy.activity.CreateBotanyActivity"/>
-        <activity android:name="com.example.buy.activity.BotanyDetailActivity"/>
-        <activity android:name="com.example.buy.activity.EditBotanyInfoActivity"/>
+<!--        <activity android:name="com.example.buy.activity.CreateBotanyActivity"/>-->
+<!--        <activity android:name="com.example.buy.activity.BotanyDetailActivity"/>-->
+<!--        <activity android:name="com.example.buy.activity.EditBotanyInfoActivity"/>-->
 
 
 
@@ -40,11 +40,9 @@
         <activity
             android:name="com.example.buy.activity.MainActivity"
             android:windowSoftInputMode="adjustPan">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
         </activity>
+        <activity
+            android:name="com.example.buy.activity.SearchActivity"
+        />
     </application>
 </manifest>

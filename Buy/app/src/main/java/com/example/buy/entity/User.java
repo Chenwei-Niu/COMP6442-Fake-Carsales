@@ -3,7 +3,9 @@ package com.example.buy.entity;
 import org.litepal.annotation.Column;
 import org.litepal.crud.LitePalSupport;
 
-public class User extends LitePalSupport {
+import java.io.Serializable;
+
+public class User extends LitePalSupport implements Serializable {
 
     @Column(unique = true, defaultValue = "0")
     private int id;
@@ -67,5 +69,17 @@ public class User extends LitePalSupport {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }
