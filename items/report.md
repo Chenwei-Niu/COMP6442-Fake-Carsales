@@ -34,7 +34,7 @@ The following is a report template to help your team successfully provide all th
 | u7377070 | Chenwei Niu | Leader;Trouble_shooter |
 | u7389455 | Zice Yan | Designer |
 | u6441152 | Xinyu Wu | Doer |
-| u6557983 | Canxuan Gang | supporter |
+| u6557983 | Canxuan Gang | Supporter |
 
 ## Summary of Individual Contributions
 
