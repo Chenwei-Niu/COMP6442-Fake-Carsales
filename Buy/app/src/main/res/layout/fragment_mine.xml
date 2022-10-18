@@ -15,7 +15,19 @@
         android:layout_gravity="center"
         android:background="@drawable/shape"
         android:padding="12dp"
-        android:text="Change information"
+        android:text="Modify information"
+        android:textColor="#333333"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/upload_car"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/shape"
+        android:padding="12dp"
+        android:text="   Upload Car   "
         android:textColor="#333333"
         android:textSize="18sp" />
 
@@ -24,12 +36,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/shape"
         android:padding="12dp"
-        android:text="   exit   "
+        android:text="   Log out   "
         android:textColor="#333333"
         android:textSize="18sp" />
+
+    <ListView
+        android:id="@+id/myCar_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        />
 
 
 </LinearLayout>

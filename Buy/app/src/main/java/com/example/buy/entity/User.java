@@ -20,6 +20,8 @@ public class User extends LitePalSupport implements Serializable {
     private String name;
     private String sex;
     private String phone;
+    private ArrayList<Car> onSaleCars = new ArrayList<>();
+    private ArrayList<Car> favoriteCars = new ArrayList<>();
     /**
      * Relationships with other users, ids of people who are currently friended
      * Split with '-'
@@ -118,6 +120,22 @@ public class User extends LitePalSupport implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public ArrayList<Car> getFavoriteCars() {
+        return favoriteCars;
+    }
+
+    public void setFavoriteCars(ArrayList<Car> favoriteCars) {
+        this.favoriteCars = favoriteCars;
+    }
+
+    public ArrayList<Car> getOnSaleCars() {
+        return onSaleCars;
+    }
+
+    public void setOnSaleCars(ArrayList<Car> onSaleCars) {
+        this.onSaleCars = onSaleCars;
     }
 
     @Override
