@@ -1,19 +1,23 @@
 package com.example.buy.fragment;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.buy.R;
 import com.example.buy.entity.Car;
+import com.example.buy.entity.Market;
 import com.example.buy.entity.User;
 import com.example.buy.parser.Parser;
 import com.example.buy.parser.SearchTokenizer;
@@ -36,6 +40,7 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
     private ArrayList<Car> searchResultList = new ArrayList<>();
     ArrayList<CarView> carViewArrayList = new ArrayList<>();
     private ListView listView;
+    FragmentTransaction fragmentTransaction;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -52,6 +57,28 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
         user = DAOService.getInstance().getUser();
         view.findViewById(R.id.search_button).setOnClickListener(this);
         listView.setOnItemClickListener(this);
+        // create the instance of the CarViewAdapter and pass the carArray into it
+        CarViewAdapter carViewAdapter = new CarViewAdapter(Objects.requireNonNull(getActivity()), carViewArrayList);
+
+        // get the instance of the listView in this activity, and set the Adapter for listview
+        listView.setAdapter(carViewAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Car car = carViewAdapter.getItem(position).getCar();
+                if(!car.favoriteUsers.contains(user)){
+                    car.favoriteUsers.add(user);
+                    carViewArrayList.get(position).setLikeImage(R.drawable.red_heart);
+                } else {
+                    car.favoriteUsers.remove(user);
+                    carViewArrayList.get(position).setLikeImage(R.drawable.black_hollow_heart);
+                }
+
+
+                // Jump to the message conversation page
+                refreshFragment(view);
+            }
+        });
     }
 
     @Override
@@ -71,6 +98,11 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
 
                         for (int i = 0; i < searchResultList.size(); i++) {
                             CarView carView = new CarView( searchResultList.get(i));
+                            if ( searchResultList.get(i).favoriteUsers.contains(user)) {
+                                carView.setLikeImage(R.drawable.red_heart);
+                            } else {
+                                carView.setLikeImage(R.drawable.black_hollow_heart);
+                            }
                             carViewArrayList.add(carView);
                         }
 
@@ -79,6 +111,23 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
 
                         // get the instance of the listView in this activity, and set the Adapter for listview
                         listView.setAdapter(carViewAdapter);
+                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                                Car car = carViewAdapter.getItem(position).getCar();
+                                if(!car.favoriteUsers.contains(user)){
+                                    car.favoriteUsers.add(user);
+                                    carViewArrayList.get(position).setLikeImage(R.drawable.red_heart);
+                                } else {
+                                    car.favoriteUsers.remove(user);
+                                    carViewArrayList.get(position).setLikeImage(R.drawable.black_hollow_heart);
+                                }
+
+
+                                // Jump to the message conversation page
+                                refreshFragment(view);
+                            }
+                        });
                         listView.requestFocus();
                         KeyBoardUtils.hideKeyBoard(Objects.requireNonNull(getActivity()));
                     } else {
@@ -104,6 +153,15 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         KeyBoardUtils.hideKeyBoard(Objects.requireNonNull(getActivity()));
-        Object listItem = listView.getItemAtPosition(position);
+        Car car =  ( (CarView) listView.getItemAtPosition(position)).getCar();
+
+    }
+    public void refreshFragment(View view){
+        fragmentTransaction = getFragmentManager().beginTransaction();
+        if (Build.VERSION.SDK_INT>=26){
+            fragmentTransaction.setReorderingAllowed(false);
+        }
+        fragmentTransaction.detach(this).attach(this).commit();
+
     }
 }

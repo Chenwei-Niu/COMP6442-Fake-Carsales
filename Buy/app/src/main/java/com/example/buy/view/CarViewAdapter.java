@@ -21,6 +21,13 @@ public class CarViewAdapter extends ArrayAdapter<CarView> {
     public CarViewAdapter(@NonNull Context context, ArrayList<CarView> arrayList){
         super(context,0,arrayList);
     }
+
+    @Nullable
+    @Override
+    public CarView getItem(int position) {
+        return super.getItem(position);
+    }
+
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
@@ -40,6 +47,9 @@ public class CarViewAdapter extends ArrayAdapter<CarView> {
         Picasso.get().load(currentNumberPosition.getCarImage()).into(carImage);
 //        carImage.setImageResource(currentNumberPosition.getCarImage());  // URL要展示需要转换
 
+
+        ImageView likeImage = currentItemView.findViewById(R.id.like_image);
+        likeImage.setImageResource(currentNumberPosition.getLikeImage());
 
         TextView textView1 = currentItemView.findViewById(R.id.car_information);
         textView1.setText(currentNumberPosition.getCarInformation());
@@ -66,4 +76,5 @@ public class CarViewAdapter extends ArrayAdapter<CarView> {
         // then return the recyclable view
         return currentItemView;
     }
+
 }

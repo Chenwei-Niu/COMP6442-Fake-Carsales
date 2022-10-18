@@ -157,7 +157,7 @@ public class Parser {
         }
             for (int i = 0; i< carSourceList.size(); i++){
                 int flag = 1; // means satisfy all requirements
-                context.set("car",Market.getMarket().getCarArray().get(i));
+                context.set("car",carSourceList.get(i));
                 for (Exp query : queryAttributes){
                     if (!query.evaluate(context)){
                         flag = 0;
@@ -165,7 +165,7 @@ public class Parser {
                     }
                 }
                 if(flag==1){
-                    searchResultList.add((Car) Market.getMarket().getCarArray().get(i));
+                    searchResultList.add(carSourceList.get(i));
                 }
             }
 

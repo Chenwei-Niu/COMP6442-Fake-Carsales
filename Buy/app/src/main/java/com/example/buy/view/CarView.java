@@ -3,6 +3,9 @@ package com.example.buy.view;
 import com.example.buy.entity.Car;
 
 public class CarView {
+
+    private Car car;
+
     // the url string for the imageView
     private String carImage;
 
@@ -27,6 +30,9 @@ public class CarView {
     // TextView 7
     private String carLocation;
 
+    //Like Image
+    private int likeImage;
+
     // create constructor to set the values for all the parameters of the each single view
     public CarView(Car car) {
         carInformation = car.information;
@@ -37,6 +43,7 @@ public class CarView {
         carBodyStyle = car.bodyStyle;
         carTransmission = car.transmission;
         carLocation = car.location;
+        this.car = car;
     }
 
     public String getCarImage() {
@@ -71,6 +78,14 @@ public class CarView {
         return carLocation;
     }
 
+    public int getLikeImage() {
+        return likeImage;
+    }
+
+    public Car getCar() {
+        return car;
+    }
+
     public void setCarImage(String carImage) {
         this.carImage = carImage;
     }
@@ -101,5 +116,9 @@ public class CarView {
 
     public void setCarLocation(String carLocation) {
         this.carLocation = carLocation;
+    }
+
+    public void setLikeImage(int likeImage) {
+        this.likeImage = likeImage;
     }
 }

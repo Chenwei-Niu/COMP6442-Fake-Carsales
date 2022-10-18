@@ -174,10 +174,13 @@ public class AvlTree<T extends Comparable<? super T>> {
             return null;
         }
         if (node.element.compareTo(t) < 0){
+            System.out.println(node.element);
+            System.out.println("向右走");
             return find(node.right,t);
         } else if (node.element.compareTo(t) > 0){
             return find(node.left,t);
         } else {
+            System.out.println("返回节点");
             return node;
         }
     }

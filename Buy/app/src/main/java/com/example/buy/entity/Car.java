@@ -4,6 +4,7 @@ import com.example.buy.utils.Utils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Car implements Serializable, Comparable<Car>{
     public int id;
@@ -19,7 +20,7 @@ public class Car implements Serializable, Comparable<Car>{
     public State state;
     public String brand;
     public User user;
-    public ArrayList<User> favoriteUsers;  // could be deleted if not implement this function
+    public ArrayList<User> favoriteUsers = new ArrayList<>();  // could be deleted if not implement this function
 
     public Car() {
     }
@@ -129,5 +130,18 @@ public class Car implements Serializable, Comparable<Car>{
         } else {
             return 0;
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Car)) return false;
+        Car car = (Car) o;
+        return id == car.id && year == car.year && price == car.price && odometer == car.odometer && Objects.equals(information, car.information) && Objects.equals(image, car.image) && Objects.equals(location, car.location) && Objects.equals(bodyStyle, car.bodyStyle) && Objects.equals(transmission, car.transmission) && Objects.equals(engine, car.engine) && state == car.state && Objects.equals(brand, car.brand) && Objects.equals(user, car.user) && Objects.equals(getFavoriteUsers(), car.getFavoriteUsers());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, information, year, price, image, odometer, location, bodyStyle, transmission, engine, state, brand, user, getFavoriteUsers());
     }
 }
