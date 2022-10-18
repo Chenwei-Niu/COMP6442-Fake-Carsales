@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.example.buy.R;
+import com.example.buy.entity.User;
 import com.example.buy.sqlite.DAOService;
 import com.example.buy.utils.ToastUtils;
 import com.google.android.material.textfield.TextInputLayout;
@@ -45,7 +46,11 @@ public class LoginActivity extends MyBaseActivity implements View.OnClickListene
                         passwordStr);
                 ToastUtils.showShortToast(LoginActivity.this, success ? "Login succeeded" : "Wrong account or password");
                 if (success) {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    User user = new User(usernameStr,passwordStr);
+                    System.out.println(user);
+                    intent.putExtra("user",user);
+                    startActivity(intent);
                 }
 
                 break;

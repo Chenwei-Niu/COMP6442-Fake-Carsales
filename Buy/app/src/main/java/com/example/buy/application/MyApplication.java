@@ -1,8 +1,9 @@
 package com.example.buy.application;
 
+
 import android.app.Application;
 
-
+import com.example.buy.entity.Market;
 import com.example.buy.entity.User;
 import com.example.buy.sqlite.DAOService;
 
@@ -23,6 +24,10 @@ public class MyApplication extends Application {
             new User("comp2100@anu.au","comp2100").save();
             new User("comp6442@anu.au ","comp6442").save();
         }
+
+        Market.getMarket().setContext(getApplicationContext());
+        Market.getMarket().firstRetrieveCarData();
+        System.out.println(Market.getMarket().getCarArray().toString());
 
     }
 }

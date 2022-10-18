@@ -5,11 +5,13 @@ import android.text.TextUtils;
 import org.litepal.annotation.Column;
 import org.litepal.crud.LitePalSupport;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class User extends LitePalSupport {
+
+public class User extends LitePalSupport implements Serializable {
 
     @Column(unique = true, defaultValue = "0")
     private int id;
@@ -116,5 +118,17 @@ public class User extends LitePalSupport {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", phone='" + phone + '\'' +
+                '}';
     }
 }

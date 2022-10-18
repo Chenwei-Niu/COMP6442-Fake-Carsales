@@ -17,22 +17,30 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <TextView
+            <EditText
                 android:id="@+id/search_bar"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:layout_marginTop="25dp"
-                android:text="FAKE CARSALES"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:hint="Search ..."
                 android:visibility="visible"
-                android:textColor="#000"
-                android:textSize="30dp"
-                android:textAlignment="center"
                 />
 
+            <Button
+                android:id="@id/search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="#338DFF"
+                android:text="Search"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:visibility="visible"/>
 
         </LinearLayout>
         <ListView
-            android:id="@+id/main_listView"
+            android:id="@+id/search_listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -61,7 +69,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/ll1"
+            android:id="@+id/group_ll"
             android:gravity="center"
             android:orientation="vertical"
             android:paddingTop="8dp"
@@ -86,7 +94,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll2"
+            android:id="@+id/search_ll"
             android:gravity="center"
             android:orientation="vertical"
             android:paddingTop="8dp"
@@ -110,31 +118,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll3"
-            android:gravity="center"
-            android:paddingTop="8dp"
-            android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content">
-
-            <ImageView
-                android:id="@+id/friend_tab_iv"
-                android:src="@drawable/select_mine"
-                android:layout_width="40dp"
-                android:layout_height="40dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Friends"
-                android:textColor="#333333"
-                android:textSize="18sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll4"
+            android:id="@+id/mine_ll"
             android:gravity="center"
             android:paddingTop="8dp"
             android:orientation="vertical"
