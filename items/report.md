@@ -31,10 +31,10 @@ The following is a report template to help your team successfully provide all th
 
 | UID | Name | Role |
 | :--- | :----: | ---: |
-| u7377070 | Chenwei Niu | [role] |
-| u7389455 | Zice Yan | [role] |
-| u6441152 | Xinyu Wu | [role] |
-| u6557983 | Canxuan Gang | [role] |
+| u7377070 | Chenwei Niu | Leader;Trouble_shooter |
+| u7389455 | Zice Yan | Designer |
+| u6441152 | Xinyu Wu | Doer |
+| u6557983 | Canxuan Gang | supporter |
 
 ## Summary of Individual Contributions
 
