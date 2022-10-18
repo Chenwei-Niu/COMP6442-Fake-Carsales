@@ -11,7 +11,12 @@ public class MyJsonReader {
         for (int i = 1; i < items.length;i=i+2 ){
             items[i] = items[i].replace("\"","");
         }
-        items[items.length-1] = items[items.length-1].replace("}","");
+        items[items.length-1] = items[items.length-1].replaceAll("\\}\\,\\s|\\}\\]","");
+        for(int i =0;i< items.length;i++){
+            System.out.println(items[i]);
+        }
+
+
         String information = items[1];
         String year = items[3];
         String price = items[5];
@@ -25,8 +30,6 @@ public class MyJsonReader {
         String brand = items[21];
         Car car = new Car(information,year,price,image,odometer,location,bodyStyle,transmission,engine, State.ONSALE,brand);
         System.out.println(car);
-        System.out.println(123);
-        System.out.println("来自parser的car");
         return car;
     }
 }

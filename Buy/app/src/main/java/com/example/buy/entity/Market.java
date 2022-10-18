@@ -5,7 +5,6 @@ import android.content.Context;
 
 import com.example.buy.parser.MyJsonReader;
 import com.example.buy.utils.Utils;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,7 +13,6 @@ public class Market<firstReadVolume> {
     MyJsonReader myJsonReader = new MyJsonReader();
     ArrayList<Car> cars = new ArrayList<>();
     private Context context;
-    Gson gson = new Gson();
     HashMap<String,Integer> map = new HashMap<>();
 
 
@@ -35,7 +33,7 @@ public class Market<firstReadVolume> {
 
     public void firstRetrieveCarData(){
         User user = new User("test@gmail.com","123456");
-        String jsonFileString = Utils.getJsonFromAssets(context,"car_data.json");
+        String jsonFileString = Utils.getJsonFromAssets(context,"kia.json");
         String[] lines= jsonFileString.split("\\n");
 
 

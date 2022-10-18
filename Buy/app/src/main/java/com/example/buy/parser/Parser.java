@@ -74,9 +74,9 @@ public class Parser {
     public ArrayList<Car> executeQuery(){
 
         for (int i = 0; i< Market.getMarket().getCarArray().size(); i++){
-            context.set("car",Market.getMarket().getCarArray().get(i));
             int flag = 1; // means satisfy all requirements
             for (Exp query : queryAttributes){
+                System.out.println(query.evaluate(context));
                 if (!query.evaluate(context)){
                     flag = 0;
                     break;

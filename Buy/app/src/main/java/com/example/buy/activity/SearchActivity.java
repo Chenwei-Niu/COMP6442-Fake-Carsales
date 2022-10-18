@@ -1,5 +1,6 @@
 package com.example.buy.activity;
 //Author: Chenwei Niu
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -70,11 +71,13 @@ public class SearchActivity extends MyBaseActivity implements AdapterView.OnItem
                     } else {
                         listView.requestFocus();
                         KeyBoardUtils.hideKeyBoard(SearchActivity.this);
-                        ToastUtils.showShortToast(SearchActivity.this, "Sorry! \nThere is no cars satisfying your search");
+                        ToastUtils.showShortToast(getBaseContext(), "Sorry! \nThere is no cars satisfying your search");
                     }
 
                 } catch (SearchTokenizer.IllegalTokenException e){
-                    ToastUtils.showShortToast(SearchActivity.this, "The invalid token '"+e.getMessage()+"' typed, \n Please follow the grammar");
+                    KeyBoardUtils.hideKeyBoard(SearchActivity.this);
+                    System.out.println(e.getMessage());
+                    ToastUtils.showShortToast(getBaseContext(), "The invalid token '"+e.getMessage()+"' typed, \n Please follow the grammar");
                 }
                 break;
             case R.id.search_listView:

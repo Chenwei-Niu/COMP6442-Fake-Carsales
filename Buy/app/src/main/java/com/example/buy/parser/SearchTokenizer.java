@@ -16,7 +16,7 @@ public class SearchTokenizer implements Tokenizer{
     private Token currentToken;
 
     static final char[] whiteSpaces = {' ', '\n', '\t'};
-    String[] validTokens = {"bmw","kia","mercedes-benz","ford","honda","kia","mazda","subaru",
+    String[] validTokens = {"bmw","kia","mercedes-benz","toyota","audi","kia","mazda","subaru",
     "vic","act","nsw","qld","nt","sa","wa","tas","sedan","coupe","suv","ute","peoplemover","convertible"
             ,"hatch","automatic","manual"};
     List<String> validTokensList = Arrays.asList(validTokens);
@@ -97,6 +97,7 @@ public class SearchTokenizer implements Tokenizer{
                             if (length < 19) {
                                 // the left tokens have minimum startup length of 9, which is
                                 // "transmission=manual", otherwise, this is an invalid token
+                                System.out.println(123);
                                 throw new IllegalTokenException(stringBuilder.toString()+ "2");
                             } else {
                                 if (stringBuilder.substring(0,13).equals("transmission=")) {
