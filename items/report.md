@@ -1,4 +1,4 @@
-# [Team Name] Report
+# [RickAstley] Report
 
 The following is a report template to help your team successfully provide all the details necessary for your report in a structured and organised manner. Please give a straightforward and concise report that best demonstrates your project. Note that a good report will give a better impression of your project to the reviewers.
 
@@ -31,10 +31,10 @@ The following is a report template to help your team successfully provide all th
 
 | UID | Name | Role |
 | :--- | :----: | ---: |
-| [uid] | [name] | [role] |
-| [uid] | [name] | [role] |
-| [uid] | [name] | [role] |
-| [uid] | [name] | [role] |
+| u7377070 | Chenwei Niu | [role] |
+| u7389455 | Zice Yan | [role] |
+| u6441152 | Xinyu Wu | [role] |
+| u6557983 | Canxuan Gang | [role] |
 
 ## Summary of Individual Contributions
 
