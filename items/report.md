@@ -69,11 +69,7 @@ The following is a report template to help your team successfully provide all th
 
 ## Application Description
 
-*[What is your application, what does it do? Include photos or diagrams if necessary]*
-
-*Here is a pet specific application example*
-
-*PetBook is a social media application specifically targetting pet owners... it provides... certified practitioners, such as veterians are indicated by a label next to their profile...*
+"CAR_LOCKER" is an online search application developed for used car buyers. It currently provides specific information on existing used cars in stock across Australia for 6 car brands. This app can filter vehicles that meet the criteria and list the search results by setting different attribute tags. The "search" function (tag) includes: "Brand", "model", "year", "price", "odometer", "location", "bodystyle", "transmission", "engine" and "sales status" that can be searched through the combination of the above different conditions, so that users enable to locate the appropriate vehicle more specifically
 
 **Application Use Cases and or Examples**
 
