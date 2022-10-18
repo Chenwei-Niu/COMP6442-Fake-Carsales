@@ -105,7 +105,8 @@ The following is a report template to help your team successfully provide all th
 
 ## Application UML
 
-![uml](./images/uml.jpg) <br>
+![uml_1](./images/uml_1.PNG) <br>
+![uml_2](./images/uml_2.PNG) <br>
 *[Replace the above with a class diagram. You can look at how we have linked an image here as an example of how you can do it too.]*
 
 ## Application Design and Decisions
