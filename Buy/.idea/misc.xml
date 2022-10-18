@@ -1,7 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/ic_car.xml" value="0.3921875" />
+        <entry key="app/src/main/res/drawable/ic_cart.xml" value="0.3921875" />
+        <entry key="app/src/main/res/drawable/ic_computer.xml" value="0.3921875" />
+        <entry key="app/src/main/res/drawable/ic_fristhome.xml" value="0.253125" />
+        <entry key="app/src/main/res/drawable/ic_manclose.xml" value="0.3921875" />
+        <entry key="app/src/main/res/drawable/ic_men.xml" value="0.3921875" />
+        <entry key="app/src/main/res/drawable/ic_mine.xml" value="0.3921875" />
+        <entry key="app/src/main/res/drawable/ic_my.xml" value="0.3921875" />
+        <entry key="app/src/main/res/drawable/select_group.xml" value="0.3921875" />
+        <entry key="app/src/main/res/drawable/select_home.xml" value="0.3921875" />
+        <entry key="app/src/main/res/drawable/select_medicine.xml" value="0.3415384615384615" />
+        <entry key="app/src/main/res/drawable/select_mine.xml" value="0.3921875" />
+        <entry key="app/src/main/res/drawable/select_search.xml" value="0.253125" />
+        <entry key="app/src/main/res/drawable/select_sleep.xml" value="0.3415384615384615" />
+        <entry key="app/src/main/res/drawable/shape.xml" value="0.3861538461538462" />
+        <entry key="app/src/main/res/layout/activity_botany_info.xml" value="0.1308876811594203" />
+        <entry key="app/src/main/res/layout/activity_create_botany.xml" value="0.18931159420289856" />
+        <entry key="app/src/main/res/layout/activity_create_group.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_create_health.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_create_sleep.xml" value="0.3138586956521739" />
+        <entry key="app/src/main/res/layout/activity_create_sleep_alarm.xml" value="0.3138586956521739" />
+        <entry key="app/src/main/res/layout/activity_create_take_medicine.xml" value="0.3138586956521739" />
+        <entry key="app/src/main/res/layout/activity_create_take_medicine_alarm.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_create_traffice.xml" value="0.24728260869565216" />
+        <entry key="app/src/main/res/layout/activity_edit_member.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_edit_traffic.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_good__info_.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/activity_good_info.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/activity_group.xml" value="0.3500905797101449" />
+        <entry key="app/src/main/res/layout/activity_group_info.xml" value="0.3500905797101449" />
+        <entry key="app/src/main/res/layout/activity_health_info.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_message_board.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/activity_message_box.xml" value="0.16802536231884058" />
+        <entry key="app/src/main/res/layout/activity_order__info__list_.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/activity_order_info.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_take_medicine_info.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_traffic_info.xml" value="0.246875" />
+        <entry key="app/src/main/res/layout/activity_user_info.xml" value="0.2164855072463768" />
+        <entry key="app/src/main/res/layout/cart.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/cart_list.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/comment_item.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_group.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_health.xml" value="0.16084093211752787" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3546195652173913" />
+        <entry key="app/src/main/res/layout/fragment_medicine.xml" value="0.3138586956521739" />
+        <entry key="app/src/main/res/layout/fragment_mine.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/fragment_sleep.xml" value="0.16084093211752787" />
+        <entry key="app/src/main/res/layout/fragment_take_medicine.xml" value="0.3138586956521739" />
+        <entry key="app/src/main/res/layout/fragment_traffic.xml" value="0.36820652173913043" />
+        <entry key="app/src/main/res/layout/good_type_view.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/goods_list.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/group_item.xml" value="0.3500905797101449" />
+        <entry key="app/src/main/res/layout/health_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/home.xml" value="0.16802536231884058" />
+        <entry key="app/src/main/res/layout/order_list.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/person.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/search_item.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/sleep_item.xml" value="0.3138586956521739" />
+        <entry key="app/src/main/res/layout/take_medicine_item.xml" value="0.3138586956521739" />
+        <entry key="app/src/main/res/layout/traffic_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/type.xml" value="0.37604166666666666" />
+        <entry key="app/src/main/res/layout/user_item.xml" value="0.375" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android API 33, extension level 3 Platform" project-jdk-type="Android SDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

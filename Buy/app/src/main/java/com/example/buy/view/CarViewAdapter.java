@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.buy.R;
-import com.example.buy.sqlite.DAOService;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -74,19 +72,6 @@ public class CarViewAdapter extends ArrayAdapter<CarView> {
 
         TextView textView7 = currentItemView.findViewById(R.id.car_location);
         textView7.setText(currentNumberPosition.getCarLocation());
-        Button buttonFollow=currentItemView.findViewById(R.id.button_follow);
-        buttonFollow.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                DAOService.getInstance().getUser().follow(currentNumberPosition.getCar());
-            }
-        });
-        Button buttonRemove=currentItemView.findViewById(R.id.button_remove);
-        buttonRemove.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                currentNumberPosition.getCar().notifyUsers();
-                System.out.println(currentNumberPosition.getCar().favoriteUsers);
-            }
-        });
 
         // then return the recyclable view
         return currentItemView;

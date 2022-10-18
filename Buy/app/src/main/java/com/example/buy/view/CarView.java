@@ -1,5 +1,5 @@
 package com.example.buy.view;
-//Author: Chenwei Niu Canxuan Gang 
+//Author: Chenwei Niu
 import com.example.buy.entity.Car;
 
 public class CarView {
