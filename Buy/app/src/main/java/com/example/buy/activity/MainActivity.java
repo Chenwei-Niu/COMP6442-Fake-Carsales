@@ -22,6 +22,7 @@ import com.example.buy.fragment.FriendFragment;
 import com.example.buy.fragment.MineFragment;
 import com.example.buy.entity.User;
 import com.example.buy.fragment.SearchFragment;
+import com.example.buy.sqlite.DAOService;
 import com.example.buy.view.CarView;
 import com.example.buy.view.CarViewAdapter;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -38,8 +39,6 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference();
     User user;
-    ListView listView;
-    ArrayList<CarView> carViewArrayList = new ArrayList<>();
 
     private BuyFragment buyFragment;
     private SearchFragment searchFragment;
@@ -69,7 +68,7 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
         findViewById(R.id.ll4).setOnClickListener(this);
         defaultClick();//set default
 
-        user = (User) getIntent().getExtras().getSerializable("user");
+        user = DAOService.getInstance().getUser();
 //        myRef.child("cars").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
 //            @Override
 //            public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -96,21 +95,6 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
 //                }
 //            }
 //        });
-        listView = findViewById(R.id.main_listView);
-        if (Market.getMarket().getCarArray() != null){
-            System.out.println(Market.getMarket().getCarArray());
-            for (int i=0;i<Market.getMarket().getCarArray().size();i++){
-
-                CarView carView = new CarView((Car) Market.getMarket().getCarArray().get(i));
-                carViewArrayList.add(carView);
-            }
-
-            // create the instance of the CarViewAdapter and pass the carArray into it
-            CarViewAdapter carViewAdapter = new CarViewAdapter(this,carViewArrayList);
-
-            // get the instance of the listView in this activity, and set the Adapter for listview
-            listView.setAdapter(carViewAdapter);
-        }
 
     }
 
@@ -122,9 +106,6 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
                 break;
             case R.id.ll2:
                 selectFragment(1);
-                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-                intent.putExtra("user",user);
-                startActivity(intent);
                 break;
             case R.id.ll3:
                 selectFragment(2);

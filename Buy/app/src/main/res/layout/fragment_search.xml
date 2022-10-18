@@ -1,30 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="#DCDCDC"
+    android:orientation="vertical"
+    tools:context="com.example.buy.activity.MainActivity">
 
-
-    <EditText
-        android:id="@+id/et"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="50dp"
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:id="@+id/fl"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:paddingHorizontal="20dp"
-        android:maxLines="1"
-        android:inputType="text"
-        android:drawableRight="@mipmap/ic_search"
-        android:imeOptions="actionSearch"
-        android:background="@drawable/shape"
-        android:gravity="left|center"
-        android:hint="input goods name to search"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#DCDCDC"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:layout_toLeftOf="@+id/search_button"
+                android:id="@+id/search_bar"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="10dp"
+                android:hint="Search ..."
+                android:visibility="visible"
+                />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginHorizontal="12dp"
-        android:id="@+id/recycle_view"
+            <Button
+                android:layout_alignParentRight="true"
+                android:id="@id/search_button"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:background="#338DFF"
+                android:text="Search"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:clickable="true"
+                android:visibility="visible"/>
+
+        </RelativeLayout>
+        <ListView
+            android:id="@+id/search_listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            />
+
+
+
+
+    </LinearLayout>
+
+
+
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp" />
-
+        android:layout_height="0.8dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="#ECECEC" />
 </LinearLayout>

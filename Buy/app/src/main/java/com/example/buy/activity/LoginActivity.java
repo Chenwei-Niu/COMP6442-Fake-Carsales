@@ -47,9 +47,6 @@ public class LoginActivity extends MyBaseActivity implements View.OnClickListene
                 ToastUtils.showShortToast(LoginActivity.this, success ? "Login succeeded" : "Wrong account or password");
                 if (success) {
                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    User user = new User(usernameStr,passwordStr);
-                    System.out.println(user);
-                    intent.putExtra("user",user);
                     startActivity(intent);
                 }
 
