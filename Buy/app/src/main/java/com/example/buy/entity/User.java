@@ -27,6 +27,10 @@ public class User extends LitePalSupport implements Serializable {
      * Split with '-'
      */
     private String friendRelations = "";
+    /**
+     * 头像在手机里的存储地址
+     */
+    private String picUrl = "";
 
     public List<String> getFriUserIdList(){
         List<String> result = new ArrayList<>();
@@ -138,6 +142,14 @@ public class User extends LitePalSupport implements Serializable {
         this.onSaleCars = onSaleCars;
     }
 
+    public String getPicUrl() {
+        return picUrl;
+    }
+
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -147,6 +159,10 @@ public class User extends LitePalSupport implements Serializable {
                 ", name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
                 ", phone='" + phone + '\'' +
+                ", onSaleCars=" + onSaleCars +
+                ", favoriteCars=" + favoriteCars +
+                ", friendRelations='" + friendRelations + '\'' +
+                ", picUrl='" + picUrl + '\'' +
                 '}';
     }
 }

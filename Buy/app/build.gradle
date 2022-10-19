@@ -51,4 +51,6 @@ dependencies {
 
     // Required -- JUnit 4 framework
     testImplementation "junit:junit:4.13"
+
+    implementation 'com.github.wildma:PictureSelector:2.1.0'
 }
