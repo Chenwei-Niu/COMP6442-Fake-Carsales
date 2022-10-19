@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.RegisterActivity"
-    android:background="@mipmap/timge"
     android:paddingTop="40dp"
     android:orientation="vertical">
 
@@ -22,7 +21,7 @@
             android:layout_height="50dp"
             android:background="@drawable/shape"
             android:gravity="center"
-            android:hint="input email"/>
+            android:hint="Email"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -40,7 +39,7 @@
             android:background="@drawable/shape"
             android:gravity="center"
             android:inputType="textPassword"
-            android:hint="input password"/>
+            android:hint="Password"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
@@ -61,7 +60,7 @@
                 android:layout_height="50dp"
                 android:background="@drawable/shape"
                 android:gravity="center"
-                android:hint="input your name"/>
+                android:hint="Your Name"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <RadioGroup
@@ -105,7 +104,7 @@
             android:background="@drawable/shape"
             android:gravity="center"
             android:inputType="number"
-            android:hint="input phone number"/>
+            android:hint="Phone Number"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

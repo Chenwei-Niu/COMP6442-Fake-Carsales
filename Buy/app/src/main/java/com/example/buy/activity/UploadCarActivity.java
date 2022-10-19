@@ -1,5 +1,6 @@
 package com.example.buy.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.URLUtil;
@@ -9,6 +10,8 @@ import android.widget.Spinner;
 
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.buy.R;
 import com.example.buy.entity.Car;
@@ -160,16 +163,15 @@ public class UploadCarActivity extends MyBaseActivity{
         String engine = carEngine.getText().toString();
         State state = State.ONSALE;
         String brand = carBrand.getSelectedItem().toString();
+
         Car car = new Car(information,year,price,image,odometer,location,bodyStyle,transmission,engine,state,brand);
         car.setUser(sqLiteDAO.getUser());
-
-
-
+        sqLiteDAO.getUser().getOnSaleCars().add(car);
+        System.out.println(sqLiteDAO.getUser().getOnSaleCars());
         Market.getMarket().addOneCar(car);
 
+        setResult(Activity.RESULT_OK);
         finish();
-
-
     }
 
 

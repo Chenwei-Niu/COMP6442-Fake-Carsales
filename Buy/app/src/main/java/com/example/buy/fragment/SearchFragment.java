@@ -39,9 +39,9 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
     private SearchTokenizer tokenizer;
     private User user;
     private ArrayList<Car> searchResultList = new ArrayList<>();
-    ArrayList<CarView> carViewArrayList = new ArrayList<>();
+    private ArrayList<CarView> carViewArrayList = new ArrayList<>();
     private ListView listView;
-    FragmentTransaction fragmentTransaction;
+    private FragmentTransaction fragmentTransaction;
     private Spinner priceSpinner = null;
     private String prePriceSpinnerContent = "Default";
     private SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();

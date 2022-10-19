@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/img_2"
     android:orientation="vertical">
 
     <TextView
@@ -14,8 +13,8 @@
         android:layout_marginBottom="50dp"
         android:gravity="center"
         android:padding="20dp"
-        android:text="Login"
-        android:textColor="#FF5722"
+        android:text="LOGIN REAL CARSALES"
+        android:textColor="#000"
         android:textSize="30dp" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -31,7 +30,7 @@
             android:layout_height="50dp"
             android:background="@drawable/shape"
             android:gravity="center"
-            android:hint="input your email"/>
+            android:hint="Input your Email"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -48,7 +47,7 @@
             android:layout_height="50dp"
             android:background="@drawable/shape"
             android:gravity="center"
-            android:hint="input your password"
+            android:hint="          Input Your Password"
             android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>

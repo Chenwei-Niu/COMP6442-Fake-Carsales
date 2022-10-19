@@ -26,11 +26,11 @@ import java.util.ArrayList;
 import java.util.Objects;
 //Author Canxuan Gang and Chenwei Niu
 public class FollowFragment extends Fragment {
-    ListView listView;
-    ArrayList<CarView> carViewArrayList = new ArrayList<>();
-    FragmentTransaction fragmentTransaction;
-    TextView noFollowBanner;
-    SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
+    private ListView listView;
+    private ArrayList<CarView> carViewArrayList = new ArrayList<>();
+    private FragmentTransaction fragmentTransaction;
+    private TextView noFollowBanner;
+    private SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

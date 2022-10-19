@@ -29,11 +29,11 @@ import java.util.Objects;
 
 public class BuyFragment extends Fragment {
 
-    CarViewAdapter carViewAdapter;
-    FragmentTransaction fragmentTransaction;
-    ListView listView;
-    ArrayList<CarView> carViewArrayList;
-    SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
+    private CarViewAdapter carViewAdapter;
+    private FragmentTransaction fragmentTransaction;
+    private ListView listView;
+    private ArrayList<CarView> carViewArrayList;
+    private SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -3,9 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingHorizontal="12dp"
-    android:background="@mipmap/timge"
-    android:paddingTop="50dp">
+    android:paddingHorizontal="0dp"
+    android:paddingTop="50dp"
+    android:tag="mine">
 
 
     <TextView

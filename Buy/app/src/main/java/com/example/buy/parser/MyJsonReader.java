@@ -26,7 +26,6 @@ public class MyJsonReader {
         String state = items[19];
         String brand = items[21];
         Car car = new Car(information,year,price,image,odometer,location,bodyStyle,transmission,engine, State.ONSALE,brand);
-        System.out.println(car);
         return car;
     }
 }

@@ -26,9 +26,9 @@ import java.util.List;
 
 public class FriendFragment extends Fragment {
 
-    FriendsAdapter botanyAdapter;
-    TextView emptyTv;
-    SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
+    private FriendsAdapter botanyAdapter;
+    private TextView emptyTv;
+    private SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

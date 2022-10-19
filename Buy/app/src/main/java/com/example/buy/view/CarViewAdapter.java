@@ -12,11 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.buy.R;
+import com.example.buy.fragment.ListenerFragment;
+import com.example.buy.fragment.MineFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 public class CarViewAdapter extends ArrayAdapter<CarView> {
+    ListenerFragment listenerFragment;
+    public CarViewAdapter(@NonNull Context context, ArrayList<CarView> arrayList, ListenerFragment listenerFragment){
+        super(context,0,arrayList);
+        this.listenerFragment = listenerFragment;
+    }
 
     public CarViewAdapter(@NonNull Context context, ArrayList<CarView> arrayList){
         super(context,0,arrayList);
@@ -50,6 +57,12 @@ public class CarViewAdapter extends ArrayAdapter<CarView> {
 
         ImageView likeImage = currentItemView.findViewById(R.id.like_image);
         likeImage.setImageResource(currentNumberPosition.getLikeImage());
+        likeImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listenerFragment.dealWithEvent(position);
+            }
+        });
 
         TextView textView1 = currentItemView.findViewById(R.id.car_information);
         textView1.setText(currentNumberPosition.getCarInformation());

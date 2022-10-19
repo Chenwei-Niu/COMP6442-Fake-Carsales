@@ -126,4 +126,12 @@ public class Market<firstReadVolume> implements Runnable{
             map.get(car.brand).insert(car);
         }
     }
+
+    public void removeCar(Car car){
+        cars.remove(car);
+        // remove from corresponding avlTree
+        if(map.get(car.brand)!=null){
+            map.get(car.brand).remove(car);
+        }
+    }
 }
