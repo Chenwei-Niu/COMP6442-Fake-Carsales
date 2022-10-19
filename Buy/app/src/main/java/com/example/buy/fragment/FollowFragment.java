@@ -25,7 +25,7 @@ import com.example.buy.view.CarViewAdapter;
 import java.util.ArrayList;
 import java.util.Objects;
 //Author Canxuan Gang and Chenwei Niu
-public class FollowFragment extends Fragment {
+public class FollowFragment extends Fragment implements ListenerFragment{
     private ListView listView;
     private ArrayList<CarView> carViewArrayList = new ArrayList<>();
     private FragmentTransaction fragmentTransaction;
@@ -61,26 +61,26 @@ public class FollowFragment extends Fragment {
             }
 
             // create the instance of the CarViewAdapter and pass the carArray into it
-            CarViewAdapter carViewAdapter = new CarViewAdapter(Objects.requireNonNull(getActivity()),carViewArrayList);
+            CarViewAdapter carViewAdapter = new CarViewAdapter(Objects.requireNonNull(getActivity()),carViewArrayList,this);
 
             // get the instance of the listView in this activity, and set the Adapter for listview
 
             listView.setAdapter(carViewAdapter);
 
-            // setOnClickListener
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                    Car car = carViewAdapter.getItem(position).getCar();
-                    car.favoriteUsers.remove(user);
-                    user.getFavoriteCars().remove(car);
-
-
-                    // Jump to the message conversation page
-                    refreshFragment();
-                }
-
-            });
+            // below code are commented since this setOnItemClickListener on the listView item, which is wrong
+//            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                @Override
+//                public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+//                    Car car = carViewAdapter.getItem(position).getCar();
+//                    car.favoriteUsers.remove(user);
+//                    user.getFavoriteCars().remove(car);
+//
+//
+//                    // Jump to the message conversation page
+//                    refreshFragment();
+//                }
+//
+//            });
 
 
         }
@@ -92,5 +92,16 @@ public class FollowFragment extends Fragment {
             fragmentTransaction.setReorderingAllowed(false);
         }
         fragmentTransaction.detach(this).attach(this).commit();
+    }
+
+    @Override
+    public void dealWithEvent(int position) {
+        User user = sqLiteDAO.getUser();
+        Car car = carViewArrayList.get(position).getCar();
+        car.favoriteUsers.remove(user);
+        user.getFavoriteCars().remove(car);
+
+        // Jump to the message conversation page
+        refreshFragment();
     }
 }

@@ -32,7 +32,7 @@ import java.util.Comparator;
 import java.util.Objects;
 
 
-public class SearchFragment extends Fragment implements View.OnClickListener {
+public class SearchFragment extends Fragment implements View.OnClickListener, ListenerFragment{
 
     private EditText searchBar;
     private Parser parser;
@@ -64,7 +64,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         view.findViewById(R.id.search_button).setOnClickListener(this);
 
         // create the instance of the CarViewAdapter and pass the carArray into it
-        CarViewAdapter carViewAdapter = new CarViewAdapter(Objects.requireNonNull(getActivity()), carViewArrayList);
+        CarViewAdapter carViewAdapter = new CarViewAdapter(Objects.requireNonNull(getActivity()), carViewArrayList,this);
 
         // get the instance of the listView in this activity, and set the Adapter for listview
         listView.setAdapter(carViewAdapter);
@@ -76,33 +76,35 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
             }
         }
 
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Car car = carViewAdapter.getItem(position).getCar();
-                if(!car.favoriteUsers.contains(user) && !user.getFavoriteCars().contains(car)){
-                    // check whether this car is uploaded by the current user
-                    // User are only allowed to follow cars uploaded by others
-                    System.out.println(user.getOnSaleCars());
-                    if (user.getOnSaleCars().contains(car)){
-                        ToastUtils.showShortToast(getContext(),"You are not allow to follow your on sale car");
-                        return;
-                    }
-                    car.favoriteUsers.add(user);
-                    carViewArrayList.get(position).setLikeImage(R.drawable.red_heart);
-                    user.getFavoriteCars().add(car);
-                } else {
-                    car.favoriteUsers.remove(user);
-                    carViewArrayList.get(position).setLikeImage(R.drawable.black_hollow_heart);
-                    user.getFavoriteCars().remove(car);
-                }
+//        below code are commented since this setOnItemClickListener on the listView item, which is wrong
 
 
-                // Jump to the message conversation page
-                refreshFragment(view);
-            }
-        });
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+//                Car car = carViewAdapter.getItem(position).getCar();
+//                if(!car.favoriteUsers.contains(user) && !user.getFavoriteCars().contains(car)){
+//                    // check whether this car is uploaded by the current user
+//                    // User are only allowed to follow cars uploaded by others
+//                    System.out.println(user.getOnSaleCars());
+//                    if (user.getOnSaleCars().contains(car)){
+//                        ToastUtils.showShortToast(getContext(),"You are not allow to follow your on sale car");
+//                        return;
+//                    }
+//                    car.favoriteUsers.add(user);
+//                    carViewArrayList.get(position).setLikeImage(R.drawable.red_heart);
+//                    user.getFavoriteCars().add(car);
+//                } else {
+//                    car.favoriteUsers.remove(user);
+//                    carViewArrayList.get(position).setLikeImage(R.drawable.black_hollow_heart);
+//                    user.getFavoriteCars().remove(car);
+//                }
+//
+//
+//                // Jump to the message conversation page
+//                refreshFragment();
+//            }
+//        });
 
         priceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -124,7 +126,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                         }
                     });
                     prePriceSpinnerContent = content;
-                    refreshFragment(view);
+                    refreshFragment();
                 } else if (content.equals("High To Low") && !prePriceSpinnerContent.equals("High To Low") && !carViewArrayList.isEmpty()){
                     ToastUtils.showShortToast(getContext(),"Your are sorting search result\n by "+ content);
                     carViewArrayList.sort(new Comparator<CarView>() {
@@ -140,7 +142,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                         }
                     });
                     prePriceSpinnerContent = content;
-                    refreshFragment(view);
+                    refreshFragment();
                 } else {
                     priceSpinner.setSelection(0);
                     return;
@@ -177,7 +179,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                             carViewArrayList.add(carView);
                         }
 
-                        refreshFragment(view);
+                        refreshFragment();
                     } else {
                         listView.requestFocus();
                         KeyBoardUtils.hideKeyBoard(Objects.requireNonNull(getActivity()));
@@ -204,12 +206,37 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 //        Car car =  ( (CarView) listView.getItemAtPosition(position)).getCar();
 //
 //    }
-    public void refreshFragment(View view){
+    public void refreshFragment(){
         fragmentTransaction = getFragmentManager().beginTransaction();
         if (Build.VERSION.SDK_INT>=26){
             fragmentTransaction.setReorderingAllowed(false);
         }
         fragmentTransaction.detach(this).attach(this).commit();
 
+    }
+
+    @Override
+    public void dealWithEvent(int position) {
+        Car car = carViewArrayList.get(position).getCar();
+        if(!car.favoriteUsers.contains(user) && !user.getFavoriteCars().contains(car)){
+            // check whether this car is uploaded by the current user
+            // User are only allowed to follow cars uploaded by others
+            System.out.println(user.getOnSaleCars());
+            if (user.getOnSaleCars().contains(car)){
+                ToastUtils.showShortToast(getContext(),"You are not allow to follow your on sale car");
+                return;
+            }
+            car.favoriteUsers.add(user);
+            carViewArrayList.get(position).setLikeImage(R.drawable.red_heart);
+            user.getFavoriteCars().add(car);
+        } else {
+            car.favoriteUsers.remove(user);
+            carViewArrayList.get(position).setLikeImage(R.drawable.black_hollow_heart);
+            user.getFavoriteCars().remove(car);
+        }
+
+
+        // Jump to the message conversation page
+        refreshFragment();
     }
 }

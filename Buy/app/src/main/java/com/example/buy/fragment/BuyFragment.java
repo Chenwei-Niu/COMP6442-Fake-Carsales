@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 
-public class BuyFragment extends Fragment {
+public class BuyFragment extends Fragment implements ListenerFragment{
 
     private CarViewAdapter carViewAdapter;
     private FragmentTransaction fragmentTransaction;
@@ -60,38 +60,38 @@ public class BuyFragment extends Fragment {
             }
 
             // create the instance of the CarViewAdapter and pass the carArray into it
-            CarViewAdapter carViewAdapter = new CarViewAdapter(Objects.requireNonNull(getActivity()),carViewArrayList);
+            CarViewAdapter carViewAdapter = new CarViewAdapter(Objects.requireNonNull(getActivity()),carViewArrayList,this);
 
             // get the instance of the listView in this activity, and set the Adapter for listview
             listView.setAdapter(carViewAdapter);
 
-            // setOnClickListener
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                    Car car = carViewAdapter.getItem(position).getCar();
-                    if(!car.favoriteUsers.contains(user) && !user.getFavoriteCars().contains(car)){
-
-                        // check whether this car is uploaded by the current user
-                        // User are only allowed to follow cars uploaded by others
-                        if (user.getOnSaleCars().contains(car)){
-                            ToastUtils.showShortToast(getContext(),"You are not allow to follow your on sale car");
-                            return;
-                        }
-                        car.favoriteUsers.add(user);
-                        user.getFavoriteCars().add(car);
-
-                    } else {
-                        car.favoriteUsers.remove(user);
-                        user.getFavoriteCars().remove(car);
-                    }
-
-
-                    // Jump to the message conversation page
-                    refreshFragment();
-                }
-
-            });
+//            // setOnClickListener
+//            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                @Override
+//                public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+//                    Car car = carViewAdapter.getItem(position).getCar();
+//                    if(!car.favoriteUsers.contains(user) && !user.getFavoriteCars().contains(car)){
+//
+//                        // check whether this car is uploaded by the current user
+//                        // User are only allowed to follow cars uploaded by others
+//                        if (user.getOnSaleCars().contains(car)){
+//                            ToastUtils.showShortToast(getContext(),"You are not allow to follow your on sale car");
+//                            return;
+//                        }
+//                        car.favoriteUsers.add(user);
+//                        user.getFavoriteCars().add(car);
+//
+//                    } else {
+//                        car.favoriteUsers.remove(user);
+//                        user.getFavoriteCars().remove(car);
+//                    }
+//
+//
+//                    // Jump to the message conversation page
+//                    refreshFragment();
+//                }
+//
+//            });
 
 
         }
@@ -103,5 +103,30 @@ public class BuyFragment extends Fragment {
             fragmentTransaction.setReorderingAllowed(false);
         }
         fragmentTransaction.detach(this).attach(this).commit();
+    }
+
+    @Override
+    public void dealWithEvent(int position) {
+        User user = sqLiteDAO.getUser();
+        Car car = carViewArrayList.get(position).getCar();
+        if(!car.favoriteUsers.contains(user) && !user.getFavoriteCars().contains(car)){
+
+            // check whether this car is uploaded by the current user
+            // User are only allowed to follow cars uploaded by others
+            if (user.getOnSaleCars().contains(car)){
+                ToastUtils.showShortToast(getContext(),"You are not allow to follow your on sale car");
+                return;
+            }
+            car.favoriteUsers.add(user);
+            user.getFavoriteCars().add(car);
+
+        } else {
+            car.favoriteUsers.remove(user);
+            user.getFavoriteCars().remove(car);
+        }
+
+
+        // Jump to the message conversation page
+        refreshFragment();
     }
 }
