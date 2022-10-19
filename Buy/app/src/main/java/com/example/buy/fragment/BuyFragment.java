@@ -75,8 +75,16 @@ public class BuyFragment extends Fragment {
                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                     Car car = carViewAdapter.getItem(position).getCar();
                     if(!car.favoriteUsers.contains(user)){
+                        System.out.println("执行到1");
                         car.favoriteUsers.add(user);
+                        System.out.println("执行到2");
                         user.getFavoriteCars().add(car);
+                        System.out.println("执行到3");
+//                        try {
+//                            Thread.sleep(10000);
+//                        } catch (InterruptedException e) {
+//                            e.printStackTrace();
+//                        }
                     } else {
                         car.favoriteUsers.remove(user);
                         user.getFavoriteCars().remove(car);

@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -28,10 +29,11 @@ import com.example.buy.view.CarView;
 import com.example.buy.view.CarViewAdapter;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Objects;
 
 
-public class SearchFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
+public class SearchFragment extends Fragment implements View.OnClickListener {
 
     private EditText searchBar;
     private Parser parser;
@@ -41,6 +43,8 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
     ArrayList<CarView> carViewArrayList = new ArrayList<>();
     private ListView listView;
     FragmentTransaction fragmentTransaction;
+    private Spinner priceSpinner = null;
+    private String prePriceSpinnerContent = "Default";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,8 +58,11 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
         listView = view.findViewById(R.id.search_listView);
         searchBar = view.findViewById(R.id.search_bar);
         user = DAOService.getInstance().getUser();
+        priceSpinner = view.findViewById(R.id.price_spinner); // get the price spinner
+
+        // set on listeners
         view.findViewById(R.id.search_button).setOnClickListener(this);
-        listView.setOnItemClickListener(this);
+
         // create the instance of the CarViewAdapter and pass the carArray into it
         CarViewAdapter carViewAdapter = new CarViewAdapter(Objects.requireNonNull(getActivity()), carViewArrayList);
 
@@ -89,7 +96,58 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
                 refreshFragment(view);
             }
         });
+
+        priceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                String content = adapterView.getItemAtPosition(position).toString();
+
+                if (content.equals("Low To High") && !prePriceSpinnerContent.equals("Low To High")){
+                    ToastUtils.showShortToast(getContext(),"Your are sorting search result\n by "+ content);
+                    carViewArrayList.sort(new Comparator<CarView>() {
+                        @Override
+                        public int compare(CarView carView1, CarView carView2) {
+                            if(carView1.getCarPrice()<carView2.getCarPrice()){
+                                return -1;
+                            } else if (carView1.getCarPrice()>carView2.getCarPrice()){
+                                return 1;
+                            } else {
+                                return 0;
+                            }
+                        }
+                    });
+                    prePriceSpinnerContent = content;
+                    refreshFragment(view);
+                } else if (content.equals("High To Low") && !prePriceSpinnerContent.equals("High To Low")){
+                    ToastUtils.showShortToast(getContext(),"Your are sorting search result\n by "+ content);
+                    carViewArrayList.sort(new Comparator<CarView>() {
+                        @Override
+                        public int compare(CarView carView1, CarView carView2) {
+                            if(carView1.getCarPrice()<carView2.getCarPrice()){
+                                return 1;
+                            } else if (carView1.getCarPrice()>carView2.getCarPrice()){
+                                return -1;
+                            } else {
+                                return 0;
+                            }
+                        }
+                    });
+                    prePriceSpinnerContent = content;
+                    refreshFragment(view);
+                } else {
+                    return;
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                return;
+            }
+        });
     }
+
 
     @Override
     public void onClick(View view) {
@@ -162,12 +220,12 @@ public class SearchFragment extends Fragment implements AdapterView.OnItemClickL
 
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-        KeyBoardUtils.hideKeyBoard(Objects.requireNonNull(getActivity()));
-        Car car =  ( (CarView) listView.getItemAtPosition(position)).getCar();
-
-    }
+//    @Override
+//    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+//        KeyBoardUtils.hideKeyBoard(Objects.requireNonNull(getActivity()));
+//        Car car =  ( (CarView) listView.getItemAtPosition(position)).getCar();
+//
+//    }
     public void refreshFragment(View view){
         fragmentTransaction = getFragmentManager().beginTransaction();
         if (Build.VERSION.SDK_INT>=26){

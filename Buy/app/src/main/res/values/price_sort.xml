@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="priceSort">
+        <item>Default</item>
+        <item>Low To High</item>
+        <item>High To Low</item>
+    </string-array>
+</resources>
