@@ -1,5 +1,6 @@
 package com.example.buy.utils;
 //Author: Chenwei Niu
+
 import android.app.Activity;
 import android.content.Context;
 import android.view.inputmethod.InputMethodManager;
@@ -12,4 +13,5 @@ public class KeyBoardUtils {
         // hide the keyboard
         inputMethodManager.hideSoftInputFromWindow(context.getWindow().getDecorView().getWindowToken(),0);
     }
+
 }

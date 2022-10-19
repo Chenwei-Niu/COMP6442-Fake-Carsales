@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="upload_brand">
+        <item>Null</item>
+        <item>BMW</item>
+        <item>Audi</item>
+        <item>Mercedes-Benz</item>
+        <item>Toyota</item>
+        <item>Kia</item>
+        <item>Subaru</item>
+        <item>Mazda</item>
+    </string-array>
+</resources>

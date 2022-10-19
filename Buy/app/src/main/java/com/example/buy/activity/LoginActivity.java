@@ -7,8 +7,8 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.example.buy.R;
-import com.example.buy.entity.User;
-import com.example.buy.sqlite.DAOService;
+import com.example.buy.sqlite.SQLiteDAO;
+import com.example.buy.sqlite.SQLiteDAOImpl;
 import com.example.buy.utils.ToastUtils;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -18,6 +18,7 @@ import java.util.Objects;
 public class LoginActivity extends MyBaseActivity implements View.OnClickListener {
     private TextInputLayout nameTIL;
     private TextInputLayout passTIL;
+    private SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public class LoginActivity extends MyBaseActivity implements View.OnClickListene
                     ToastUtils.showShortToast(LoginActivity.this, "Account or password cannot be empty");
                     return;
                 }
-                boolean success = DAOService.getInstance().login(usernameStr,
+                boolean success = sqLiteDAO.login(usernameStr,
                         passwordStr);
                 ToastUtils.showShortToast(LoginActivity.this, success ? "Login succeeded" : "Wrong account or password");
                 if (success) {

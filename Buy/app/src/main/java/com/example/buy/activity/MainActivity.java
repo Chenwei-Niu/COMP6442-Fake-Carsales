@@ -1,45 +1,33 @@
 package com.example.buy.activity;
 //Author: ZiceYan, Chenwei Niu
 
-import android.content.Intent;
-
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
-import android.widget.ListView;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.buy.R;
 import com.example.buy.entity.Car;
 import com.example.buy.fragment.BuyFragment;
-import com.example.buy.entity.Market;
 import com.example.buy.entity.State;
 import com.example.buy.fragment.FollowFragment;
 import com.example.buy.fragment.FriendFragment;
 import com.example.buy.fragment.MineFragment;
 import com.example.buy.entity.User;
 import com.example.buy.fragment.SearchFragment;
-import com.example.buy.sqlite.DAOService;
-import com.example.buy.view.CarView;
-import com.example.buy.view.CarViewAdapter;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
+import com.example.buy.sqlite.SQLiteDAO;
+import com.example.buy.sqlite.SQLiteDAOImpl;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.ArrayList;
 
 public class MainActivity extends MyBaseActivity implements OnClickListener {
 
     FragmentManager fragmentManager;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference();
     User user;
+    private SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
 
     private BuyFragment buyFragment;
     private SearchFragment searchFragment;
@@ -73,7 +61,7 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
         findViewById(R.id.ll5).setOnClickListener(this);
         defaultClick();//set default
 
-        user = DAOService.getInstance().getUser();
+        user = sqLiteDAO.getUser();
 //        myRef.child("cars").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
 //            @Override
 //            public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -186,9 +174,4 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
         selectFragment(0);
     }
 
-    public void writeNewCar(int id, String information,int year ,int price, String image, int odometer, String location, String bodyStyle, String transmission, String engine, State state, String brand){
-        User user = (User) getIntent().getExtras().getSerializable("user");
-        Car car = new Car(id,information, year,price, image, odometer, location, bodyStyle, transmission, engine, state, brand,user);
-        myRef.child("cars").child(String.valueOf(id)).setValue(car);
-    }
 }

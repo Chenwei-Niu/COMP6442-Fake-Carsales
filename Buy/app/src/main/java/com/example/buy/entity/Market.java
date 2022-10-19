@@ -117,4 +117,13 @@ public class Market<firstReadVolume> implements Runnable{
         thread = new Thread(this, "simulateAddingNewCars");
         thread.start();
     }
+
+    public void addOneCar(Car car){
+        car.setId(currentCount++);
+        cars.add(car);
+        // insert to corresponding avlTree
+        if(map.get(car.brand)!=null){
+            map.get(car.brand).insert(car);
+        }
+    }
 }

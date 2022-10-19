@@ -18,7 +18,7 @@ public class SearchTokenizer implements Tokenizer{
     static final char[] whiteSpaces = {' ', '\n', '\t'};
     String[] validTokens = {"bmw","kia","mercedes-benz","toyota","audi","kia","mazda","subaru",
     "vic","act","nsw","qld","nt","sa","wa","tas","sedan","coupe","suv","ute","peoplemover","convertible"
-            ,"hatch","automatic","manual"};
+            ,"hatch","wagon","automatic","manual"};
     List<String> validTokensList = Arrays.asList(validTokens);
 
     String [] validComparator = {"<",">","=","<=",">="};

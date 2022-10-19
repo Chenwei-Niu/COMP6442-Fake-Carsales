@@ -10,19 +10,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class DAOService {
-    private static DAOService DAOService;
+public class SQLiteDAOImpl implements SQLiteDAO {
+    private static SQLiteDAOImpl sqliteDAOImpl;
 
     private User user = new User();
 
-    private DAOService() {
+    private SQLiteDAOImpl() {
     }
 
-    public static DAOService getInstance() {
-        if (null == DAOService) {
-            DAOService = new DAOService();
+    public static SQLiteDAOImpl getInstance() {
+        if (null == sqliteDAOImpl) {
+            sqliteDAOImpl = new SQLiteDAOImpl();
         }
-        return DAOService;
+        return sqliteDAOImpl;
     }
 
     public void setUser(User user) {
@@ -113,5 +113,7 @@ public class DAOService {
         Collections.sort(result);
         return result;
     }
+
+
 
 }

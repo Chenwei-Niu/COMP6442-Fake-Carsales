@@ -14,7 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.buy.R;
 import com.example.buy.adapter.SearchAdapter;
 import com.example.buy.entity.User;
-import com.example.buy.sqlite.DAOService;
+import com.example.buy.sqlite.SQLiteDAO;
+import com.example.buy.sqlite.SQLiteDAOImpl;
 import com.example.buy.utils.ToastUtils;
 
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ import java.util.List;
 public class SearchFriendActivity extends MyBaseActivity {
     EditText editText;
     SearchAdapter searchAdapter;
+    private SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +36,7 @@ public class SearchFriendActivity extends MyBaseActivity {
             @Override
             public void onAddFri(int id) {
                 // add friends
-                DAOService.getInstance().addFriend(id);
+                sqLiteDAO.addFriend(id);
                 ToastUtils.showShortToast(getApplicationContext(),"Friend added successfully");
                 doFetchData();
             }
@@ -59,7 +61,7 @@ public class SearchFriendActivity extends MyBaseActivity {
     private void doFetchData(){
         String str = editText.getText().toString().trim();
         if(!TextUtils.isEmpty(str)) {
-            List<User> list = DAOService.getInstance().searchFriends(str);
+            List<User> list = sqLiteDAO.searchFriends(str);
             if(list.isEmpty()) {
                 ToastUtils.showShortToast(getApplicationContext(),"Search result is empty");
             }

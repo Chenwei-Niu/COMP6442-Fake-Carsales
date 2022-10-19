@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="upload_location">
+        <item>Null</item>
+        <item>VIC</item>
+        <item>NSW</item>
+        <item>ACT</item>
+        <item>QLD</item>
+        <item>SA</item>
+        <item>WA</item>
+        <item>NT</item>
+        <item>TAS</item>
+    </string-array>
+</resources>

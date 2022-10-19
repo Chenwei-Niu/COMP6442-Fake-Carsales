@@ -16,9 +16,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.buy.R;
 import com.example.buy.entity.Car;
-import com.example.buy.entity.Market;
 import com.example.buy.entity.User;
-import com.example.buy.sqlite.DAOService;
+import com.example.buy.sqlite.SQLiteDAO;
+import com.example.buy.sqlite.SQLiteDAOImpl;
 import com.example.buy.view.CarView;
 import com.example.buy.view.CarViewAdapter;
 
@@ -30,6 +30,7 @@ public class FollowFragment extends Fragment {
     ArrayList<CarView> carViewArrayList = new ArrayList<>();
     FragmentTransaction fragmentTransaction;
     TextView noFollowBanner;
+    SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class FollowFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         carViewArrayList = new ArrayList<>();
         listView = view.findViewById(R.id.follow_listView);
-        User user = DAOService.getInstance().getUser();
+        User user = sqLiteDAO.getUser();
         noFollowBanner=view.findViewById(R.id.no_follow_cars_banner);
         if(user.getFavoriteCars() != null && user.getFavoriteCars().isEmpty()) {
             noFollowBanner.setVisibility(View.VISIBLE);

@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -18,11 +17,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.buy.R;
 import com.example.buy.entity.Car;
-import com.example.buy.entity.Market;
 import com.example.buy.entity.User;
 import com.example.buy.parser.Parser;
 import com.example.buy.parser.SearchTokenizer;
-import com.example.buy.sqlite.DAOService;
+import com.example.buy.sqlite.SQLiteDAO;
+import com.example.buy.sqlite.SQLiteDAOImpl;
 import com.example.buy.utils.KeyBoardUtils;
 import com.example.buy.utils.ToastUtils;
 import com.example.buy.view.CarView;
@@ -45,6 +44,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
     FragmentTransaction fragmentTransaction;
     private Spinner priceSpinner = null;
     private String prePriceSpinnerContent = "Default";
+    private SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,7 +57,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
         super.onViewCreated(view, savedInstanceState);
         listView = view.findViewById(R.id.search_listView);
         searchBar = view.findViewById(R.id.search_bar);
-        user = DAOService.getInstance().getUser();
+        user = sqLiteDAO.getUser();
         priceSpinner = view.findViewById(R.id.price_spinner); // get the price spinner
 
         // set on listeners
@@ -82,6 +82,13 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Car car = carViewAdapter.getItem(position).getCar();
                 if(!car.favoriteUsers.contains(user) && !user.getFavoriteCars().contains(car)){
+                    // check whether this car is uploaded by the current user
+                    // User are only allowed to follow cars uploaded by others
+                    System.out.println(user.getOnSaleCars());
+                    if (user.getOnSaleCars().contains(car)){
+                        ToastUtils.showShortToast(getContext(),"You are not allow to follow your on sale car");
+                        return;
+                    }
                     car.favoriteUsers.add(user);
                     carViewArrayList.get(position).setLikeImage(R.drawable.red_heart);
                     user.getFavoriteCars().add(car);
@@ -102,7 +109,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 String content = adapterView.getItemAtPosition(position).toString();
 
-                if (content.equals("Low To High") && !prePriceSpinnerContent.equals("Low To High")){
+                if (content.equals("Low To High") && !prePriceSpinnerContent.equals("Low To High") && !carViewArrayList.isEmpty()){
                     ToastUtils.showShortToast(getContext(),"Your are sorting search result\n by "+ content);
                     carViewArrayList.sort(new Comparator<CarView>() {
                         @Override
@@ -118,7 +125,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                     });
                     prePriceSpinnerContent = content;
                     refreshFragment(view);
-                } else if (content.equals("High To Low") && !prePriceSpinnerContent.equals("High To Low")){
+                } else if (content.equals("High To Low") && !prePriceSpinnerContent.equals("High To Low") && !carViewArrayList.isEmpty()){
                     ToastUtils.showShortToast(getContext(),"Your are sorting search result\n by "+ content);
                     carViewArrayList.sort(new Comparator<CarView>() {
                         @Override
@@ -135,6 +142,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
                     prePriceSpinnerContent = content;
                     refreshFragment(view);
                 } else {
+                    priceSpinner.setSelection(0);
                     return;
                 }
 
@@ -166,40 +174,10 @@ public class SearchFragment extends Fragment implements View.OnClickListener {
 
                         for (int i = 0; i < searchResultList.size(); i++) {
                             CarView carView = new CarView( searchResultList.get(i));
-                            if ( searchResultList.get(i).favoriteUsers.contains(user)) {
-                                carView.setLikeImage(R.drawable.red_heart);
-                            } else {
-                                carView.setLikeImage(R.drawable.black_hollow_heart);
-                            }
                             carViewArrayList.add(carView);
                         }
 
-                        // create the instance of the CarViewAdapter and pass the carArray into it
-                        CarViewAdapter carViewAdapter = new CarViewAdapter(Objects.requireNonNull(getActivity()), carViewArrayList);
-
-                        // get the instance of the listView in this activity, and set the Adapter for listview
-                        listView.setAdapter(carViewAdapter);
-                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                            @Override
-                            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                                Car car = carViewAdapter.getItem(position).getCar();
-                                if(!car.favoriteUsers.contains(user) && !user.getFavoriteCars().contains(car)){
-                                    car.favoriteUsers.add(user);
-                                    carViewArrayList.get(position).setLikeImage(R.drawable.red_heart);
-                                    user.getFavoriteCars().add(car);
-                                } else {
-                                    car.favoriteUsers.remove(user);
-                                    carViewArrayList.get(position).setLikeImage(R.drawable.black_hollow_heart);
-                                    user.getFavoriteCars().remove(car);
-                                }
-
-
-                                // Jump to the message conversation page
-                                refreshFragment(view);
-                            }
-                        });
-                        listView.requestFocus();
-                        KeyBoardUtils.hideKeyBoard(Objects.requireNonNull(getActivity()));
+                        refreshFragment(view);
                     } else {
                         listView.requestFocus();
                         KeyBoardUtils.hideKeyBoard(Objects.requireNonNull(getActivity()));

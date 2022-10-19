@@ -25,6 +25,7 @@
                 android:textColor="#000"
                 android:textSize="30dp"
                 android:textAlignment="center"
+                android:gravity="center"
                 />
 
 
@@ -36,6 +37,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
             />
 
 

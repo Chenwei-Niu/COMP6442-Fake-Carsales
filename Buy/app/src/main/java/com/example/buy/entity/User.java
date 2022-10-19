@@ -159,10 +159,11 @@ public class User extends LitePalSupport implements Serializable {
                 ", name='" + name + '\'' +
                 ", sex='" + sex + '\'' +
                 ", phone='" + phone + '\'' +
-                ", onSaleCars=" + onSaleCars +
+//                ", onSaleCars=" + onSaleCars +
 //                ", favoriteCars=" + favoriteCars +  this line causes the bug since recursion of Car and User
                 ", friendRelations='" + friendRelations + '\'' +
                 ", picUrl='" + picUrl + '\'' +
                 '}';
     }
+
 }

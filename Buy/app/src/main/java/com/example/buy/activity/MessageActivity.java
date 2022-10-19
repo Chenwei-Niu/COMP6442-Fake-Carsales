@@ -16,18 +16,18 @@ import com.example.buy.R;
 import com.example.buy.adapter.MessageAdapter;
 import com.example.buy.entity.Message;
 import com.example.buy.entity.User;
-import com.example.buy.sqlite.DAOService;
-import com.example.buy.utils.ToastUtils;
+import com.example.buy.sqlite.SQLiteDAO;
+import com.example.buy.sqlite.SQLiteDAOImpl;
 import com.example.buy.utils.Utils;
 
 import org.litepal.LitePal;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MessageActivity extends MyBaseActivity {
     EditText editText;
     MessageAdapter messageAdapter;
+    private SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +44,7 @@ public class MessageActivity extends MyBaseActivity {
 
         RecyclerView recyclerView = findViewById(R.id.recycle_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        final List<Message> messageList = DAOService.getInstance().searchAllMessage(id);
+        final List<Message> messageList = sqLiteDAO.searchAllMessage(id);
         messageAdapter = new MessageAdapter(messageList);
         recyclerView.setAdapter(messageAdapter);
 
@@ -60,7 +60,7 @@ public class MessageActivity extends MyBaseActivity {
                     // To send a message Create a new message object
                     Message message = new Message();
                     message.setTime(System.currentTimeMillis());
-                    message.setSendUserId(DAOService.getInstance().getUser().getId());
+                    message.setSendUserId(sqLiteDAO.getUser().getId());
                     message.setReceiveUserId(id);
                     message.setContent(str);
                     message.save();

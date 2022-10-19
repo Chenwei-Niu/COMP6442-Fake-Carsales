@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="upload_bodystyle">
+        <item>Null</item>
+        <item>Sedan</item>
+        <item>People Mover</item>
+        <item>UTE</item>
+        <item>Coupe</item>
+        <item>SUV</item>
+        <item>Hatch</item>
+        <item>Wagon</item>
+        <item>Convertible</item>
+    </string-array>
+</resources>

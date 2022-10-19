@@ -13,7 +13,8 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.buy.R;
 import com.example.buy.entity.User;
-import com.example.buy.sqlite.DAOService;
+import com.example.buy.sqlite.SQLiteDAO;
+import com.example.buy.sqlite.SQLiteDAOImpl;
 import com.example.buy.utils.ToastUtils;
 import com.google.android.material.textfield.TextInputLayout;
 import com.wildma.pictureselector.PictureBean;
@@ -22,12 +23,13 @@ import com.wildma.pictureselector.PictureSelector;
 public class EditMemberInfoActivity extends MyBaseActivity {
     ImageView imageView;
     String picUrl;
+    SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_member);
 
-        final User user = DAOService.getInstance().getUser();
+        final User user = sqLiteDAO.getUser();
 
         // head
         // 如果保存过头像，直接使用数据库中保存的头像
@@ -81,7 +83,7 @@ public class EditMemberInfoActivity extends MyBaseActivity {
                 }
 
                 // update User personal Information
-                DAOService.getInstance().updateUserInfo(user);
+                sqLiteDAO.updateUserInfo(user);
                 ToastUtils.showShortToast(getApplicationContext(),"Personal information updated successfully");
                 finish();
             }

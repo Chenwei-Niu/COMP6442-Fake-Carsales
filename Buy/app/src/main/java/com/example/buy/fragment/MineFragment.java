@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.buy.R;
 import com.example.buy.activity.EditMemberInfoActivity;
+import com.example.buy.activity.UploadCarActivity;
 
 import java.util.Objects;
 
@@ -42,6 +43,15 @@ public class MineFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Objects.requireNonNull(getActivity()).finish();
+            }
+        });
+
+        view.findViewById(R.id.upload_car).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Skip to change personal information page
+                Intent intent = new Intent(getContext(), UploadCarActivity.class);
+                Objects.requireNonNull(getContext()).startActivity(intent);
             }
         });
     }

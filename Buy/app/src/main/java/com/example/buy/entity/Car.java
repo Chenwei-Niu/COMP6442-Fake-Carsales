@@ -2,6 +2,9 @@ package com.example.buy.entity;
 //Author: Chenwei Niu
 import com.example.buy.utils.Utils;
 
+import org.litepal.annotation.Column;
+import org.litepal.crud.LitePalSupport;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -99,6 +102,10 @@ public class Car implements Serializable, Comparable<Car>{
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getImage() {
+        return image;
     }
 
     @Override

@@ -1,6 +1,5 @@
 package com.example.buy.fragment;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,22 +12,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.example.buy.R;
-import com.example.buy.activity.MessageActivity;
-import com.example.buy.adapter.FriendsAdapter;
 import com.example.buy.entity.Car;
 import com.example.buy.entity.Market;
 import com.example.buy.entity.User;
-import com.example.buy.sqlite.DAOService;
+import com.example.buy.sqlite.SQLiteDAO;
+import com.example.buy.sqlite.SQLiteDAOImpl;
+import com.example.buy.utils.ToastUtils;
 import com.example.buy.view.CarView;
 import com.example.buy.view.CarViewAdapter;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 
@@ -38,6 +33,7 @@ public class BuyFragment extends Fragment {
     FragmentTransaction fragmentTransaction;
     ListView listView;
     ArrayList<CarView> carViewArrayList;
+    SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -49,7 +45,7 @@ public class BuyFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         carViewArrayList = new ArrayList<>();
         listView = view.findViewById(R.id.main_listView);
-        User user = DAOService.getInstance().getUser();
+        User user = sqLiteDAO.getUser();
         if (Market.getMarket().getCarArray() != null){
             System.out.println(Market.getMarket().getCarArray());
             for (int i=0;i<Market.getMarket().getCarArray().size();i++){
@@ -74,17 +70,17 @@ public class BuyFragment extends Fragment {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                     Car car = carViewAdapter.getItem(position).getCar();
-                    if(!car.favoriteUsers.contains(user)){
-                        System.out.println("执行到1");
+                    if(!car.favoriteUsers.contains(user) && !user.getFavoriteCars().contains(car)){
+
+                        // check whether this car is uploaded by the current user
+                        // User are only allowed to follow cars uploaded by others
+                        if (user.getOnSaleCars().contains(car)){
+                            ToastUtils.showShortToast(getContext(),"You are not allow to follow your on sale car");
+                            return;
+                        }
                         car.favoriteUsers.add(user);
-                        System.out.println("执行到2");
                         user.getFavoriteCars().add(car);
-                        System.out.println("执行到3");
-//                        try {
-//                            Thread.sleep(10000);
-//                        } catch (InterruptedException e) {
-//                            e.printStackTrace();
-//                        }
+
                     } else {
                         car.favoriteUsers.remove(user);
                         user.getFavoriteCars().remove(car);

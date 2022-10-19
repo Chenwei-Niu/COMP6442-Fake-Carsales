@@ -8,13 +8,15 @@ import android.widget.RadioButton;
 
 import com.example.buy.R;
 import com.example.buy.entity.User;
+import com.example.buy.sqlite.SQLiteDAO;
 import com.example.buy.utils.ToastUtils;
-import com.example.buy.sqlite.DAOService;
+import com.example.buy.sqlite.SQLiteDAOImpl;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class RegisterActivity extends MyBaseActivity implements View.OnClickListener {
     private TextInputLayout user, pwd,name,phone;
     private RadioButton nanRb;
+    private SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +62,7 @@ public class RegisterActivity extends MyBaseActivity implements View.OnClickList
                     user.setSex(nanRb.isChecked()? "male" :"female");
 
                     // Level Is it a member or a regular user
-                    String str = DAOService.getInstance().register(user);
+                    String str = sqLiteDAO.register(user);
 
                     if(TextUtils.isEmpty(str)) {
                         Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);

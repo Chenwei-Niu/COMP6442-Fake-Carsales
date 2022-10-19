@@ -2,7 +2,6 @@ package com.example.buy.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +19,8 @@ import com.example.buy.activity.MessageActivity;
 import com.example.buy.activity.SearchFriendActivity;
 import com.example.buy.adapter.FriendsAdapter;
 import com.example.buy.entity.User;
-import com.example.buy.sqlite.DAOService;
+import com.example.buy.sqlite.SQLiteDAO;
+import com.example.buy.sqlite.SQLiteDAOImpl;
 
 import java.util.List;
 
@@ -28,6 +28,7 @@ public class FriendFragment extends Fragment {
 
     FriendsAdapter botanyAdapter;
     TextView emptyTv;
+    SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -42,7 +43,7 @@ public class FriendFragment extends Fragment {
 
         emptyTv = view.findViewById(R.id.empty_tv);
 
-        final List<User> list = DAOService.getInstance().searchFriends();
+        final List<User> list = sqLiteDAO.searchFriends();
         if(list.isEmpty()) {
             emptyTv.setVisibility(View.VISIBLE);
         } else {
@@ -78,7 +79,7 @@ public class FriendFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        final List<User> list = DAOService.getInstance().searchFriends();
+        final List<User> list = sqLiteDAO.searchFriends();
         if(list.isEmpty()) {
             emptyTv.setVisibility(View.VISIBLE);
         } else {
