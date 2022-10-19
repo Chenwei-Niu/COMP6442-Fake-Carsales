@@ -62,32 +62,6 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
         defaultClick();//set default
 
         user = sqLiteDAO.getUser();
-//        myRef.child("cars").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DataSnapshot> task) {
-//                System.out.println(String.valueOf(task.getResult().getValue()));
-//            }
-//        });
-
-
-
-//        writeNewCar(0,"AMG GT",2019,30000,"V8",1000,"VIC","sedan"
-//                ,"automatic","V8",State.ONSALE,"benz");
-//        writeNewCar(1,"C260",2018,30000,"V4",1000,"VIC","sedan"
-//                ,"automatic","V8",State.ONSALE,"benz");
-
-//        myRef.child("cars").orderByChild("information").startAt("a");
-
-//        myRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DataSnapshot> task) {
-//                if(!task.isSuccessful()) {
-//                    Log.e("firebase","Error getting data", task.getException());
-//                } else {
-//                    Log.d("firebase", String.valueOf(task.getResult().getValue()));
-//                }
-//            }
-//        });
 
     }
 

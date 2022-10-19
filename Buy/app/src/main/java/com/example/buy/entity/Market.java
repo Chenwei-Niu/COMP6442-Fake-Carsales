@@ -10,17 +10,17 @@ import com.example.buy.utils.Utils;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Market<firstReadVolume> implements Runnable{
-    MyJsonReader myJsonReader = new MyJsonReader();
-    ArrayList<Car> cars = new ArrayList<>();
+public class Market<firstReadVolume> implements Runnable, ArrayListIterableCollection {
+    private MyJsonReader myJsonReader = new MyJsonReader();
+    private ArrayList<Car> cars = new ArrayList<>();
     private Context context;
     private String[] lines;
     private Thread thread;
-    User user = new User("test@gmail.com","123456");
+    private User user = new User("test@gmail.com","123456");
 
 
 
-    HashMap<String, AvlTree<Car>> map = new HashMap<String, AvlTree<Car>>();
+    private HashMap<String, AvlTree<Car>> map = new HashMap<String, AvlTree<Car>>();
 
 
 
@@ -32,10 +32,6 @@ public class Market<firstReadVolume> implements Runnable{
     }
     public static Market getMarket(){
         return market;
-    }
-
-    public ArrayList<Car> getCarArray(){
-        return cars;
     }
 
     public void firstRetrieveCarData(){
@@ -128,10 +124,40 @@ public class Market<firstReadVolume> implements Runnable{
     }
 
     public void removeCar(Car car){
-        cars.remove(car);
+        cars.remove(car); //remove from the cars list
         // remove from corresponding avlTree
         if(map.get(car.brand)!=null){
             map.get(car.brand).remove(car);
+        }
+    }
+
+    /**
+     * return the Array ArrayListIterator
+     * @return
+     */
+    @Override
+    public ArrayListIterator createIterator() {
+        return new CarsConcreteArrayListIterator();
+    }
+
+    // inner class
+    private class CarsConcreteArrayListIterator implements ArrayListIterator {
+        int index;
+
+        @Override
+        public boolean hasNext() {
+            if(!cars.isEmpty() && index < cars.size()){
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public Object next() {
+            if(this.hasNext()) {
+                return cars.get(index++);
+            }
+            return null;
         }
     }
 }

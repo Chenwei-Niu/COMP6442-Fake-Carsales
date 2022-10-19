@@ -24,6 +24,7 @@ import com.example.buy.sqlite.SQLiteDAO;
 import com.example.buy.sqlite.SQLiteDAOImpl;
 import com.example.buy.utils.KeyBoardUtils;
 import com.example.buy.utils.ToastUtils;
+import com.example.buy.utils.Utils;
 import com.example.buy.view.CarView;
 import com.example.buy.view.CarViewAdapter;
 
@@ -76,35 +77,6 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Li
             }
         }
 
-//        below code are commented since this setOnItemClickListener on the listView item, which is wrong
-
-
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-//                Car car = carViewAdapter.getItem(position).getCar();
-//                if(!car.favoriteUsers.contains(user) && !user.getFavoriteCars().contains(car)){
-//                    // check whether this car is uploaded by the current user
-//                    // User are only allowed to follow cars uploaded by others
-//                    System.out.println(user.getOnSaleCars());
-//                    if (user.getOnSaleCars().contains(car)){
-//                        ToastUtils.showShortToast(getContext(),"You are not allow to follow your on sale car");
-//                        return;
-//                    }
-//                    car.favoriteUsers.add(user);
-//                    carViewArrayList.get(position).setLikeImage(R.drawable.red_heart);
-//                    user.getFavoriteCars().add(car);
-//                } else {
-//                    car.favoriteUsers.remove(user);
-//                    carViewArrayList.get(position).setLikeImage(R.drawable.black_hollow_heart);
-//                    user.getFavoriteCars().remove(car);
-//                }
-//
-//
-//                // Jump to the message conversation page
-//                refreshFragment();
-//            }
-//        });
 
         priceSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
@@ -11,7 +12,7 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="200dp">
 
@@ -19,98 +20,148 @@
                 android:id="@+id/car_image"
                 android:layout_width="300dp"
                 android:layout_height="200dp"
-                android:layout_marginLeft="50dp" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <ImageView
                 android:id="@+id/like_image"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginLeft="9dp"
-                android:layout_marginTop="10dp" />
-        </LinearLayout>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.542"
+                app:layout_constraintStart_toEndOf="@+id/car_image"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.088" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:orientation="vertical">
-            <TextView
-                android:id="@+id/car_information"
-                android:text="2016 BMW 2 Series 220i Luxury Line F45 Auto"
-                android:layout_width="300dp"
-                android:textColor="#000"
-                android:textStyle="bold"
-                android:textSize="19dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
 
-            <LinearLayout
+                <TextView
+                    android:id="@+id/car_information"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="2016 BMW 2 Series 220i Luxury Line F45 Auto"
+                    android:textColor="#000"
+                    android:textSize="19dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="25dp">
+
                 <TextView
                     android:id="@+id/car_price"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="$11530"
+                    android:textColor="#CD5C5C"
                     android:textSize="19dp"
-                    android:layout_marginLeft="50dp"
                     android:textStyle="bold"
-                    android:textColor="#CD5C5C"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.162"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
                 <TextView
                     android:id="@+id/car_engine"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="4cyl 2.0L Petrol"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="50dp"
                     android:paddingTop="3dp"
+                    android:text="4cyl 2.0L Petrol"
+                    android:textColor="#000"
 
-                    android:textColor="#000"/>
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.232"
+                    app:layout_constraintStart_toEndOf="@+id/car_price"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="25dp">
+
                 <TextView
                     android:id="@+id/car_odometer"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="32000km"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="50dp"
                     android:paddingTop="3dp"
+                    android:text="32000km"
+                    android:textColor="#000"
 
-                    android:textColor="#000"/>
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/car_transmission"
+                    app:layout_constraintHorizontal_bias="0.824"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
                 <TextView
                     android:id="@+id/car_body_style"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Hatch"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="30dp"
                     android:paddingTop="3dp"
+                    android:text="Hatch"
+                    android:textColor="#000"
 
-                    android:textColor="#000"/>
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/car_odometer"
+                    app:layout_constraintHorizontal_bias="0.486"
+                    app:layout_constraintStart_toEndOf="@+id/car_location"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
                 <TextView
                     android:id="@+id/car_transmission"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="Automatic"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="30dp"
                     android:paddingTop="3dp"
-                    android:textColor="#000"/>
+                    android:text="Automatic"
+                    android:textColor="#000"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.827"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
                 <TextView
                     android:id="@+id/car_location"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="VIC"
-                    android:textSize="15dp"
-                    android:layout_marginLeft="30dp"
                     android:paddingTop="3dp"
-                    android:textColor="#000"/>
-            </LinearLayout>
+                    android:text="VIC"
+                    android:textColor="#000"
+                    android:textSize="15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.146"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </LinearLayout>

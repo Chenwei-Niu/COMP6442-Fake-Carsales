@@ -67,21 +67,6 @@ public class FollowFragment extends Fragment implements ListenerFragment{
 
             listView.setAdapter(carViewAdapter);
 
-            // below code are commented since this setOnItemClickListener on the listView item, which is wrong
-//            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-//                    Car car = carViewAdapter.getItem(position).getCar();
-//                    car.favoriteUsers.remove(user);
-//                    user.getFavoriteCars().remove(car);
-//
-//
-//                    // Jump to the message conversation page
-//                    refreshFragment();
-//                }
-//
-//            });
-
 
         }
     }

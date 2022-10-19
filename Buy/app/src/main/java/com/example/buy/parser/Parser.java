@@ -1,9 +1,9 @@
 package com.example.buy.parser;
 //Author: Chenwei Niu
 
-import com.example.buy.activity.SearchActivity;
 import com.example.buy.avltree.AvlNode;
 import com.example.buy.avltree.AvlTree;
+import com.example.buy.entity.ArrayListIterator;
 import com.example.buy.entity.Car;
 import com.example.buy.entity.Market;
 import com.example.buy.parser.expression.BodyStyleExp;
@@ -14,8 +14,6 @@ import com.example.buy.parser.expression.OdometerExp;
 import com.example.buy.parser.expression.PriceExp;
 import com.example.buy.parser.expression.TransmissionExp;
 import com.example.buy.parser.expression.YearExp;
-import com.example.buy.utils.KeyBoardUtils;
-import com.example.buy.utils.ToastUtils;
 
 import org.apache.commons.jexl3.JexlContext;
 import org.apache.commons.jexl3.JexlEngine;
@@ -153,7 +151,10 @@ public class Parser {
         } else {
 
             // if we do not have brand/price attributes, then use arraylist to query
-            carSourceList = Market.getMarket().getCarArray();
+            for (ArrayListIterator arrayListIterator = Market.getMarket().createIterator(); arrayListIterator.hasNext();){
+                Car car = (Car) arrayListIterator.next();
+                carSourceList.add(car);
+            }
         }
             for (int i = 0; i< carSourceList.size(); i++){
                 int flag = 1; // means satisfy all requirements
