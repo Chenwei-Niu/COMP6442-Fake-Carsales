@@ -43,10 +43,10 @@ Complete assignment of remaining tasks and summarise the project
 - Finish: 19/10/2022 23:00
 
 ## TODO Items
-| Task | Assignee |
-| :--- | ---: |
-| [Report and APK] | [Xinyu Wu] |
-| [Presentation] | [all team members] |
+| Task |           Assignee |
+| :--- |-------------------:|
+| [Report and APK] |         [Xinyu Wu] |
+| [Presentation] | [All team members] |
 | [Implement basic features] | [All team members] |
 
 ## Scribe Rotation
