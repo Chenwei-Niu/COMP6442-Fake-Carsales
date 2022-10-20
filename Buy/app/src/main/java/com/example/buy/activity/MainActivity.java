@@ -2,6 +2,7 @@ package com.example.buy.activity;
 //Author: ZiceYan, Chenwei Niu
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -9,6 +10,7 @@ import android.widget.ImageView;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bumptech.glide.Glide;
 import com.example.buy.R;
 import com.example.buy.entity.Car;
 import com.example.buy.fragment.BuyFragment;
@@ -62,7 +64,7 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
         defaultClick();//set default
 
         user = sqLiteDAO.getUser();
-
+        setHead();
     }
 
     @Override
@@ -148,6 +150,32 @@ public class MainActivity extends MyBaseActivity implements OnClickListener {
         selectFragment(0);
     }
 
+    /**
+     * After the user has modified the avatar, the page is closed and the user returns to this page, at which point the avatar image should be refreshed
+     * @Author Zice Yan
+     */
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setHead();
+    }
 
+    /**
+     * setting the header image is required when you first enter the page and when you return to the home page from another page.
+     * @Author Zice Yan
+     */
+    private void setHead() {
+        if (null == user || null == mineIv) {
+            return;
+        }
+        // setting head
+        // Show avatar if you have one
+        if (!TextUtils.isEmpty(user.getPicUrl())) {
+            Glide.with(MainActivity.this).load(user.getPicUrl()).into(mineIv);
+            // If you don't have an avatar, show the default
+        } else {
+            mineIv.setImageDrawable(getResources().getDrawable(R.drawable.select_mine));
+        }
+    }
 
 }
