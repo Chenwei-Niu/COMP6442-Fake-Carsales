@@ -1,9 +1,9 @@
 # Rick Astley
 
-## Team Meeting 1 - Week 9 - 08/10/2022 (18:00 - 18:50)
+## Team Meeting 4 - Week 11 - 08/19/2022 (22:00 - 23:00)
 **Absent: None**
 <br>
-**Lead/scribe:Canxuan Gang**
+**Lead/scribe:Zice Yan**
 
 ## Agreed Procedure
 Stand up Procedure:
