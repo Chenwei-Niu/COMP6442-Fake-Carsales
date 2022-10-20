@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.RegisterActivity"
-    android:background="@mipmap/timge"
+
     android:orientation="vertical">
 
 
@@ -15,8 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:padding="20dp"
-        android:text="Modify your information"
-        android:textColor="#FF5722"
+        android:text="Update your information"
+        android:textColor="#000"
         android:textSize="30dp" />
 
     <ImageView
