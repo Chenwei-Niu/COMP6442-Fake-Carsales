@@ -36,13 +36,23 @@ public class RegisterActivity extends MyBaseActivity implements View.OnClickList
         findViewById(R.id.res).setOnClickListener(this);
     }
 
+    /**
+     * Generic get method
+     * @Author: Zice Yan
+     */
     private String getStr(TextInputLayout textInputLayout){
         if(null == textInputLayout || null == textInputLayout.getEditText()) {
             return "";
         }
         return textInputLayout.getEditText().getText().toString().trim();
     }
-
+    /**
+     * Click listener
+     * The registration done here is to get the content entered on the page and store it in the database
+     * If the registration is successful, the current registration page will be closed and the page will be redirected to the home page.
+     * If it fails, it stays on the current page
+     * @Author Zice Yan
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

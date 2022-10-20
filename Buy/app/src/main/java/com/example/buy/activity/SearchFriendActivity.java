@@ -21,6 +21,9 @@ import com.example.buy.utils.ToastUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @Author Zice Yan
+ */
 public class SearchFriendActivity extends MyBaseActivity {
     EditText editText;
     SearchAdapter searchAdapter;
@@ -34,6 +37,10 @@ public class SearchFriendActivity extends MyBaseActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         searchAdapter = new SearchAdapter(new ArrayList<User>(), new SearchAdapter.CallBack() {
             @Override
+            /**
+             * add friends id from sqlitedAO
+             * Author: Zice Yan
+             */
             public void onAddFri(int id) {
                 // add friends
                 sqLiteDAO.addFriend(id);
@@ -57,7 +64,10 @@ public class SearchFriendActivity extends MyBaseActivity {
 
     }
 
-
+    /**
+     *fetch data
+     * @Author Zice Yan
+     */
     private void doFetchData(){
         String str = editText.getText().toString().trim();
         if(!TextUtils.isEmpty(str)) {

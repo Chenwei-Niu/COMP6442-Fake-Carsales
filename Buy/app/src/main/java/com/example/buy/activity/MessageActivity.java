@@ -35,6 +35,7 @@ public class MessageActivity extends MyBaseActivity {
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
 
+        // Get the userId of the person I need to talk to
         final int id = getIntent().getIntExtra("healthId",-1);
 
         User user = LitePal.find(User.class,id);

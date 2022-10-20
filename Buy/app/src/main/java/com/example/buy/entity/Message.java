@@ -9,6 +9,7 @@ public class Message extends LitePalSupport implements Comparable<Message>{
     private int id;
     /**
      * Timestamp when the message was sent
+     * @Author Zice Yan
      */
     private long time;
     private int sendUserId;

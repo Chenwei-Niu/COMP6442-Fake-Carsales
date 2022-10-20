@@ -71,6 +71,7 @@ public class Utils {
 
     /**
      * Writing events to the phone calendar
+     * @Author Zice Yan
      */
     public static void writeToCalendar(Context context, String title, String desc, String date) {
         //Get the id of the gmail account to be accessed

@@ -21,7 +21,11 @@ public class MessageAdapter extends BaseQuickAdapter<Message, BaseViewHolder> {
     public MessageAdapter(@Nullable List<Message> data) {
         super(R.layout.fri_message_item, data);
     }
-
+    /**
+     * using a adapt of recycleView, we just need to set up the data to page content display here
+     * Based on the id, set the content directly
+     * @Author Zice Yan
+     */
     @Override
     protected void convert(BaseViewHolder helper, final Message item) {
         SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();

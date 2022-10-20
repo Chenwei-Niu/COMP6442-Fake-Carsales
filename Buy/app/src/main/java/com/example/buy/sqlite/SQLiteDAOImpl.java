@@ -34,7 +34,13 @@ public class SQLiteDAOImpl implements SQLiteDAO {
     }
 
 
-    //Login
+    /**
+     * Login
+     * @param username
+     * @param password
+     * @return
+     * @Author Zice Yan
+     */
     public boolean login(String username, String password) {
         List<User> all = LitePal.where("email = ? and password = ?",username,password).find(User.class);
         if (Utils.isNotEmpty(all)) {
@@ -44,7 +50,12 @@ public class SQLiteDAOImpl implements SQLiteDAO {
         return false;
     }
 
-    //register
+    /**
+     * Rigister
+     * @param user
+     * @return
+     * @Author Zice Yan
+     */
     public String register(User user) {
         // check
         List<User> all = LitePal.where("email=?",user.getEmail()).find(User.class);
@@ -59,6 +70,7 @@ public class SQLiteDAOImpl implements SQLiteDAO {
 
     /**
      * update User info
+     * @Author Zice Yan
      */
     public void updateUserInfo(User user){
         user.update(user.getId());
@@ -71,6 +83,7 @@ public class SQLiteDAOImpl implements SQLiteDAO {
 
     /**
      * check friends info
+     * @Author Zice Yan
      */
     public List<User> searchFriends(){
         List<User> result = new ArrayList<>();
@@ -82,6 +95,7 @@ public class SQLiteDAOImpl implements SQLiteDAO {
 
     /**
      * add friends
+     * @Author Zice Yan
      */
     public void addFriend(int id){
         // A add B
@@ -95,6 +109,7 @@ public class SQLiteDAOImpl implements SQLiteDAO {
 
     /**
      * Check user information according to email name
+     * @Author Zice Yan
      */
     public List<User> searchFriends(String key){
         return LitePal.where("email like ?","%" + key + "%").find(User.class);
@@ -102,6 +117,7 @@ public class SQLiteDAOImpl implements SQLiteDAO {
 
     /**
      * Query the list of messages corresponding to the sender and the recipient
+     * @Author Zice Yan
      */
     public List<Message> searchAllMessage(int receiveUserId){
         int sendUserId = getUser().getId();
