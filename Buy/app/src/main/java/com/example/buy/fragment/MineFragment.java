@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bumptech.glide.Glide;
 import com.example.buy.R;
 import com.example.buy.activity.EditMemberInfoActivity;
 import com.example.buy.activity.UploadCarActivity;
@@ -36,7 +39,8 @@ public class MineFragment extends Fragment implements ListenerFragment{
     private ListView myCarListView;
     private SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
     private FragmentTransaction fragmentTransaction;
-    ArrayList<CarView> carViewArrayList = new ArrayList<>();
+    private ArrayList<CarView> carViewArrayList = new ArrayList<>();
+    private ImageView avatar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -92,7 +96,15 @@ public class MineFragment extends Fragment implements ListenerFragment{
         // get the instance of the listView in this activity, and set the Adapter for listview
         myCarListView.setAdapter(carViewAdapter);
 
-
+        // load the user's avatar
+        avatar = view.findViewById(R.id.mine_avatar);
+        String picUrl = user.getPicUrl();
+        // Load only if content
+        if(!picUrl.isEmpty()) {
+            Glide.with(this).load(picUrl).into(avatar);
+        } else {
+            avatar.setImageResource(R.mipmap.ic_default_head);
+        }
 
     }
     public void refreshFragment(){
