@@ -10,14 +10,17 @@ import com.example.buy.sqlite.SQLiteDAOImpl;
 
 import org.litepal.LitePal;
 
-
+/**
+ * my Application
+ * @Author Zice Yan
+ */
 public class MyApplication extends Application {
 
     @Override
     public void onCreate() {
         SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
         super.onCreate();
-
+        // Third-party libraries are used and the sqlite database needs to be initialized here
         LitePal.initialize(this);
         LitePal.getDatabase();
 

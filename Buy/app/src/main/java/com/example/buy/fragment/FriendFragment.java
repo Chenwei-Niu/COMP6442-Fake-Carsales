@@ -35,12 +35,15 @@ public class FriendFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_friend, container, false);
     }
-
+    /**
+     * After the page has been created to process the data
+     * @Author Zice Yan
+     */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
+        // Whether to display the empty data prompt
         emptyTv = view.findViewById(R.id.empty_tv);
 
         final List<User> list = sqLiteDAO.searchFriends();
@@ -49,12 +52,14 @@ public class FriendFragment extends Fragment {
         } else {
             emptyTv.setVisibility(View.GONE);
         }
+        // Initialize the page
         botanyAdapter = new FriendsAdapter(list);
         RecyclerView recyclerView = view.findViewById(R.id.recycle_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(botanyAdapter);
 
-
+        //Set the item's click event to be listened to, so that it will jump to the page where the message was sent when clicked,
+        //and bring the recipient's id to it
         botanyAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
@@ -66,7 +71,7 @@ public class FriendFragment extends Fragment {
             }
         });
 
-
+        // Jump to the Friends search screen
         view.findViewById(R.id.iv_add_group).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,6 +80,15 @@ public class FriendFragment extends Fragment {
         });
     }
 
+    /**
+     * You may be redirected to the friend search screen and then to add a friend,
+     *  if you have added a friend, you will need to refresh your friends list
+     *  when you return to this page
+     * @Author Zice Yan
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

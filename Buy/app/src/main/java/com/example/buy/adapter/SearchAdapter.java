@@ -21,12 +21,19 @@ public class SearchAdapter extends BaseQuickAdapter<User, BaseViewHolder> {
     }
 
     private CallBack mCallBack;
-
+    /**
+     * Here is an extra click callback mCallBack, this is the data that needs to be called back externally for processing after the add friend action
+     * @Author Zice Yan
+     */
     public SearchAdapter(@Nullable List<User> data,CallBack callBack) {
         super(R.layout.fri_search_item, data);
         mCallBack = callBack;
     }
-
+    /**
+     * using a  adapt of recycleView, we just need to set up the data to page content display here
+     * Based on the id, set the content directly
+     * @Author Zice Yan
+     */
     @Override
     protected void convert(BaseViewHolder helper, final User item) {
         SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();

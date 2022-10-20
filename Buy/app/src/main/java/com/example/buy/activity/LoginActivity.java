@@ -14,7 +14,9 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
 
-
+    /**
+     * Login
+     **/
 public class LoginActivity extends MyBaseActivity implements View.OnClickListener {
     private TextInputLayout nameTIL;
     private TextInputLayout passTIL;
@@ -30,7 +32,14 @@ public class LoginActivity extends MyBaseActivity implements View.OnClickListene
         findViewById(R.id.login).setOnClickListener(this);
         findViewById(R.id.zhuce).setOnClickListener(this);
     }
-
+    /**
+     * Click listener
+     * findViewById(R.id.login).setOnClickListener(this);
+     * findViewById(R.id.zhuce).setOnClickListener(this);
+     * The code above does the listener setup
+     * @param v
+     * @Author Zice Yan
+     */
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {

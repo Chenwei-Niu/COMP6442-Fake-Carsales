@@ -25,10 +25,12 @@ public class User extends LitePalSupport implements Serializable {
     /**
      * Relationships with other users, ids of people who are currently friended
      * Split with '-'
+     * @Author Zice Yan
      */
     private String friendRelations = "";
     /**
-     * 头像在手机里的存储地址
+     * The address where the image is stored in the phone
+     * @Author Zice Yan
      */
     private String picUrl = "";
 

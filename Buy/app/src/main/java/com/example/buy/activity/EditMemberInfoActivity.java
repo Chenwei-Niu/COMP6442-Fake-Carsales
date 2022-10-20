@@ -20,6 +20,10 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.wildma.pictureselector.PictureBean;
 import com.wildma.pictureselector.PictureSelector;
 
+/**
+ * edit memeber information
+ * @Author Zice Yan
+ */
 public class EditMemberInfoActivity extends MyBaseActivity {
     ImageView imageView;
     String picUrl;
@@ -32,17 +36,17 @@ public class EditMemberInfoActivity extends MyBaseActivity {
         final User user = sqLiteDAO.getUser();
 
         // head
-        // 如果保存过头像，直接使用数据库中保存的头像
+        // If an avatar has been saved, use the avatar saved in the database directly
         imageView = findViewById(R.id.iv_head);
         picUrl = user.getPicUrl();
-        // 由内容的话 才进行加载
+        // Load only if content
         if(!TextUtils.isEmpty(picUrl)) {
             Glide.with(this).load(picUrl).into(imageView);
         } else {
             imageView.setImageResource(R.mipmap.ic_default_head);
         }
 
-        // 点击拉起
+        // click to select
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +81,7 @@ public class EditMemberInfoActivity extends MyBaseActivity {
                 // gender
                 user.setSex(nanRb.isChecked()? "male" :"female");
 
-                // 图片地址，如果设置过了，才进行赋值
+                // Image address, only assign if set
                 if(!TextUtils.isEmpty(picUrl)) {
                     user.setPicUrl(picUrl);
                 }
@@ -90,6 +94,10 @@ public class EditMemberInfoActivity extends MyBaseActivity {
         });
     }
 
+    /**
+     * Generic method of fetching values for code simplification
+     * Author Zice Yan
+     */
     private String getStr(TextInputLayout textInputLayout){
         if(null == textInputLayout || null == textInputLayout.getEditText()) {
             return "";
@@ -97,15 +105,20 @@ public class EditMemberInfoActivity extends MyBaseActivity {
         return textInputLayout.getEditText().getText().toString().trim();
     }
 
+    /**
+     * Used in conjunction with the picture selection process, when the user selects a picture or takes a picture, the picture data will be called back here
+     * At this point, two operations are performed: the saving of the image address and the display of the image
+     * @Author Zice Yan
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        /*结果回调*/
+        /*Results callback*/
         if (requestCode == PictureSelector.SELECT_REQUEST_CODE) {
             if (data != null) {
                 PictureBean pictureBean = data.getParcelableExtra(PictureSelector.PICTURE_RESULT);
 
-                //使用 Glide 加载图片
+                //Loading images using Glide
                 Glide.with(this)
                         .load(pictureBean.getUri())
                         .apply(RequestOptions.centerCropTransform()).into(imageView);
