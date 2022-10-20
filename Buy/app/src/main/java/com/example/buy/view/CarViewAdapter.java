@@ -1,5 +1,4 @@
 package com.example.buy.view;
-//Author: Chenwei Niu
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +16,10 @@ import com.example.buy.fragment.MineFragment;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-
+/**
+ * @feature Visualize cars, search, deletion of cars, follow a car
+ * @author Chenwei Niu
+ */
 public class CarViewAdapter extends ArrayAdapter<CarView> {
     ListenerFragment listenerFragment;
     public CarViewAdapter(@NonNull Context context, ArrayList<CarView> arrayList, ListenerFragment listenerFragment){
@@ -52,8 +54,6 @@ public class CarViewAdapter extends ArrayAdapter<CarView> {
         ImageView carImage = currentItemView.findViewById(R.id.car_image);
         assert currentNumberPosition != null;
         Picasso.get().load(currentNumberPosition.getCarImage()).into(carImage);
-//        carImage.setImageResource(currentNumberPosition.getCarImage());  // URL要展示需要转换
-
 
         ImageView likeImage = currentItemView.findViewById(R.id.like_image);
         likeImage.setImageResource(currentNumberPosition.getLikeImage());

@@ -1,5 +1,4 @@
 package com.example.buy.entity;
-//Author: Chenwei Niu
 
 import android.content.Context;
 
@@ -9,7 +8,16 @@ import com.example.buy.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/**
+ * This class contains the ArrayList and AVLTrees of cars read from json file
+ * This class uses Singleton pattern to make sure that this project only have one instance
+ *
+ * This class also uses Iterator pattern to make sure that the most important cars ArrayList
+ * can be only accessed by iterator by other classes.
+ *
+ * @feature visualize items, search, simulate upload items stream
+ * @author Chenwei Niu
+ */
 public class Market<firstReadVolume> implements Runnable, ArrayListIterableCollection {
     private MyJsonReader myJsonReader = new MyJsonReader();
     private ArrayList<Car> cars = new ArrayList<>();

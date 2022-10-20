@@ -3,9 +3,22 @@ package com.example.buy.parser;
 import com.example.buy.entity.Car;
 import com.example.buy.entity.State;
 
+/**
+ * My own JsonReader.
+ * Can only read the json files defined in specific format used in this project
+ * @feature Visualize items, simulate the uploading stream
+ * @author Chenwei Niu
+ */
 public class MyJsonReader {
     public MyJsonReader() {
     }
+
+    /**
+     * Parse one line to the Car object
+     * @param line
+     * @return
+     * @author Chenwei Niu
+     */
     public Car parseOneLine(String line){
         String[] items = line.split("\": \"|\", \"");
         for (int i = 1; i < items.length;i=i+2 ){

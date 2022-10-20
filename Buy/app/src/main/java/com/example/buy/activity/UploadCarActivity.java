@@ -23,6 +23,10 @@ import com.example.buy.utils.KeyBoardUtils;
 import com.example.buy.utils.ToastUtils;
 import com.example.buy.utils.Utils;
 
+/**
+ * @feature upload a car
+ * @author Chenwei Niu
+ */
 public class UploadCarActivity extends MyBaseActivity{
     private SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
     private EditText carInformation;

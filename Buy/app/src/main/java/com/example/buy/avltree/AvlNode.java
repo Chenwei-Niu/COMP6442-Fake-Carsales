@@ -1,9 +1,12 @@
 package com.example.buy.avltree;
-// author:Chenwei Niu, Xinyu Wu
-
 
 import java.util.ArrayList;
 
+/**
+ * AVLTree Node
+ * @author Xinyu Wu
+ * @param <T>
+ */
 public class AvlNode<T extends Comparable<? super T>> {
     T element;
     ArrayList<T> arrayList;

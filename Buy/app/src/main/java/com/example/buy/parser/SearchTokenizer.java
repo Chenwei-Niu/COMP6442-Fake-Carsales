@@ -6,6 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * tokenizer
+ * @feature search
+ * @author Chenwei Niu
+ */
 public class SearchTokenizer implements Tokenizer{
     // String to be transformed into tokens
     private String buffer;
@@ -45,6 +50,10 @@ public class SearchTokenizer implements Tokenizer{
         return currentToken;
     }
 
+    /**
+     * get the next valid token, throw Illegal token exceptions
+     * if an invalid token or partial valid token is read.
+     */
     @Override
     public void next() {
         consumeWhite();     // remove whitespace
@@ -61,7 +70,7 @@ public class SearchTokenizer implements Tokenizer{
         }
         System.out.println(stringBuilder);
         length = stringBuilder.length();
-        System.out.println("length of stringbuilder is "+length);
+        System.out.println("length of stringBuilder is "+length);
         if (length < 6){
             // the tokens have minimum startup length of 6, which is
             // "year>0"

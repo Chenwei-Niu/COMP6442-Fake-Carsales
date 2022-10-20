@@ -1,10 +1,13 @@
 package com.example.buy.parser.expression;
-//Author: Chenwei Niu
+
 import org.apache.commons.jexl3.JexlContext;
 import org.apache.commons.jexl3.JexlEngine;
 import org.apache.commons.jexl3.JexlScript;
 import org.apache.commons.jexl3.internal.Engine;
-
+/**
+ * @feature search
+ * @author Chenwei Niu
+ */
 public class PriceExp extends Exp{
     private String comparator = "";
     private String price;

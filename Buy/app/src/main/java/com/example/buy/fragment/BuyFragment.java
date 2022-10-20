@@ -26,7 +26,10 @@ import com.example.buy.view.CarViewAdapter;
 import java.util.ArrayList;
 import java.util.Objects;
 
-
+/**
+ * @feature Visualize cars
+ * @author Chenwei Niu
+ */
 public class BuyFragment extends Fragment implements ListenerFragment{
 
     private FragmentTransaction fragmentTransaction;
@@ -74,7 +77,10 @@ public class BuyFragment extends Fragment implements ListenerFragment{
 
         }
     }
-
+    /**
+     * refresh the current fragment
+     * @author Chenwei Niu
+     */
     public void refreshFragment(){
         fragmentTransaction = getFragmentManager().beginTransaction();
         if (Build.VERSION.SDK_INT>=26){
@@ -83,6 +89,11 @@ public class BuyFragment extends Fragment implements ListenerFragment{
         fragmentTransaction.detach(this).attach(this).commit();
     }
 
+    /**
+     * Action when the heart icon is clicked
+     * @param position
+     * @author Chenwei Niu
+     */
     @Override
     public void dealWithEvent(int position) {
         User user = sqLiteDAO.getUser();

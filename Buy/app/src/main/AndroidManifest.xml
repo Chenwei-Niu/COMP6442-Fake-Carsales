@@ -38,9 +38,6 @@
             android:name="com.example.buy.activity.MainActivity"
             android:windowSoftInputMode="adjustPan">
         </activity>
-        <activity
-            android:name="com.example.buy.activity.SearchActivity"
-        />
         <activity android:name="com.example.buy.activity.UploadCarActivity" />
     </application>
 </manifest>

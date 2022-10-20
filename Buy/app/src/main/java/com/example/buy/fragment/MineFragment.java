@@ -34,7 +34,9 @@ import com.example.buy.view.CarViewAdapter;
 import java.util.ArrayList;
 import java.util.Objects;
 
-
+/**
+ * @author Chenwei Niu
+ */
 public class MineFragment extends Fragment implements ListenerFragment{
     private ListView myCarListView;
     private SQLiteDAO sqLiteDAO = SQLiteDAOImpl.getInstance();
@@ -107,6 +109,10 @@ public class MineFragment extends Fragment implements ListenerFragment{
         }
 
     }
+    /**
+     * refresh the current fragment
+     * @author Chenwei Niu
+     */
     public void refreshFragment(){
         fragmentTransaction = getFragmentManager().beginTransaction();
         if (Build.VERSION.SDK_INT>=26){
@@ -124,6 +130,11 @@ public class MineFragment extends Fragment implements ListenerFragment{
         }
     }
 
+    /**
+     * Action when the trash icon is clicked
+     * @param position
+     * @author Chenwei Niu
+     */
     @Override
     public void dealWithEvent(int position) {
         Car car = carViewArrayList.get(position).getCar();

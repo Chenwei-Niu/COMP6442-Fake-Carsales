@@ -5,6 +5,11 @@ import com.example.buy.entity.User;
 
 import java.util.List;
 
+/**
+ * This is the SQLite DAO interface,
+ * concrete DAOImpl should implement this interface to support the Database functionalities
+ * @author Chenwei Niu , Zice Yan
+ */
 public interface SQLiteDAO {
     void setUser(User user);
 

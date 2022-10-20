@@ -32,7 +32,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Objects;
 
-
+/**
+ * @author Chenwei Niu
+ */
 public class SearchFragment extends Fragment implements View.OnClickListener, ListenerFragment{
 
     private EditText searchBar;
@@ -172,12 +174,11 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Li
 
     }
 
-//    @Override
-//    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//        KeyBoardUtils.hideKeyBoard(Objects.requireNonNull(getActivity()));
-//        Car car =  ( (CarView) listView.getItemAtPosition(position)).getCar();
-//
-//    }
+
+    /**
+     * refresh the current fragment
+     * @author Chenwei Niu
+     */
     public void refreshFragment(){
         fragmentTransaction = getFragmentManager().beginTransaction();
         if (Build.VERSION.SDK_INT>=26){
@@ -187,6 +188,11 @@ public class SearchFragment extends Fragment implements View.OnClickListener, Li
 
     }
 
+    /**
+     * Action when the heart icon is clicked
+     * @param position
+     * @author Chenwei Niu
+     */
     @Override
     public void dealWithEvent(int position) {
         Car car = carViewArrayList.get(position).getCar();

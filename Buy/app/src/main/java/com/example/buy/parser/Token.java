@@ -2,6 +2,10 @@ package com.example.buy.parser;
 //Author: Chenwei Niu
 import java.util.Objects;
 
+/**
+ * @feature search
+ * @author Chenwei Niu
+ */
 public class Token {
     private final String token;
     private final Type type;

@@ -1,11 +1,9 @@
 package com.example.buy.fragment;
-//import package com.example.buy.activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,7 +22,10 @@ import com.example.buy.view.CarViewAdapter;
 
 import java.util.ArrayList;
 import java.util.Objects;
-//Author Canxuan Gang and Chenwei Niu
+/**
+ * @feature Visualize following cars
+ * @author Canxuan Gang, Chenwei Niu
+ */
 public class FollowFragment extends Fragment implements ListenerFragment{
     private ListView listView;
     private ArrayList<CarView> carViewArrayList = new ArrayList<>();
@@ -71,6 +72,10 @@ public class FollowFragment extends Fragment implements ListenerFragment{
         }
     }
 
+    /**
+     * refresh the current fragment
+     * @author Chenwei Niu
+     */
     public void refreshFragment(){
         fragmentTransaction = getFragmentManager().beginTransaction();
         if (Build.VERSION.SDK_INT>=26){
@@ -79,6 +84,11 @@ public class FollowFragment extends Fragment implements ListenerFragment{
         fragmentTransaction.detach(this).attach(this).commit();
     }
 
+    /**
+     * Action when the heart icon is clicked
+     * @param position
+     * @author Chenwei Niu
+     */
     @Override
     public void dealWithEvent(int position) {
         User user = sqLiteDAO.getUser();
@@ -86,7 +96,6 @@ public class FollowFragment extends Fragment implements ListenerFragment{
         car.favoriteUsers.remove(user);
         user.getFavoriteCars().remove(car);
 
-        // Jump to the message conversation page
         refreshFragment();
     }
 }

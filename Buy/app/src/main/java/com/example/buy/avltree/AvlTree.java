@@ -1,7 +1,10 @@
 package com.example.buy.avltree;
-// author:Chenwei Niu, Xinyu Wu
 import java.util.ArrayList;
 
+/**
+ * @author Xinyu Wu
+ * @param <T>
+ */
 public class AvlTree<T extends Comparable<? super T>> {
 
     public AvlNode<T> root;
@@ -122,16 +125,15 @@ public class AvlTree<T extends Comparable<? super T>> {
 
         int compareResult = x.compareTo(t.element);
 
-        //小于当前根节点
         if (compareResult < 0) {
             t.left = remove(x, t.left);
         } else if (compareResult > 0) {
-            //大于当前根节点
+
             t.right = remove(x, t.right);
         } else if (t.left != null && t.right != null) {
-            //找到右边最小的节点
+
             t.element = findMin(t.right).element;
-            //当前节点的右边等于原节点右边删除已经被选为的替代节点
+
             t.right = remove(t.element, t.right);
         } else {
             t = (t.left != null) ? t.left : t.right;
@@ -168,7 +170,13 @@ public class AvlTree<T extends Comparable<? super T>> {
         }
     }
 
-    // author:Chenwei Niu
+    /**
+     * find one exact node from the AVLTree
+     * @author Chenwei Niu
+     * @param node
+     * @param t
+     * @return
+     */
     public AvlNode<T> find(AvlNode<T> node, T t){
         if(node == null){
             return null;
@@ -185,7 +193,15 @@ public class AvlTree<T extends Comparable<? super T>> {
         }
     }
 
-    // author:Chenwei Niu
+    /**
+     * find all nodes greater than the given node,
+     * and store these nodes in the cars ArrayList
+     *
+     * @author Chenwei Niu
+     * @param node
+     * @param t
+     * @return
+     */
     public void findGreaterThan(AvlNode<T> node,T t, ArrayList<T> cars){
         if(node == null){
             return;
@@ -204,7 +220,15 @@ public class AvlTree<T extends Comparable<? super T>> {
         }
     }
 
-    // author:Chenwei Niu
+    /**
+     * find all nodes greater or equal than the given node,
+     * and store these nodes in the cars ArrayList
+     *
+     * @author Chenwei Niu
+     * @param node
+     * @param t
+     * @return
+     */
     public void findGreaterOrEqualThan(AvlNode<T> node,T t, ArrayList<T> cars){
         if(node == null){
             return;
@@ -223,7 +247,15 @@ public class AvlTree<T extends Comparable<? super T>> {
         }
     }
 
-    // author:Chenwei Niu
+    /**
+     * find all nodes less than the given node,
+     * and store these nodes in the cars ArrayList
+     *
+     * @author Chenwei Niu
+     * @param node
+     * @param t
+     * @return
+     */
     public void findLessThan(AvlNode<T> node,T t, ArrayList<T> cars){
         if(node == null){
             return;
@@ -242,7 +274,15 @@ public class AvlTree<T extends Comparable<? super T>> {
         }
     }
 
-    // author:Chenwei Niu
+    /**
+     * find all nodes less or equal than the given node,
+     * and store these nodes in the cars ArrayList
+     *
+     * @author Chenwei Niu
+     * @param node
+     * @param t
+     * @return
+     */
     public void findLessOrEqualThan(AvlNode<T> node,T t, ArrayList<T> cars){
         if(node == null){
             return;
@@ -261,14 +301,21 @@ public class AvlTree<T extends Comparable<? super T>> {
         }
     }
 
-    // author:Chenwei Niu
+    /**
+     * flatten an AVLTree to an ArrayList
+     * @author Chenwei Niu
+     * @return ArrayList
+     */
     public ArrayList<T> toArrayList(){
         ArrayList<T> arrayList = new ArrayList<>();
         preOrderTraverse(root,arrayList);
         return arrayList;
     }
 
-    // author:Chenwei Niu
+    /**
+     * @author Chenwei Niu
+     * @return
+     */
     private void preOrderTraverse(AvlNode<T> node, ArrayList<T> arrayList){
         if(node == null){
             return;

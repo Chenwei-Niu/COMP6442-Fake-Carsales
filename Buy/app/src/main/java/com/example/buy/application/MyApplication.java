@@ -32,7 +32,7 @@ public class MyApplication extends Application {
 
         Market.getMarket().setContext(getApplicationContext());
         Market.getMarket().firstRetrieveCarData();
-        Market.getMarket().start();
+        Market.getMarket().start(); // start the thread of read one line after several seconds
 
     }
 }

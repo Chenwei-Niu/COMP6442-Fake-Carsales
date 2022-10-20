@@ -1,7 +1,11 @@
 package com.example.buy.view;
-//Author: Chenwei Niu
+
 import com.example.buy.entity.Car;
 
+/**
+ * @feature Visualize cars, search, deletion of cars, follow a car
+ * @author Chenwei Niu
+ */
 public class CarView {
 
     private Car car;

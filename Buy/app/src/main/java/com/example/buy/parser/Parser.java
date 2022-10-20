@@ -1,5 +1,4 @@
 package com.example.buy.parser;
-//Author: Chenwei Niu
 
 import com.example.buy.avltree.AvlNode;
 import com.example.buy.avltree.AvlTree;
@@ -23,6 +22,11 @@ import org.apache.commons.jexl3.internal.Engine;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Parse the token read by tokenizer
+ * @author Chenwei Niu
+ * @feature search functionality
+ */
 public class Parser {
 
     private JexlEngine engine = new Engine();
@@ -37,6 +41,12 @@ public class Parser {
         this.searchTokenizer = searchTokenizer;
     }
 
+    /**
+     * main parseExp method, parse token into corresponding Exp
+     * these Exp are stored in the queryAttribute List,
+     * which would be used to query later
+     * @author Chenwei Niu
+     */
     public void parseExp(){
 
         if (!searchTokenizer.hasNext()) {
@@ -76,6 +86,13 @@ public class Parser {
         return queryAttributes;
     }
 
+    /**
+     * Execute the query based on the query attributes.
+     * Different data structure would be used to search based on query attributes.
+     * AVLTrees would be searched if brandExp or PriceExp is included in query attributes.
+     * @author Chenwei Niu
+     * @return
+     */
     public ArrayList<Car> executeQuery(){
         // use AVLTree to query if we have brand/price attributes
         BrandExp brandExp = null;
@@ -103,7 +120,7 @@ public class Parser {
                         }
                     }
                 } else {
-                    System.out.println("没有符合条件的车辆");
+                    System.out.println("No such car satisfies your query");
                 }
             } else if (priceExp.getComparator().equals(">=")) {
                 brandTree.findGreaterOrEqualThan(brandTree.root,tempCar,carSourceList);
@@ -130,7 +147,7 @@ public class Parser {
                             }
                         }
                     } else {
-                        System.out.println("没有符合条件的车辆");
+                        System.out.println("No such car satisfies your query");
                     }
                 } else if (priceExp.getComparator().equals(">=")) {
                     avlTree.findGreaterOrEqualThan(avlTree.root,tempCar,carSourceList);

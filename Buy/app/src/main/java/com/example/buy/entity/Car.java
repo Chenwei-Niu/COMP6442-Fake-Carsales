@@ -1,5 +1,4 @@
 package com.example.buy.entity;
-//Author: Chenwei Niu
 import com.example.buy.utils.Utils;
 
 import org.litepal.annotation.Column;
@@ -9,6 +8,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
+/**
+ * @author Chenwei Niu
+ */
 public class Car implements Serializable, Comparable<Car>{
     public int id;
     public String information;
