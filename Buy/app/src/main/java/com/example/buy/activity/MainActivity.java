@@ -1,6 +1,8 @@
 package com.example.buy.activity;
-//Author: ZiceYan, Chenwei Niu
-
+/**
+* Main Page
+*Author: ZiceYan, Chenwei Niu
+*/
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
