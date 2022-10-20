@@ -1,6 +1,6 @@
 # Rick Astley
 
-## Team Meeting 1 - Week 9 - 08/10/2022 (18:00 - 18:50)
+## Team Meeting 3 - Week 9 - 08/10/2022 (18:00 - 18:50)
 **Absent: None**
 <br>
 **Lead/scribe:Canxuan Gang**
