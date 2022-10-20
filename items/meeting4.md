@@ -33,10 +33,10 @@ Complete assignment of remaining tasks and summarise the project
 ## Agenda Items
 | Number | Item |
 | :--- | ---: |
-| 1 | [Analyze the Assignment basic section requirements] |
-| 2 | [Discusses the logic of the functionality implementation] |
-| 3 | [Main task allocation] |
-| 4 | [Document milestones and sustainable plans] |
+| 1 | [Analyze the Report] |
+| 2 | [Discusse the Contribution] |
+| 3 | [discusse the presentation] |
+| 4 | [Summing up the remaining tasks] |
 
 ## Meeting Minutes
 - Start: 19/10/2022 22:00
