@@ -1,19 +1,5 @@
 # [RickAstley] Report
 
-The following is a report template to help your team successfully provide all the details necessary for your report in a structured and organised manner. Please give a straightforward and concise report that best demonstrates your project. Note that a good report will give a better impression of your project to the reviewers.
-
-*Here are some tips to write a good report:*
-
-* *Try to summarise and list the `bullet points` of your project as many as possible rather than give long, tedious paragraphs that mix up everything together.*
-
-* *Try to create `diagrams` instead of text descriptions, which are more straightforward and explanatory.*
-
-* *Try to make your report `well structured`, which is easier for the reviewers to capture the necessary information.*
-
-*We give instructions enclosed in square brackets [...] and examples for each sections to demonstrate what are expected for your project report.*
-
-*Please remove the instructions or examples in `italic` in your final report.*
-
 ## Table of Contents
 
 1. [Team Members and Roles](#team-members-and-roles)
@@ -86,7 +72,7 @@ The following is a report template to help your team successfully provide all th
   - [SearchFriendActivity.class](../Buy/app/src/main/java/com/example/buy/activity/SearchFriendActivtiy.class )
 
 
-  **UI design**:  I decided on the UI for most of the program and finished it. Our program uses a commercially available one, with the top displaying the content and the navi bar below allowing us to jump to the corresponding position. Therefore, I propose to use a fragment to jump from one main page to another.
+  **UI design**:  I decided on the UI for most of the program and finished it. Our program uses a commercially available one, with the top displaying the content and the navigation bar below allowing us to jump to the corresponding position. Therefore, I propose to use a fragment to jump from one main page to another.
 
   
 
@@ -108,7 +94,7 @@ The following is a report template to help your team successfully provide all th
 
   **UI design**: For the UI design part, I participated in a very small part, I made a "follow" button, that user can click this button to view the list of followed vehicles during the search.
 
-  **Report Writing**: For this project, I craete a "follow" function in our APP, where users are able to follow a car and notified some events if there are any changes such as removed and add new cars. I construct this functionality based on 
+  **Report Writing**: For this project, I create  "follow" function in our APP, where users are able to follow a car and notified some events if there are any changes such as removed and add new cars. I construct this functionality based on 
 Observer Pattern, where users are the subscribers and cars are the subjects. For simplicity and convenience, I do not add extra interfaces to implement but directly to add functions in relevant classes. Besides, relevant classes have been modified and created to support this functionality.
 
   More Specifically:
@@ -125,7 +111,7 @@ was later modified by my teammates, combining mentioned functions in Fragment.ja
 functionality.
 
   for CarViewAdapter.java, I modified it to better complete the car, which I first 
-created a java class but later was modifed by my teammates to combine my methods 
+created a java class but later was modifiedby my teammates to combine my methods 
 in CarViewAdapter.java.following function based on Observe Pattern.
   [CarViewAdapter.class](../Buy/app/src/main/java/com/example/buy/view/CarViewAdapter.java)
 
@@ -134,10 +120,10 @@ in CarViewAdapter.java.following function based on Observe Pattern.
 
   **Code Implementation**: I contribute 20% of the code implementation. Here are my contributions:
 
-  - entire class [com.example.buy.avltree.AvlNode](..\Buy\app\src\main\java\com\example\buy\avltree\AvlNode.java)
-  - - [AVLTree.class](../Buy/app/src/main/java/com/example/buy/avltree/AvlTree.java)`:insert(), remove(),isEmpty(),balance(),doubleWightRightChild(),doubleWightLeftChild(),routeWithLeftChild(),height(),findMin(),findmax(),
+  - entire class 
+  - [AVLTree.class](../Buy/app/src/main/java/com/example/buy/avltree/AvlTree.java):insert(), remove(),isEmpty(),balance(),doubleWightRightChild(),doubleWightLeftChild(),routeWithLeftChild(),height(),findMin(),findmax(),
 
-  **UI design**:  I decided on the UI for most of the program and finished it. Our program uses a commercially available one, with the top        displaying the content and the navi bar below allowing us to jump to the corresponding position. Therefore, I propose to use a fragment to jump from one main page to another.
+  **UI design**:  I decided on the UI for most of the program and finished it. Our program uses a commercially available one, with the top        displaying the content and the navigation bar below allowing us to jump to the corresponding position. Therefore, I propose to use a fragment to jump from one main page to another.
 
   **Report Writing:** I participated in the structural part of the data use and part of the software design, and decided the function.
 
@@ -325,6 +311,8 @@ The advantages of my design are:
 #### **Tokenizer and Parsers**
 
 
+
+
 I used tokenizer and parser in search functionality.    
 
 Location:  [Tokenizer](../Buy/app/src/main/java/com/example/buy/parser/SearchTokenizer.java)    [Parser](../Buy/app/src/main/java/com/example/buy/parser/Parser.java)
@@ -403,11 +391,11 @@ In the shown figure below,
 
 
 
-- *Number of test cases: 2 Unit Test*
+- Number of test cases: 2 Unit Test
 
-- *Code coverage: Class="AvlNode" Class="AVLTree" package=parser"*
+- Code coverage: Class="AvlNode" Class="AVLTree" package=parser"
 
-- *Types of tests created: Unit Test*
+- Types of tests created: Unit Test
 
 
 ![test_1](./images/AVLtest.png) <br>
