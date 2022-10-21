@@ -97,16 +97,16 @@ The following is a report template to help your team successfully provide all th
 
   - 
 
-- #### **Canxuan Gang**
+- #### **u6557983, Canxuan Gang**
     **Code Implementation**: I contribute 20% of the code implementation. Here are my contributions:
 
-  - [Car.class](../Buy/app/src/main/java/com/example/buy/entity/Car.java)---(Announcement: Participated in only small part of the modification, main work is still implemented by Chenwei Niu)
+  - [Car.class](../Buy/app/src/main/java/com/example/buy/entity/Car.java)---(Announcement: Participated in only part of the modification, main work is still implemented by Chenwei Niu)
 
-  - [User.class](../Buy/app/src/main/java/com/example/buy/entity/User.java)---(Announcement: Participated in only small part of the modification, main work is still implemented by Chenwei Niu)
+  - [User.class](../Buy/app/src/main/java/com/example/buy/entity/User.java)---(Announcement: Participated in only part of the modification, main work is still implemented by Chenwei Niu)
 
   - [FollowFragment.class](../Buy/app/src/main/java/com/example/buy/fragment/FollowFragment.java)---(main work for project)
 
-  - [CarViewAdapter.class](../Buy/app/src/main/java/com/example/buy/view/CarViewAdapter.java)---(Announcement: Participated in only samll part of the modification, main work is still implemented by Chenwei Niu)
+  - [CarViewAdapter.class](../Buy/app/src/main/java/com/example/buy/view/CarViewAdapter.java)---(Announcement: Participated in only part of the modification, main work is still implemented by Chenwei Niu)
 
   **UI design**: For the UI design part, I participated in a very small part, I made a "follow" button, that user can click this button to view the list of followed vehicles during the search.
 
