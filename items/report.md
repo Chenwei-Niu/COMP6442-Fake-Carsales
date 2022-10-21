@@ -458,7 +458,7 @@ Feature Category: Greater Data Usage, Handling and Sophistication<br>
 3. Feature 3:**User profile activity containing a media file (image, animation (e.g. gif), video). (easy)**
    - Class [Minefragment](../Buy/app/src/main/java/com/example/buy/fragment/MineFragment.java). lines:99-102
    - Class [User](../Buy/app/src/main/java/com/example/buy/entity/User.java),  Lines of code: 147
-   - Class [EditMemberInfoActivity]](../Buy/app/src/main/java/com/example/buy/activity/EditMemberInfoActivity.java),  Lines of code: 114-128
+   - Class [EditMemberInfoActivity](../Buy/app/src/main/java/com/example/buy/activity/EditMemberInfoActivity.java),  Lines of code: 114-128
 
 4. Feature 4: **Deletion method of either a Red-Black Tree, AVL tree or B-Tree data structure. The deletion of nodes must serve a purpose within your application. (hard)**
    - Class [MineFragment](../Buy/app/src/main/java/com/example/buy/fragment/MineFragment.java),    Lines of code: 139-148
