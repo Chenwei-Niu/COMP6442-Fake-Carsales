@@ -100,13 +100,37 @@ The following is a report template to help your team successfully provide all th
 - #### **Canxuan Gang**
     **Code Implementation**: I contribute 20% of the code implementation. Here are my contributions:
 
-  - [Car.class](../Buy/app/src/main/java/com/example/buy/entity/Car.java)
+  - [Car.class](../Buy/app/src/main/java/com/example/buy/entity/Car.java)---(Announcement: Participated in only part of the modification, main work is still implemented by Chenwei Niu)
 
-  - [User.class](../Buy/app/src/main/java/com/example/buy/entity/User.java)
+  - [User.class](../Buy/app/src/main/java/com/example/buy/entity/User.java)---(Announcement: Participated in only part of the modification, main work is still implemented by Chenwei Niu)
 
-  - [FollowFragment.class](../Buy/app/src/main/java/com/example/buy/fragment/FollowFragment.java)
+  - [FollowFragment.class](../Buy/app/src/main/java/com/example/buy/fragment/FollowFragment.java)---(main work for project)
 
-  - [CarViewAdapter.class](../Buy/app/src/main/java/com/example/buy/view/CarViewAdapter.java)
+  - [CarViewAdapter.class](../Buy/app/src/main/java/com/example/buy/view/CarViewAdapter.java)---(Announcement: Participated in only part of the modification, main work is still implemented by Chenwei Niu)
+
+  **UI design**: For the UI design part, I participated in a very small part, I made a "follow" button, that user can click this button to view the list of followed vehicles during the search.
+
+  **Report Writing**: For this project, I craete a "follow" function in our APP, where users are able to follow a car and notified some events if there are any changes such as removed and add new cars. I construct this functionality based on 
+Observer Pattern, where users are the subscribers and cars are the subjects. For simplicity and convenience, I do not add extra interfaces to implement but directly to add functions in relevant classes. Besides, relevant classes have been modified and created to support this functionality.
+
+  More Specifically:
+
+  [Car.class](../Buy/app/src/main/java/com/example/buy/entity/Car.java)
+  For Car.java, I edit the variable favouriteUserList to record followed users.
+
+  [User.class](../Buy/app/src/main/java/com/example/buy/entity/User.java)
+  For User.java, I added favouritaCars to mark the car current user followed and to subscribe it, which 
+was later modified by my teammates, combining mentioned functions in Fragment.java.
+
+  [FollowFragment.class](../Buy/app/src/main/java/com/example/buy/fragment/FollowFragment.java)
+  For FollowFragment.java, I construct this corresponding to the page of follow items and complete its 
+functionality.
+
+  [CarViewAdapter.class](../Buy/app/src/main/java/com/example/buy/view/CarViewAdapter.java)
+  for CarViewAdapter.java, I modified it to better complete the car, which I first 
+created a java class but later was modifed by my teammates to combine my methods 
+in CarViewAdapter.java.following function based on Observe Pattern.
+
 
 - #### **Xinyu Wu**
 
