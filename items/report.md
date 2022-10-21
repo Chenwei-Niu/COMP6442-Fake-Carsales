@@ -470,8 +470,8 @@ Feature Category: Peer to Peer Messaging<br>
 *Implemented features:*
 
 5. Feature 5: **Provide users with the ability to message each other directly. (hard)**
-   - Class [MessageActivity(../Buy/app/src/main/java/com/example/buy/activity/MessageActivity.java), lines of code:27-81]
-   - Class [MessageAapter(../Buy/app/src/main/java/com/example/buy/adapter/MessageAdapter.java), lines of code:18-47]
+   - Class [MessageActivity](../Buy/app/src/main/java/com/example/buy/activity/MessageActivity.java), lines of code:27-81]
+   - Class [MessageAapter](../Buy/app/src/main/java/com/example/buy/adapter/MessageAdapter.java), lines of code:18-47]
 
 
 
