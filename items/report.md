@@ -65,7 +65,7 @@ The following is a report template to help your team successfully provide all th
 
 - #### **u7377070, Chenwei Niu**
 
-  **Code Implementation**: I contribute 40% of the code implementation. Here are my contributions:
+  **Code Implementation**: I contribute 35% of the code implementation. Here are my contributions:
 
   - entire package [com.example.buy.parser](../Buy/app/src/main/java/com/example/buy/parse)
   - entire package [com.example.buy.view](../Buy/app/src/main/java/com/example/buy/view)
@@ -98,6 +98,8 @@ The following is a report template to help your team successfully provide all th
   - 
 
 - #### **Canxuan Gang**
+    **Code Implementation**: I contribute 20% of the code implementation. Here are my contributions:
+
 
   - 
 
