@@ -93,9 +93,29 @@ The following is a report template to help your team successfully provide all th
 
   
 
-- #### **Zice Yan**
+- #### **u7389455 Zice Yan**
+ **Code Implementation**: I contribute 25% of the code implementation. Here are my contributions:
 
-  - 
+  - entire package [com.example.buy.adapter](../Buy/app/src/main/java/com/example/buy/adapter)
+  - entire package [com.example.buy.application](../Buy/app/src/main/java/com/example/buy/application)  
+  - entire package [com.example.buy.sqliteDAO](../Buy/app/src/main/java/com/example/buy/sqlite)
+
+  - [Minefragment.class](../Buy/app/src/main/java/com/example/buy/fragment/MineFragment.java), [FriendFragment.class](../Buy/app/src/main/java/com/example/buy/fragment/FriendFragment.java),[User.class](../Buy/app/src/main/java/com/example/buy/entity/User.java), [State.class](../Buy/app/src/main/java/com/example/buy/entity/State.java) , [Message.class](../Buy/app/src/main/java/com/example/buy/entity/Message.java)
+
+  - [RegisterActivity.class](../Buy/app/src/main/java/com/example/buy/activity/RegisterActivity.java),[Utils.class](../Buy/app/src/main/java/com/example/buy/utils/Utils.java),[LoginActivity.class](../Buy/app/src/main/java/com/example/buy/activity/LoginActivity.java),[EditMemberInfoActivity.class](../Buy/app/src/main/java/com/example/buy/activity/EditMemberInfoActivty.java)
+	
+  - [MessageActivity.class](../Buy/app/src/main/java/com/example/buy/activity/MessageActivtiy.class )
+  - [SearchFriendActivity.class](../Buy/app/src/main/java/com/example/buy/activity/SearchFriendActivtiy.class )
+
+
+  **UI design**:  I decided on the UI for most of the program and finished it. Our program uses a commercially available one, with the top displaying the content and the navi bar below allowing us to jump to the corresponding position. Therefore, I propose to use a fragment to jump from one main page to another.
+
+  
+
+  **Report Writing:** I was responsible for the UI section of the report, and about login register part of storing data, peer to peer message.
+
+
+  
 
 - #### **u6557983, Canxuan Gang**
     **Code Implementation**: I contribute 20% of the code implementation. Here are my contributions:
