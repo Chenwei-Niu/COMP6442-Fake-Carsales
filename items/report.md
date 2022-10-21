@@ -61,15 +61,65 @@ The following is a report template to help your team successfully provide all th
 
 *[Miscellaneous contributions. You are welcome to provide anything that you consider as a contribution to the project or team.]*
 
+
+
+- #### **u7377070, Chenwei Niu**
+
+  **Code Implementation**: I contribute 40% of the code implementation. Here are my contributions:
+
+  - entire package [com.example.buy.parser](../Buy/app/src/main/java/com/example/buy/parse)
+  - entire package [com.example.buy.view](../Buy/app/src/main/java/com/example/buy/view)
+  - [BuyFragment.class](../Buy/app/src/main/java/com/example/buy/fragment/BugFragment.java), [SearchFragment.class](../Buy/app/src/main/java/com/example/buy/fragment/SearchFragment.java),[Car.class](../Buy/app/src/main/java/com/example/buy/entity/Car.java), [Market.class](../Buy/app/src/main/java/com/example/buy/entity/Market.java)
+  - [UploadCarActivity.class](../Buy/app/src/main/java/com/example/buy/activity/UploadCarActivity.java),[KeyBoardUtils.class](../Buy/app/src/main/java/com/example/buy/utils/KeyBoardUtils.java)
+  - [AVLTree.class](../Buy/app/src/main/java/com/example/buy/avltree/AvlTree.java)`:preOrderTraverse(), findLessOrEqualThan(),findLessThan(),findGreaterOrEqualThan(),find()`
+
+  
+
+  **Code Design**: I proposed Iterator pattern,  Singleton pattern, Observer pattern, factory pattern and DAO pattern.
+
+  Finally, we decided to use the three pattern **Iterator pattern**,  **Singleton pattern **and **DAO pattern**.
+
+  
+
+  **UI design**:  I proposed use minimalist style as out UI design. Mainly use white, grey, black and blue to build the app.
+
+  
+
+  **Report Writing:** I am obligated to write the details of search feature, and a part of application design and decision
+
+  
+
+  **Miscellaneous contributions**: I wrote a spider to get real car data from www.carsales.com
+
+  
+
+- #### **Zice Yan**
+
+  - 
+
+- #### **Canxuan Gang**
+
+  - 
+
+- #### **Xinyu Wu**
+
+  - 
+
+
+
 ## Conflict Resolution Protocol
 
 *[Write a well defined protocol your team can use to handle conflicts. That is, if your group has problems, what is the procedure for reaching consensus or solving a problem?
 (If you choose to make this an external document, link to it here)]*
 
+[Please check the details in the last paragraph of meeting 1 record](meeting1.md)
+
 
 ## Application Description
 
-"CAR_LOCKER" is an online search application developed for used car buyers. It currently provides specific information on existing used cars in stock across Australia for 6 car brands. This app can filter vehicles that meet the criteria and list the search results by setting different attribute tags. The "search" function (tag) includes: "Brand", "model", "year", "price", "odometer", "location", "bodystyle", "transmission", "engine" and "sales status" that can be searched through the combination of the above different conditions, so that users enable to locate the appropriate vehicle more specifically
+"REAL CARSALES" is a used car trade application developed for people with used car purchase intent. It provides concrete information on existing used cars in stock across Australia for 7 car brands.  Users can browse used car information on the app, and search for vehicles based on brand, price, year, odometer and other conditions according to their own needs. Users can also bookmark their favourite cars. In addition to this, the app also provides an in-software chat function, enabling buyers and sellers to communicate, and car lovers to communicate with each other.
+
+
 
 **Application Use Cases and or Examples**
 
@@ -160,19 +210,23 @@ Production Rules:
 
 ## Summary of Known Errors and Bugs
 
-*[Where are the known errors and bugs? What consequences might they lead to?]*
-
-*Here is an example:*
-
 1. *Bug 1:*
 
-- *A space bar (' ') in the sign in email will crash the application.*
-- ...
+- When clicking the exactly third car's Favourite-Vehicle button/Trash button in main/search/follow/mine page,
 
-2. *Bug 2:*
-3. ...
+   there will be a jump towards the first car. 
 
-*List all the known errors and bugs here. If we find bugs/errors that your team does not know of, it shows that your testing is not thorough.*
+  
+
+  This is because each page can only display two and a half blocks of cars information, but user can still click the favourite button of the third car. Therefore, when the page is not scrolled down to see all the information of the third car, the system thinks the user is still in the first page, then when you click on the favourite of the third car, it will jump to the first top of the list.
+
+  
+
+  When all the information of the third vehicle is displayed, the system thinks that the user has scrolled down, and then there will be no bug if you click the favourite again.
+
+  <img src="/images/bug1.png" alt="bug1.png" style="zoom: 25%;" /><img src="/images/bug2.png" alt="image-20221021131952867" style="zoom:25%;" />
+
+  
 
 ## Testing Summary
 
@@ -222,4 +276,4 @@ Feature Category: Firebase Integration <br>
 * Link to the minutes of your meetings as above. There must be at least 4 team meetings. 
 Note that you must commit your minute meetings shortly after your meeting has taken place (e.g., within 24h), otherwise your meeting minute will not be accepted.
 Uour meetings should also have a reasonable date span across Week 6 to 11.*
- 
+
