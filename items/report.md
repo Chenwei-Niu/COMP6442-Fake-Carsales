@@ -460,14 +460,11 @@ Feature Category: Greater Data Usage, Handling and Sophistication<br>
 *Implemented features:*
 
 3. Feature 3:**User profile activity containing a media file (image, animation (e.g. gif), video). (easy)**
-   - 
+   - Class [Minefragment](../Buy/app/src/main/java/com/example/buy/fragment/MineFragment.java). lines:99-102
+   - Class [User](../Buy/app/src/main/java/com/example/buy/entity/User.java),  Lines of code: 147
 
 4. Feature 4: **Deletion method of either a Red-Black Tree, AVL tree or B-Tree data structure. The deletion of nodes must serve a purpose within your application. (hard)**
-   - Class [MineFragment](../Buy/app/src/main/java/com/example/buy/fragment/MineFragment.java), method:  dealWithEvent()   Lines of code: 139-148
-
-
-
-
+   - Class [MineFragment](../Buy/app/src/main/java/com/example/buy/fragment/MineFragment.java),    Lines of code: 139-148
 
 Feature Category: Peer to Peer Messaging<br>
 *Implemented features:*
@@ -494,8 +491,11 @@ Feature Category: User Interactivity<br>
 
 *Here is an example (you could start numbering your meetings from 1):*
 
-- *[Team Meeting 0](./meeting0.md)*
-- ...
+- *[Team Meeting 1](./meeting1.md)*
+- *[Team Meeting 2](./meeting2.md)*
+- *[Team Meeting 2](./meeting3.md)*
+- *[Team Meeting 2](./meeting4.md)*
+
 
 * Link to the minutes of your meetings as above. There must be at least 4 team meetings. 
 Note that you must commit your minute meetings shortly after your meeting has taken place (e.g., within 24h), otherwise your meeting minute will not be accepted.
