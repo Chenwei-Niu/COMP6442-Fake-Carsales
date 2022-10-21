@@ -224,7 +224,7 @@ Production Rules:
 
   When all the information of the third vehicle is displayed, the system thinks that the user has scrolled down, and then there will be no bug if you click the favourite again.
 
-  <img src="/images/bug1.png" alt="bug1.png" style="zoom: 25%;" /><img src="/images/bug2.png" alt="image-20221021131952867" style="zoom:25%;" />
+  <img src="./images/bug1.png" alt="bug1.png" style="zoom: 25%;" /><img src="./images/bug2.png" alt="image-20221021131952867" style="zoom:25%;" />
 
   
 
