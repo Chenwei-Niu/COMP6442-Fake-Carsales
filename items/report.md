@@ -167,35 +167,25 @@ in CarViewAdapter.java.following function based on Observe Pattern.
 
 **Application Use Cases and or Examples**
 
-*[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
 
 Use case diagram:
 
 ![use_case_sort_edition](./images/use_case_sort_edition.PNG) <br>
 
-*Here is a pet training application example*
+*Tony recently graduated from college and plans to buy her first car in the near future.*
 
-*Molly wants to inquiry about her cat, McPurr's recent troublesome behaviour*
-1. *Molly notices that McPurr has been hostile since...*
-2. *She makes a post about... with the tag...*
-3. *Lachlan, a vet, writes a reply to Molly's post...*
-4. ...
-5. *Molly gives Lachlan's reply a 'tick' response*
+*Targets Users: Customer*
+*Targets Users: Used Car Dealer*
+*Targets Users: Automobile Brand Dealer*
 
-*Here is a map navigation application example*
-
-*Targets Users: Drivers*
-
-* *Users can use it to navigate in order to reach the destinations.*
-* *Users can learn the traffic conditions*
-* ...
-
-*Target Users: Those who want to find some good restaurants*
-
-* *Users can find nearby restaurants and the application can give recommendations*
-* ...
-
-*List all the use cases in text descriptions or create use case diagrams. Please refer to https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-use-case-diagram/ for use case diagram.*
+1. Tony found that Real Carsales has recently become the first choice for people looking for a car to buy.
+2. He tried downloading Real Carsales and typing his favorite BMW, his state, and his favorite car into the search bar and sorting by price to find what he liked.
+3. Tony looks at new and used cars in the software.
+4. Frank is a used car dealer and his car was chosen by Tony.
+5. Tony added Frank's friend in the software and learned the specific information of the vehicle he selected from Frank in the chat function.
+6. Frank provided the specific information of the vehicle in the chat function, told Tony the location of the vehicle and made an appointment with tony to invite tony to check the vehicle on site.
+7. Tony and Frank meet in the real world and make a successful deal in the software.
+8. Frank takes the sold vehicles off the shelves in "Mine".
 
 ## Application UML
 
@@ -334,7 +324,6 @@ The advantages of my design are:
 
 #### **Tokenizer and Parsers**
 
-*[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
 
 I used tokenizer and parser in search functionality.    
 
