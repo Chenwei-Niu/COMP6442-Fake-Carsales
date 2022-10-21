@@ -39,23 +39,6 @@ The following is a report template to help your team successfully provide all th
 ## Summary of Individual Contributions
 
 
-*UID1, Name1, I contribute 30% of the code. Here are my contributions:*
-* A.class
-* B.class: function1(), function2(), ...
-* ....
-
-*you should ALSO provide links to the specified classes and/or functions*
-
-*[Code Design. What design patterns, data structures, did the involved member propose?]*
-
-*[UI Design. Specify what design did the involved member propose? What tools were used for the design?]*
-
-*[Report Writing. Which part of the report did the involved member write?]*
-
-*[Slide preparation. Were you responsible for the slides?]*
-
-*[Miscellaneous contributions. You are welcome to provide anything that you consider as a contribution to the project or team.]*
-
 
 
 - #### **u7377070, Chenwei Niu**
