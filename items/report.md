@@ -67,7 +67,7 @@ The following is a report template to help your team successfully provide all th
 
   **Code Implementation**: I contribute 35% of the code implementation. Here are my contributions:
 
-  - entire package [com.example.buy.parser](../Buy/app/src/main/java/com/example/buy/parse)
+  - entire package [com.example.buy.parser](../Buy/app/src/main/java/com/example/buy/parser)
   - entire package [com.example.buy.view](../Buy/app/src/main/java/com/example/buy/view)
   - [BuyFragment.class](../Buy/app/src/main/java/com/example/buy/fragment/BugFragment.java), [SearchFragment.class](../Buy/app/src/main/java/com/example/buy/fragment/SearchFragment.java),[Car.class](../Buy/app/src/main/java/com/example/buy/entity/Car.java), [Market.class](../Buy/app/src/main/java/com/example/buy/entity/Market.java)
   - [UploadCarActivity.class](../Buy/app/src/main/java/com/example/buy/activity/UploadCarActivity.java),[KeyBoardUtils.class](../Buy/app/src/main/java/com/example/buy/utils/KeyBoardUtils.java)
@@ -216,56 +216,188 @@ in CarViewAdapter.java.following function based on Observe Pattern.
 
 ## Application Design and Decisions
 
-*Please give clear and concise descriptions for each subsections of this part. It would be better to list all the concrete items for each subsection and give no more than `5` concise, crucial reasons of your design. Here is an example for the subsection `Data Structures`:*
+#### **Data Structures**
+
+
 
 *I used the following data structures in my project:*
 
-1. *LinkedList*
+1. ArrayList
 
-   * *Objective: It is used for storing xxxx for xxx feature.*
+   * Objective: It is used for storing Car View Objects for visualization feature, search feature, follow feature and delete feature
 
-   * *Locations: line xxx in XXX.java, ..., etc.*
+   * Locations: line 37 in BuyFragment.java, line 31 in FollowFragment.java, ..., etc.
 
-   * *Reasons:*
+   * Reasons:
 
-     * *It is more efficient than Arraylist for insertion with a time complexity O(1)*
+     * It is resizable, ArrayList does not have a restrict length
 
-     * *We don't need to access the item by index for this feature*
+     * We can directly access the item by index for the "adding favourite cars"feature
 
-2. ...
+2. HashMap
 
-3. ...
+   * Objective: It is used for storing AVLTrees for search feature
 
-**Data Structures**
+   * Locations: line 31 in Market.java
 
-*[What data structures did your team utilise? Where and why?]*
+   * Reasons:
 
-**Design Patterns**
+     * It is resizable
+     * It can effectively search the value through key with a time complexity O(1) under ideal conditions, more efficient than array or List.
 
-*[What design patterns did your team utilise? Where and why?]*
+3. AVLTree
 
-**Grammar(s)**
+   * Objective: It is used for storing Cars for search feature. Each AVLTree is a car brand, and the key of each node is the car price.
 
-Production Rules:
-    
-    <Non-Terminal> ::= <some output>
-    <Non-Terminal> ::= <some output>
+     One node could have several cars having the same price as a list.
 
-*[How do you design the grammar? What are the advantages of your designs?]*
+   * Locations: line 48 to line 54 in Market.java
 
-*If there are several grammars, list them all under this section and what they relate to.*
+   * Reasons:
 
-**Tokenizer and Parsers**
+     * AVLTree is balanced, so searching a node is always log(n), which is quicker than general Binary Search Tree in the worst situation. 
+     * Although more rotations may be required to restore the balance after inserting or deleting node than the red-black tree, our application needs to ensure the efficiency of the search, we chose the AVL tree.
+     * The advantage of B-tree is its small height, which is generally used for reading files on disk. The smaller tree height reduces the number of IOs, but we are looking up directly in memory, so the AVL tree is more efficient.
+     * For potential used car buyers, car brand and price are at the first priority. Therefore, building seven brands AVLTrees using car price as key can optimize the user's search experience.
+
+#### **Design Patterns**
+
+
+
+1. Singleton Pattern
+
+   * Objective: It is used for keeping Market.java and SQLiteDAOImpl.java have only one instance in the application
+
+   * Locations: Market.java and SQLiteDAOImpl.java
+
+   * Reasons:
+
+     * Using singleton pattern would control the number of instance, saving the memory resources.
+     * The market class contains cars List and AVLTrees, which the entire application needs to use. Using singleton makes sure that the entire application could access the same data.
+
+2. Iterator Pattern 
+
+   * Objective: It is used to keep the cars ArrayList in Market.java hided from external, external class can only access the cars data through an iterator
+
+   * Locations: Market.java
+
+   * Reasons:
+
+     * The iterator pattern decouples algorithm from containers
+     * The elements of private cars ArrayList should be accessed and traversed without exposing its representation (data structures).
+
+3. Data Access Object Pattern
+
+   * Objective: Encapsulate all database operations into DAOImpl class
+
+   * Locations: SQLiteDAOImpl.java
+
+   * Reasons:
+
+     * The DAO pattern separates low-level data access APIs or operations from high-level activities or fragments.
+
+       
+
+#### **Grammar(s)**
+
+
+
+A valid query contains at least 1 query attribute (case insensitive). Different attributes are separated by ";".   Our application not only supports searching for one certain car, but also supports searching for all cars that meet the criteria. 
+
+
+
+Example:
+
+```
+brand=bmw;price>20000;odometer<15000
+```
+
+
+
+grammars:
+
+```brand = {bmw/toyota/mercedes-benz/kia/mazda/audi/subaru}``` (e.g. brand = BMW) is to find all BMW cars.
+
+``` price =/</>/<=/>= {INT}``` (e.g. price > 20000), finding all cars with price greater than 20000.
+
+```odometer=/</>/<=/>= {INT}```  (e.g. odometer < 15000), finding all cars with odometer number less than 15000.
+
+```location = {VIC/ACT/QLD/NSW/NT/SA/WA/TAS}``` (e.g. location = VIC), finding all cars located in Victoria state.
+
+```bodystyle = {sedan/coupe/suv/ute/peoplemover/convertible/hatch/wagon}``` (e.g. bodystyle= suv), finding all SUV cars .
+
+```transmission = {Automatic/Manual}``` (e.g. transmission = manual), finding all manual cars.
+
+```year=/</>/<=/>= {INT}``` (e.g. year > 2019), finding all cars manufactured after 2019
+
+
+
+The advantages of my design are:
+
+- User friendly. The grammar is easy to learn, and it is case insensitive.
+- Flexible. The sequence  of two query attributes is not sensitive. "brand=BMW;price>20000" is as same as "price>20000;brand=BMW"
+
+
+
+
+
+#### **Tokenizer and Parsers**
 
 *[Where do you use tokenisers and parsers? How are they built? What are the advantages of the designs?]*
 
-**Surprise Item**
+I used tokenizer and parser in search functionality.    
 
-*[If you implement the surprise item, explain how your solution addresses the surprise task. What decisions do your team make in addressing the problem?]*
+Location:  [Tokenizer](../Buy/app/src/main/java/com/example/buy/parser/SearchTokenizer.java)    [Parser](../Buy/app/src/main/java/com/example/buy/parser/Parser.java)
 
-**Other**
+**Tokenizer:**  
 
-*[What other design decisions have you made which you feel are relevant? Feel free to separate these into their own subheadings.]*
+A token is constructed by a string and its ENUM type. SearchTokenizer implementing Tokenizer interface is used to tokenize the query typed in by users.
+
+It contains methods current(), hasNext() and next(). hasNext() method checks whether the next token exists. next() method extracts the next token.
+
+current() method returns the current Token. 
+
+Tokens are separated by semicolon. next() read one token and check whether it is a valid token. If not, throw the IllegalTokenException.
+
+If the token is valid, parser will parse it to corresponding Exp.class. After that, tokenizer will read the next token until the end of the input.
+
+
+
+**Parser:**
+
+Parser parses each token into corresponding Exp by method parseExp(), and store these Exp objects in an ArrayList called "query Attributes".  
+
+parseExp() calls itself recursively, until all tokens are parsed into corresponding Exp. After that, parser is going to execute query by these Exp.
+
+If ``BrandExp or PriceExp ``  are involved in these Exp, parser will search or traverse the AVLTrees. Otherwise, parser will traverse the cars ArrayList.
+
+
+
+In the shown figure below, 
+
+- if the query Attributes contain BrandExp, and brandExp.getBrand().equals("audi"). 
+
+  The executeQuery() method will get the AVLTree of audi, and filter cars by other attributes like location, odometer, transmission and so on.
+
+- if the query Attributes contain both BrandExp and priceExp (e.g. brand=audi;price>13000)
+
+  Then, executeQuery() will perform a depth first search on audi's AVLTree to find the node whose price is <= 13000, then abandon all its
+
+  left nodes in this query(), and store all satisfying nodes into a list. This algorithm also enhance the performance of search.
+
+- if the query Attributes contain only priceExp (e.g. brand=audi,price>13000)
+
+  Then, executeQuery() will perform a depth first search on each AVLTree to find the node whose price is <= 13000, then abandon all its
+
+  left nodes in this query(), and store all satisfying nodes into a list. 
+
+
+
+<img src="./images/car_brands_collection.png">
+
+
+
+
 
 ## Summary of Known Errors and Bugs
 
@@ -309,6 +441,7 @@ Production Rules:
 
 Feature Category: Privacy <br>
 *Implemented features:*
+
 1. Feature 1: **Users may ... . (easy)**
    * Class X, methods Z, Y, Lines of code: 10-100
    * Class Y, methods K, L, M, Lines of code: 35-150
@@ -324,6 +457,8 @@ Feature Category: Firebase Integration <br>
    * …
 
 *List all features you have completed in their separate categories with their difficulty classification. If they are features that are suggested and approved, please state this somewhere as well.*
+
+
 
 ## Team Meetings
 
