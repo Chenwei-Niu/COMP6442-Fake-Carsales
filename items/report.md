@@ -115,21 +115,21 @@ Observer Pattern, where users are the subscribers and cars are the subjects. For
 
   More Specifically:
 
-  [Car.class](../Buy/app/src/main/java/com/example/buy/entity/Car.java)
   For Car.java, I edit the variable favouriteUserList to record followed users.
+  [Car.class](../Buy/app/src/main/java/com/example/buy/entity/Car.java)
 
-  [User.class](../Buy/app/src/main/java/com/example/buy/entity/User.java)
   For User.java, I added favouritaCars to mark the car current user followed and to subscribe it, which 
 was later modified by my teammates, combining mentioned functions in Fragment.java.
+  [User.class](../Buy/app/src/main/java/com/example/buy/entity/User.java)
 
   [FollowFragment.class](../Buy/app/src/main/java/com/example/buy/fragment/FollowFragment.java)
   For FollowFragment.java, I construct this corresponding to the page of follow items and complete its 
 functionality.
 
-  [CarViewAdapter.class](../Buy/app/src/main/java/com/example/buy/view/CarViewAdapter.java)
   for CarViewAdapter.java, I modified it to better complete the car, which I first 
 created a java class but later was modifed by my teammates to combine my methods 
 in CarViewAdapter.java.following function based on Observe Pattern.
+  [CarViewAdapter.class](../Buy/app/src/main/java/com/example/buy/view/CarViewAdapter.java)
 
 
 - #### **Xinyu Wu**
