@@ -152,9 +152,18 @@ in CarViewAdapter.java.following function based on Observe Pattern.
   [CarViewAdapter.class](../Buy/app/src/main/java/com/example/buy/view/CarViewAdapter.java)
 
 
-- #### **Xinyu Wu**
+- #### **u6441152 Xinyu Wu**
 
-  - 
+  **Code Implementation**: I contribute 20% of the code implementation. Here are my contributions:
+
+  - entire class [com.example.buy.avltree.AvlNode](..\Buy\app\src\main\java\com\example\buy\avltree\AvlNode.java)
+  - - [AVLTree.class](../Buy/app/src/main/java/com/example/buy/avltree/AvlTree.java)`:insert(), remove(),isEmpty(),balance(),doubleWightRightChild(),doubleWightLeftChild(),routeWithLeftChild(),height(),findMin(),findmax(),
+
+  **UI design**:  I decided on the UI for most of the program and finished it. Our program uses a commercially available one, with the top        displaying the content and the navi bar below allowing us to jump to the corresponding position. Therefore, I propose to use a fragment to jump from one main page to another.
+
+  **Report Writing:** I participated in the structural part of the data use and part of the software design, and decided the function.
+
+  **Slide preparation** I made all the slides.
 
 
 
