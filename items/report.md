@@ -104,6 +104,10 @@ The following is a report template to help your team successfully provide all th
 
   - [User.class](../Buy/app/src/main/java/com/example/buy/entity/User.java)
 
+  - [User.class](../Buy/app/src/main/java/com/example/buy/fragment/FollowFragment.java)
+
+  - [User.class](../Buy/app/src/main/java/com/example/buy/view/CarViewAdapter.java)
+
 - #### **Xinyu Wu**
 
   - 
