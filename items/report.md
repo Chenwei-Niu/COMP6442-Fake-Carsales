@@ -119,6 +119,14 @@ The following is a report template to help your team successfully provide all th
 *[Write a well defined protocol your team can use to handle conflicts. That is, if your group has problems, what is the procedure for reaching consensus or solving a problem?
 (If you choose to make this an external document, link to it here)]*
 
+- If a team member's weekly meeting assignment is not completed, we will reduce his contribution to the project and reassign the task.
+- If any team member is unable to attend the weekly meeting due to special reasons, we will record the meeting screen and send it to him.
+- If a team member is ill and unable to carry out the project, we will distribute his current task equally among the remaining members.
+- If there is a conceptual conflict in the project design, we will vote within the group and implement the plan with the highest number of votes.
+- In order to avoid any conflicts in the team, we will use group chat to communicate the task progress and difficulties in the project.
+- When a group member has a technical problem, he can send the problem to our group chat platform, and everyone will give their own suggestions.
+- When problems arise in the group, the team members should be active in solving them and can offer constructive criticism. The purpose of this is to offer frank and direct opinions to solve the problem, but also to support and point out the good work done by the team members.
+
 [Please check the details in the last paragraph of meeting 1 record](meeting1.md)
 
 
