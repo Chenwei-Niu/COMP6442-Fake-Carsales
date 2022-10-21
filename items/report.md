@@ -38,11 +38,6 @@ The following is a report template to help your team successfully provide all th
 
 ## Summary of Individual Contributions
 
-*[Summarise the contributions made by each member to the project, e.g. code implementation, code design, UI design, report writing, etc.]*
-
-*[Code Implementation. Which features did you implement? Which classes or methods was each member involved in? Provide an approximate proportion in pecentage of the contribution of each member to the whole code implementation, e.g. 30%.]*
-
-*Here is an example:*
 
 *UID1, Name1, I contribute 30% of the code. Here are my contributions:*
 * A.class
@@ -169,8 +164,6 @@ in CarViewAdapter.java.following function based on Observe Pattern.
 
 ## Conflict Resolution Protocol
 
-*[Write a well defined protocol your team can use to handle conflicts. That is, if your group has problems, what is the procedure for reaching consensus or solving a problem?
-(If you choose to make this an external document, link to it here)]*
 
 - If a team member's weekly meeting assignment is not completed, we will reduce his contribution to the project and reassign the task.
 - If any team member is unable to attend the weekly meeting due to special reasons, we will record the meeting screen and send it to him.
