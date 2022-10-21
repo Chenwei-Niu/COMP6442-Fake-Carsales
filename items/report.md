@@ -462,36 +462,80 @@ Feature Category: Search-related features<br>
    **(easy)**
    - Class [SearchFragment](../Buy/app/src/main/java/com/example/buy/fragment/SearchFragment.java), method: onViewCreated(), Lines of code: 83-133
      <br>
+3. Feature 3:**Read data instances from multiple local files in at least 2 different formats (JSON, XML or Bespoken).**
+   **(easy)**
+   - Class [MyJsonReader](../Buy/app/src/main/java/com/example/buy/parser/MyJsonReader.java),
+   - Class [SQLiteDAOImpl](../Buy/app/src/main/java/com/example/buy/sqlite/SQLiteDAOImpl.java), method: getInstance(), Lines of coed: 21-32.
+     <br>
+
+
 
 Feature Category: Greater Data Usage, Handling and Sophistication<br>
 *Implemented features:*
 
-3. Feature 3:**User profile activity containing a media file (image, animation (e.g. gif), video). (easy)**
-   - Class [Minefragment](../Buy/app/src/main/java/com/example/buy/fragment/MineFragment.java). lines:99-102
-   - Class [User](../Buy/app/src/main/java/com/example/buy/entity/User.java),  Lines of code: 147
-   - Class [EditMemberInfoActivity](../Buy/app/src/main/java/com/example/buy/activity/EditMemberInfoActivity.java),  Lines of code: 114-128
+4. Feature 4:**User profile activity containing a media file (image, animation (e.g. gif), video). (easy)**
 
-4. Feature 4: **Deletion method of either a Red-Black Tree, AVL tree or B-Tree data structure. The deletion of nodes must serve a purpose within your application. (hard)**
-   - Class [MineFragment](../Buy/app/src/main/java/com/example/buy/fragment/MineFragment.java),    Lines of code: 139-148
+- Class [Minefragment](../Buy/app/src/main/java/com/example/buy/fragment/MineFragment.java). lines:99-102
+- Class [User](../Buy/app/src/main/java/com/example/buy/entity/User.java),  Lines of code: 147
+- Class [EditMemberInfoActivity](../Buy/app/src/main/java/com/example/buy/activity/EditMemberInfoActivity.java),  Lines of code: 114-128
+
+5. Feature 5: **Deletion method of either a Red-Black Tree, AVL tree or B-Tree data structure. The deletion of nodes must serve a purpose within your application. (hard)**
+
+- Class [MineFragment](../Buy/app/src/main/java/com/example/buy/fragment/MineFragment.java),    Lines of code: 139-148
+  -Class[AvlTree](../Buy/app/src/main/java/com/example/buy/avltree/AvlTree.java), Lines of code: 120-142
 
 Feature Category: Peer to Peer Messaging<br>
 *Implemented features:*
 
-5. Feature 5: **Provide users with the ability to message each other directly. (hard)**
-   - Class [MessageActivity](../Buy/app/src/main/java/com/example/buy/activity/MessageActivity.java), lines of code:27-81]
-   - Class [MessageAapter](../Buy/app/src/main/java/com/example/buy/adapter/MessageAdapter.java), lines of code:18-47]
+6. Feature 6: **Provide users with the ability to message each other directly. (hard)**
 
-
-
-
+- Class [MessageActivity](../Buy/app/src/main/java/com/example/buy/activity/MessageActivity.java), lines of code:27-81]
+- Class [MessageAapter](../Buy/app/src/main/java/com/example/buy/adapter/MessageAdapter.java), lines of code:18-47]
 
 Feature Category: User Interactivity<br>
 *Implemented features:*
 
-6. Feature 6: **The ability to ‘follow’ a store or item/product. There must be a section specifically dedicated to 'things' followed. [stored in-memory] (medium)**
-   -  Class [BuyFragment](../Buy/app/src/main/java/com/example/buy/fragment/BuyFragment.java), method: onViewCreated(), dealWithEvent()   Lines of code: 59-79, 98-120
-   -  Class [SearchFragment](../Buy/app/src/main/java/com/example/buy/fragment/SearchFragment.java), method:  onViewCreated(), dealWithEvent()   Lines of code: 74-80, 197-219
-   -  Class [FollowFragment](../Buy/app/src/main/java/com/example/buy/fragment/SearchFragment.java), method:  onViewCreated(), dealWithEvent()   Lines of code: 42-100
+7. Feature 7:**The ability to micro-interact with items in your app (e.g. add to watchlist/add to cart/like an item/report an item/add reviews (stars)) [stored in-memory]. (easy)**
+
+- Class [BuyFragment](../Buy/app/src/main/java/com/example/buy/fragment/BuyFragment.java), method: onViewCreated(), dealWithEvent()   Lines of code: 59-79, 98-120
+- Class [SearchFragment](../Buy/app/src/main/java/com/example/buy/fragment/SearchFragment.java), method:  onViewCreated(), dealWithEvent()   Lines of code: 74-80, 197-219
+- Class [FollowFragment](../Buy/app/src/main/java/com/example/buy/fragment/SearchFragment.java), method:  onViewCreated(), dealWithEvent()   Lines of code: 42-100
+
+8. Feature 8: **The ability to ‘follow’ a store or item/product. There must be a section specifically dedicated to 'things' followed. [stored in-memory] (medium)**
+
+- Class [BuyFragment](../Buy/app/src/main/java/com/example/buy/fragment/BuyFragment.java), method: onViewCreated(), dealWithEvent()   Lines of code: 59-79, 98-120
+- Class [SearchFragment](../Buy/app/src/main/java/com/example/buy/fragment/SearchFragment.java), method:  onViewCreated(), dealWithEvent()   Lines of code: 74-80, 197-219
+- Class [FollowFragment](../Buy/app/src/main/java/com/example/buy/fragment/SearchFragment.java), method:  onViewCreated(), dealWithEvent()   Lines of code: 42-100
+
+Feature Category: User Interactivity<br>
+*Implemented features:*
+
+9. Feature 9:**Users must be able to log in (not necessarily sign up). (easy)**
+
+- Class [BuyFragment](../Buy/app/src/main/java/com/example/buy/activity/LoginActivity.java), Lines of code: 20-69
+- Class [RegisteraActivtiy](../Buy/app/src/main/java/com/example/buy/activity/RegisteraActivtiy.java),  Lines of code: 20-105
+- Class [User](../Buy/app/src/main/java/com/example/buy/entity/User.java), Lines of code: 14-107
+
+10. Feature 10:**There must be data file(s) with at least 2,500 valid data instances. The data files must be used to feed your app, simulating a data stream. For example, every x seconds, a new item is read from a file. An item can be an action (e.g., a new item is posted by a store; items are removed from stock; items are added to a watchlist; items/stores are rated, etc). (easy)**
+
+- Class [MyJsonReader](../Buy/app/src/main/java/com/example/buy/parser/MyJsonReader.java), Lines of code: 14-42
+- Class [Car](../Buy/app/src/main/java/com/example/buy/entity/Car.java), Methods: setId(), setUser(), setPrice(), getImage(), Lines of code: 14-130
+- Class [Market](../Buy/app/src/main/java/com/example/buy/entity/Market.java), Methods: firstRetrieveCarData(), setContext(),  Lines of code: 21-138
+
+11. Feature 11:**Users must be able to load data/information (from the data file(s) or Firebase) and visualise it (e.g., a list of products or the last shopping activities of a user). (medium)**
+
+- Class [MyJsonReader](../Buy/app/src/main/java/com/example/buy/parser/MyJsonReader.java), Lines of code: 14-42
+- Class [Car](../Buy/app/src/main/java/com/example/buy/entity/Car.java), Methods: setId(), setUser(), setPrice(), getImage(), Lines of code: 14-130
+- Class [Market](../Buy/app/src/main/java/com/example/buy/entity/Market.java), Methods: firstRetrieveCarData(), setContext(),  start(), Lines of code: 21-168
+
+12. Feature 12:**Users must be able to search for information on your app. (medium)**
+
+- Class [SearchAdapter](../Buy/app/src/main/java/com/example/buy/adapter/SearchAdapter.java), Lines of code: 17-49
+- Class [Car](../Buy/app/src/main/java/com/example/buy/entity/Car.java), Methods: compareTo(), equals(), hashCode(), Lines of code: 134-154
+- Class [Market](../Buy/app/src/main/java/com/example/buy/entity/Market.java), Methods: firstRetrieveCarData(), setContext(),  start(), Lines of code: 21-168
+- Class [SearchFragment](../Buy/app/src/main/java/com/example/buy/fragment/SearchFragment.java),  Lines of code: 38-128
+
+Feature Category: Basic App<br>
 
 
 
