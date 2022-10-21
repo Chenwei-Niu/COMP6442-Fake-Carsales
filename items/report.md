@@ -184,6 +184,9 @@ in CarViewAdapter.java.following function based on Observe Pattern.
 
 *[Provide use cases and examples of people using your application. Who are the target users of your application? How do the users use your application?]*
 
+Use case diagram:
+![use_case_sort_edition](./use_case_sort_edition.PNG) <br>
+
 *Here is a pet training application example*
 
 *Molly wants to inquiry about her cat, McPurr's recent troublesome behaviour*
