@@ -115,7 +115,7 @@ The following is a report template to help your team successfully provide all th
   **Report Writing:** I was responsible for the UI section of the report, and about login register part of storing data, peer to peer message.
 
 
-  
+
 
 - #### **u6557983, Canxuan Gang**
     **Code Implementation**: I contribute 20% of the code implementation. Here are my contributions:
@@ -438,28 +438,53 @@ In the shown figure below,
 
 ## Implemented Features
 
-*[What features have you implemented?]*
 
-*Here are some examples:*
 
-Feature Category: Privacy <br>
+Feature Category: Search-related features<br>
 *Implemented features:*
 
-1. Feature 1: **Users may ... . (easy)**
-   * Class X, methods Z, Y, Lines of code: 10-100
-   * Class Y, methods K, L, M, Lines of code: 35-150
-   * Your description: ...
-<br>
-2. Feature 2: **A user can only ... . (medium)**
-<br>
+1. Feature 1: **Search functionality can handle partially valid and invalid search queries. (medium)**
+   * Class [SearchTokenizer](../Buy/app/src/main/java/com/example/buy/parser/SearchTokenizer.java), method: next(), Lines of code: 58-159
+   * Class [SearchFragment](../Buy/app/src/main/java/com/example/buy/fragment/SearchFragment.java), method: onClick(), Lines of code: 137-175<br>
+2. Feature 2:**Sort a list of products returned from a search based on price, popularity, rating, availability, etc.**
+   **(easy)**
+   - Class [SearchFragment](../Buy/app/src/main/java/com/example/buy/fragment/SearchFragment.java), method: onViewCreated(), Lines of code: 83-133
+     <br>
 
-Feature Category: Firebase Integration <br>
-*Implemented features:* <br>
-1. **Use Firebase to implement user Authentication/Authorisation. (easy)**
-   * Class A: methods A, B, C, lines of code: whole file
-   * …
 
-*List all features you have completed in their separate categories with their difficulty classification. If they are features that are suggested and approved, please state this somewhere as well.*
+
+
+
+Feature Category: Greater Data Usage, Handling and Sophistication<br>
+*Implemented features:*
+
+3. Feature 3:**User profile activity containing a media file (image, animation (e.g. gif), video). (easy)**
+   - 
+
+4. Feature 4: **Deletion method of either a Red-Black Tree, AVL tree or B-Tree data structure. The deletion of nodes must serve a purpose within your application. (hard)**
+   - Class [MineFragment](../Buy/app/src/main/java/com/example/buy/fragment/MineFragment.java), method:  dealWithEvent()   Lines of code: 139-148
+
+
+
+
+
+Feature Category: Peer to Peer Messaging<br>
+*Implemented features:*
+
+5. Feature 5: **Provide users with the ability to message each other directly. (hard)**
+   - 
+
+
+
+
+
+Feature Category: User Interactivity<br>
+*Implemented features:*
+
+6. Feature 6: **The ability to ‘follow’ a store or item/product. There must be a section specifically dedicated to 'things' followed. [stored in-memory] (medium)**
+   -  Class [BuyFragment](../Buy/app/src/main/java/com/example/buy/fragment/BuyFragment.java), method: onViewCreated(), dealWithEvent()   Lines of code: 59-79, 98-120
+   -  Class [SearchFragment](../Buy/app/src/main/java/com/example/buy/fragment/SearchFragment.java), method:  onViewCreated(), dealWithEvent()   Lines of code: 74-80, 197-219
+   -  Class [FollowFragment](../Buy/app/src/main/java/com/example/buy/fragment/SearchFragment.java), method:  onViewCreated(), dealWithEvent()   Lines of code: 42-100
 
 
 
