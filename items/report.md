@@ -223,8 +223,10 @@ Use case diagram:
 
 ## Application UML
 
-![uml_1](./images/uml_1.PNG) <br>
-![uml_2](./images/uml_2.PNG) <br>
+![uml_1](./images/UML1.png) <br>
+![uml_2](./images/UML2.png) <br>
+![uml_3](./images/UML3.png) <br>
+![uml_4](./images/UML4.png) <br>
 *[Replace the above with a class diagram. You can look at how we have linked an image here as an example of how you can do it too.]*
 
 ## Application Design and Decisions
