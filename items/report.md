@@ -438,15 +438,17 @@ In the shown figure below,
 
 *[What features have you tested? What is your testing coverage?]*
 
-*Here is an example:*
 
-- *Number of test cases: ...*
+- *Number of test cases: 2 Unit Test*
 
-- *Code coverage: ...*
+- *Code coverage: Class="AvlNode" Class="AVLTree" package=parser"*
 
-- *Types of tests created: ...*
+- *Types of tests created: Unit Test*
 
 *Please provide some screenshots of your testing summary, showing the achieved testing coverage. Feel free to provide further details on your tests.*
+![test_1](./images/AVLtest.png) <br>
+![test_2](./images/ParserTest.png) <br>
+
 
 ## Implemented Features
 
