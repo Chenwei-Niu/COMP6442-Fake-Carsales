@@ -100,8 +100,9 @@ The following is a report template to help your team successfully provide all th
 - #### **Canxuan Gang**
     **Code Implementation**: I contribute 20% of the code implementation. Here are my contributions:
 
+  - [Car.class](../Buy/app/src/main/java/com/example/buy/entity/Car.java)
 
-  - 
+  - [User.class](../Buy/app/src/main/java/com/example/buy/entity/User.java)
 
 - #### **Xinyu Wu**
 
