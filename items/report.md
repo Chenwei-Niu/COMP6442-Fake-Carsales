@@ -436,7 +436,6 @@ In the shown figure below,
 
 ## Testing Summary
 
-*[What features have you tested? What is your testing coverage?]*
 
 
 - *Number of test cases: 2 Unit Test*
@@ -543,7 +542,7 @@ Feature Category: Basic App<br>
 
 ## Team Meetings
 
-*Here is an example (you could start numbering your meetings from 1):*
+
 
 - *[Team Meeting 1](./meeting1.md)*
 - *[Team Meeting 2](./meeting2.md)*
@@ -551,7 +550,5 @@ Feature Category: Basic App<br>
 - *[Team Meeting 4](./meeting4.md)*
 
 
-* Link to the minutes of your meetings as above. There must be at least 4 team meetings. 
-Note that you must commit your minute meetings shortly after your meeting has taken place (e.g., within 24h), otherwise your meeting minute will not be accepted.
-Uour meetings should also have a reasonable date span across Week 6 to 11.*
+
 
