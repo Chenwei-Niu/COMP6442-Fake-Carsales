@@ -1,9 +1,10 @@
-# Instructions
-- One member of your group should `fork` this repository, add all the members to the repository and set it as private.
-    > The forked repository will be where you continuously update your progress, and 
-    submit the major part of the project to.
-    Include the link to your repository in group registration on Wattle.
-- Some template files are provided in the `items` folder. Please place all your documents including report, meeting minutes, your APK, etc. in this folder, while 
-- your Android project should be in another folder with proper folder structures and naming.
+# Fake Carsales
+The Android Application built as the assignment of COMP6442 Software Construction at ANU.
 
-Please refer to the assignment specification for detailed instructions.
+This application was developed by Chenwei Niu, Zice Yan, Xinyu Wu and Canxuan Gang, the specific contribution and software level feature could be found at "items/report.md" The application was developed using Java and Android Studio.
+
+Here are several application images running on the phone:
+
+<img src="https://user-images.githubusercontent.com/61908960/231860331-10e7c2c8-a311-4d64-a57f-f2a805015ddf.jpg" width="300px">
+<img src="https://user-images.githubusercontent.com/61908960/231860342-108423de-c611-4e18-b666-aa7f4459b0d9.jpg" width="300px">
+<img src="https://user-images.githubusercontent.com/61908960/231860358-4f62c63b-0f48-447d-bd74-a90d6bc8b9cf.jpg" width="300px">
